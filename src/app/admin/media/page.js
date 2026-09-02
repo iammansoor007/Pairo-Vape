@@ -72,14 +72,44 @@ export default function AdminMedia() {
   const handleFiles = async (files) => {
     if (!files?.length) return;
     setUploading(true);
-    const formData = new FormData();
-    Array.from(files).forEach(f => formData.append("file", f));
-    try {
-      const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
-      const data = await res.json();
-      if (data.success) { await fetchMedia("", 1, "library"); setSearch(""); setPage(1); setTab("library"); }
-      if (data.errors?.length) alert(data.errors.map(e => `${e.file}: ${e.error}`).join('\n'));
-    } finally { setUploading(false); }
+    const fileList = Array.from(files);
+    const uploaded = [];
+    const uploadErrors = [];
+
+    for (let i = 0; i < fileList.length; i++) {
+      const f = fileList[i];
+      if (f.size > 8 * 1024 * 1024) {
+        uploadErrors.push(`${f.name}: Exceeds 8MB limit`);
+        continue;
+      }
+      const formData = new FormData();
+      formData.append("file", f);
+
+      try {
+        const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          uploaded.push(...(data.uploaded || []));
+        } else {
+          uploadErrors.push(`${f.name}: ${data.error || "Upload failed"}`);
+        }
+      } catch (err) {
+        uploadErrors.push(`${f.name}: Network or server error`);
+      }
+    }
+
+    if (uploaded.length > 0) {
+      await fetchMedia("", 1, "library");
+      setSearch("");
+      setPage(1);
+      setTab("library");
+    }
+
+    if (uploadErrors.length > 0) {
+      alert(`Upload notice:\n${uploadErrors.join("\n")}`);
+    }
+
+    setUploading(false);
   };
 
   const saveMetadata = async () => {

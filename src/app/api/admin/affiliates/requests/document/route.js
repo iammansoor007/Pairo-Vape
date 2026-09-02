@@ -49,6 +49,11 @@ export async function GET(req) {
       return NextResponse.json({ error: "Unauthorized to view this document" }, { status: 403 });
     }
 
+    // If stored in cloud storage (Cloudinary), redirect to secure URL
+    if (filename.startsWith("http://") || filename.startsWith("https://")) {
+      return NextResponse.redirect(filename);
+    }
+
     // Resolve path inside the private directory
     const privateDir = path.resolve(process.cwd(), "private", "kyc");
     const filePath = path.resolve(privateDir, path.basename(filename)); // basename avoids path traversal

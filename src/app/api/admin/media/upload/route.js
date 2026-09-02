@@ -49,43 +49,62 @@ export async function POST(req) {
         continue;
       }
 
-      // ── Read Buffer ─────────────────────────────────
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+      try {
+        // ── Read Buffer ─────────────────────────────────
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
 
-      // ── Upload to Storage (Cloudinary or Local) ─────
-      const stored = await uploadToStorage(buffer, file.name, 'pairo-media');
+        // ── Upload to Storage (Cloudinary or Local) ─────
+        const stored = await uploadToStorage(buffer, file.name, 'pairo-media');
 
-      // ── Sanitize filename ────────────────────────────
-      const sanitizedName = file.name
-        .replace(/\s+/g, '-')
-        .replace(/[^a-zA-Z0-9._-]/g, '')
-        .toLowerCase();
+        // ── Sanitize filename ────────────────────────────
+        const sanitizedName = file.name
+          .replace(/\s+/g, '-')
+          .replace(/[^a-zA-Z0-9._-]/g, '')
+          .toLowerCase();
 
-      // ── Determine mediaType ──────────────────────────
-      const mediaType = file.type.startsWith('video/') ? 'video'
-        : file.type.startsWith('image/') ? 'image' : 'document';
+        // ── Determine mediaType ──────────────────────────
+        const mediaType = file.type.startsWith('video/') ? 'video'
+          : file.type.startsWith('image/') ? 'image' : 'document';
 
-      // ── Save to MongoDB ──────────────────────────────
-      const media = await Media.create({
-        filename: sanitizedName,
-        originalName: file.name,
-        url: stored.url,
-        publicId: stored.publicId,
-        title: file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' '),
-        altText: '',
-        mimeType: file.type,
-        fileSize: stored.bytes || file.size,
-        width: stored.width,
-        height: stored.height,
-        format: stored.format,
-        mediaType,
-        uploadedBy: session.user.id,
-        uploadSource: formData.get('source') || 'admin-upload',
-        folder: formData.get('folder') || 'general',
-      });
+        // ── Determine thumbnailUrl ───────────────────────
+        const thumbnailUrl = stored.url.includes('cloudinary.com')
+          ? stored.url.replace('/upload/', '/upload/w_300,h_300,c_fill,q_auto,f_auto/')
+          : stored.url;
 
-      results.push(media);
+        // ── Save to MongoDB ──────────────────────────────
+        const media = await Media.create({
+          filename: sanitizedName,
+          originalName: file.name,
+          url: stored.url,
+          publicId: stored.publicId,
+          thumbnailUrl,
+          title: file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' '),
+          altText: '',
+          mimeType: file.type,
+          fileSize: stored.bytes || file.size,
+          width: stored.width,
+          height: stored.height,
+          format: stored.format,
+          mediaType,
+          uploadedBy: session.user.id,
+          uploadSource: formData.get('source') || 'admin-upload',
+          folder: formData.get('folder') || 'general',
+        });
+
+        results.push(media);
+      } catch (fileErr) {
+        console.error(`[Media Upload Error: ${file.name}]`, fileErr);
+        errors.push({ file: file.name, error: fileErr.message || 'Upload failed' });
+      }
+    }
+
+    if (results.length === 0 && errors.length > 0) {
+      return NextResponse.json({
+        success: false,
+        error: errors[0]?.error || 'Failed to upload files',
+        errors,
+      }, { status: 400 });
     }
 
     return NextResponse.json({
@@ -97,6 +116,7 @@ export async function POST(req) {
 
   } catch (error) {
     console.error('[Media Upload Error]', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
+

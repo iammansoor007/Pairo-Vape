@@ -9,10 +9,11 @@ import { sanitizeText, sanitizeObject } from "@/lib/sanitize";
 import path from "path";
 import fs from "fs";
 import crypto from "crypto";
+import { uploadToStorage, isCloudinaryConfigured } from "@/lib/storage";
 
 const sanitize = (text) => sanitizeText(text);
 
-// Validates and saves a single uploaded file, returns the saved filename or throws
+// Validates and saves a single uploaded file, returns the saved filename or URL
 async function validateAndSaveFile(file, allowedMimes, maxSize, privateDir) {
   if (!allowedMimes.includes(file.type)) {
     throw new Error(`File type "${file.type}" not allowed. Accepted: ${allowedMimes.join(", ")}`);
@@ -32,6 +33,20 @@ async function validateAndSaveFile(file, allowedMimes, maxSize, privateDir) {
 
   if (!isValidMagic) {
     throw new Error(`Security rejection: "${file.name}" failed magic-bytes validation.`);
+  }
+
+  // If Cloudinary is configured (e.g. on Vercel or cloud deployment)
+  if (isCloudinaryConfigured()) {
+    const stored = await uploadToStorage(buffer, file.name, "pairo-kyc");
+    return stored.url;
+  }
+
+  if (process.env.VERCEL === '1' || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+    throw new Error("File uploads require Cloudinary to be configured on Vercel.");
+  }
+
+  if (!fs.existsSync(privateDir)) {
+    fs.mkdirSync(privateDir, { recursive: true });
   }
 
   const uniqueFilename = `${crypto.randomUUID()}-${path.basename(file.name)}`;
@@ -170,10 +185,14 @@ export async function POST(req) {
       return NextResponse.json({ error: "Missing marketing strategy details." }, { status: 400 });
     }
 
-    // 8. Setup private storage directory
+    // 8. Setup private storage directory (local only)
     const privateDir = path.resolve(process.cwd(), "private", "kyc");
-    if (!fs.existsSync(privateDir)) {
-      fs.mkdirSync(privateDir, { recursive: true });
+    if (!isCloudinaryConfigured() && !fs.existsSync(privateDir)) {
+      try {
+        fs.mkdirSync(privateDir, { recursive: true });
+      } catch (err) {
+        console.warn("[Affiliate Register] Could not create local kyc dir:", err.message);
+      }
     }
 
     const KYC_ALLOWED_MIME = ['image/jpeg', 'image/png', 'application/pdf'];

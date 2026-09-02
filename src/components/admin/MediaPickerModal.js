@@ -94,19 +94,45 @@ export default function MediaPickerModal({ open, onClose, onSelect, multiple = f
   const handleFiles = async (files) => {
     if (!files || files.length === 0) return;
     setUploading(true);
-    const formData = new FormData();
-    Array.from(files).forEach(f => formData.append("file", f));
-    try {
-      const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
-      const data = await res.json();
-      if (data.success && data.uploaded.length > 0) {
-        setTab("library");
-        await fetchMedia("", 1);
-        // Auto-select just-uploaded items
-        setSelected(data.uploaded);
+    const fileList = Array.from(files);
+    const uploaded = [];
+    const uploadErrors = [];
+
+    // Upload files individually to prevent hitting Vercel's 4.5MB request limit
+    for (let i = 0; i < fileList.length; i++) {
+      const file = fileList[i];
+      if (file.size > 8 * 1024 * 1024) {
+        uploadErrors.push(`${file.name}: Exceeds 8MB limit`);
+        continue;
       }
-    } catch (e) { console.error(e); }
-    finally { setUploading(false); }
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+        const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
+        const data = await res.json();
+        if (res.ok && data.success && data.uploaded?.length > 0) {
+          uploaded.push(...data.uploaded);
+        } else {
+          uploadErrors.push(`${file.name}: ${data.error || "Upload failed"}`);
+        }
+      } catch (err) {
+        uploadErrors.push(`${file.name}: Network or server error`);
+      }
+    }
+
+    if (uploaded.length > 0) {
+      setTab("library");
+      await fetchMedia("", 1);
+      setSelected(uploaded);
+    }
+
+    if (uploadErrors.length > 0) {
+      alert(`Upload notice:\n${uploadErrors.join("\n")}`);
+    }
+
+    setUploading(false);
   };
 
   const handleDrop = (e) => {
