@@ -10,8 +10,8 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page,
     type: "page",
-    fallbackTitle: "Pairo Vape | Premium Vapes, E-Liquids & Accessories",
-    fallbackDesc: "Discover premium vapes, disposables, e-liquids, and accessories at Pairo Vape Store.",
+    fallbackTitle: "U Vape Store | Premium Disposables, E-Liquids & Vape Gear",
+    fallbackDesc: "Discover premium disposable vapes, salt nics, e-liquids, and authentic vape kits at U Vape Store.",
     path: "/"
   });
 
@@ -47,9 +47,9 @@ export default async function Home() {
     structuredData = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Pairo",
-      "url": "https://pairolifestyle.com",
-      "logo": "https://pairolifestyle.com/logo.png"
+      "name": "U Vape Store",
+      "url": "https://uvapestore.com",
+      "logo": "https://uvapestore.com/logo.png"
     };
   }
 

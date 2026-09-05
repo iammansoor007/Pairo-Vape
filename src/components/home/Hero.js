@@ -137,8 +137,21 @@ export default function Hero({
                       {displaySlideSubtitle}
                     </p>
 
+                    {/* Vape Spec Chips */}
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      <span className="bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
+                        ⚡ UP TO 15,000 PUFFS
+                      </span>
+                      <span className="bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
+                        🔋 TYPE-C RECHARGEABLE
+                      </span>
+                      <span className="bg-emerald-500/20 backdrop-blur-md text-emerald-300 text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-400/30">
+                        💧 5% SALT NICOTINE
+                      </span>
+                    </div>
+
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4 pt-4 md:pt-6">
+                    <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4 pt-3 md:pt-4">
                       {hero.slides[currentSlide].link ? (
                         <Link
                           href={hero.slides[currentSlide].link}
