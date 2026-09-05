@@ -38,8 +38,8 @@ export async function GET(req) {
           order: 1,
           config: {
             title: "NEW ARRIVALS",
-            seriesLabel: siteConfig.products?.labels?.seriesLabel || "Collection",
-            ctaLabel: "Explore Collection",
+            seriesLabel: "U VAPE SERIES",
+            ctaLabel: "Explore All Vapes",
             limit: 16,
             layout: "carousel"
           }
@@ -51,12 +51,12 @@ export async function GET(req) {
           order: 2,
           config: {
             items: [
-              { text: "20% Off First" },
-              { text: "Express Ship" },
-              { text: "Authentic Vapes" },
-              { text: "30-Day Policy" },
-              { text: "Global Reach" },
-              { text: "Direct Desk" }
+              { text: "21+ Verified Store" },
+              { text: "Express Delivery" },
+              { text: "100% Authentic Vapes" },
+              { text: "Flavor Guarantee" },
+              { text: "Worldwide Delivery" },
+              { text: "24/7 Vapers Support" }
             ],
             speed: 40
           }
@@ -67,8 +67,8 @@ export async function GET(req) {
           enabled: true,
           order: 3,
           config: {
-            title: "TOP SELLING",
-            seriesLabel: siteConfig.products?.labels?.seriesLabel || "Collection",
+            title: "TOP SELLING VAPES",
+            seriesLabel: "U VAPE SERIES",
             ctaLabel: "Shop Top Sellers",
             limit: 16,
             layout: "carousel"
@@ -80,10 +80,10 @@ export async function GET(req) {
           enabled: true,
           order: 4,
           config: {
-             title: "Limited Edition Shearling",
-             description: "Premium handcrafted jackets for the modern pioneer.",
-             badge1: "Limited Edition",
-             badge2: "Winter '24"
+             title: "FLAGSHIP DISPOSABLE VAPES",
+             description: "Premium disposable vapes engineered with dual mesh coils for rich flavor.",
+             badge1: "U Vape Edition",
+             badge2: "Pro Series"
           }
         },
         {
@@ -92,8 +92,8 @@ export async function GET(req) {
           enabled: true,
           order: 5,
           config: {
-            title: siteConfig.categories?.title || "Our Collections",
-            label: siteConfig.categories?.label || "Pairo Studio",
+            title: siteConfig.categories?.title || "Vape Collections",
+            label: siteConfig.categories?.label || "U Vape Collections",
             viewAll: "Explore All",
             categoryIds: [] 
           }
@@ -104,10 +104,10 @@ export async function GET(req) {
           enabled: true,
           order: 6,
           config: {
-            title: "OUR JOURNAL",
-            label: "BLOG",
+            title: "VAPING GUIDES & FLAVOR RELEASES",
+            label: "U VAPE JOURNAL",
             limit: 6,
-            readMore: "READ MORE"
+            readMore: "READ GUIDE"
           }
         },
         {
@@ -116,8 +116,8 @@ export async function GET(req) {
           enabled: true,
           order: 7,
           config: {
-            title: siteConfig.testimonials?.title || "CUSTOMER LOVE",
-            label: siteConfig.testimonials?.label || "REVIEWS",
+            title: siteConfig.testimonials?.title || "WHAT OUR VAPERS SAY",
+            label: siteConfig.testimonials?.label || "VERIFIED REVIEWS",
             buttonText: siteConfig.testimonials?.buttonText || "WRITE A REVIEW",
             reviews: siteConfig.testimonials?.reviews || []
           }
@@ -125,8 +125,8 @@ export async function GET(req) {
       ],
       template: "home",
       seo: {
-        title: "Pairo | Premium Shearling Jackets",
-        description: "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets."
+        title: "U Vape Store | Premium Disposables & E-Liquids",
+        description: "Experience premium disposable vapes, salt nics, and authentic vape gear at U Vape Store."
       }
     };
 
