@@ -377,7 +377,7 @@ export default function ProductReviews({ productId, productName, autoOpen = fals
             Ratings & Reviews
           </h2>
           <p className="text-xs text-[#6F655B]/60 uppercase tracking-widest font-medium">
-            Verified purchases from Pairo store
+            Verified purchases from U Vape Store
           </p>
         </div>
         <button
@@ -484,7 +484,7 @@ export default function ProductReviews({ productId, productName, autoOpen = fals
                     <div className="flex items-start gap-2.5 text-neutral-500 text-xs">
                       <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                       <p className="leading-relaxed">
-                        <strong>Verified Purchase Check:</strong> Pairo requires checkout validation. Please provide the checkout email and order number to review this item.
+                        <strong>Verified Purchase Check:</strong> U Vape Store requires checkout validation. Please provide the checkout email and order number to review this item.
                       </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

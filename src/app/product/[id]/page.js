@@ -234,7 +234,7 @@ export default async function ProductDetailPage({ params, searchParams }) {
       </div>
 
       <div className="border-t border-black/5">
-        <ProductSection title="Related Products" products={sanitizedRelated} />
+        <ProductSection title="Related Products" seriesLabel="U VAPE SERIES" products={sanitizedRelated} />
       </div>
     </div>
   );

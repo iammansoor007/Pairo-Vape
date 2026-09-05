@@ -17,8 +17,18 @@ export default function ProductSection({
   const siteData = useSiteData();
   const [activeCategory, setActiveCategory] = useState("ALL");
 
+  const rawSeriesLabel = seriesLabel || siteData?.products?.labels?.seriesLabel || "U VAPE SERIES";
+  const displaySeriesLabel = rawSeriesLabel
+    .replace(/pairo\s*series/gi, "U VAPE SERIES")
+    .replace(/pairo/gi, "U VAPE");
+
+  const rawTitle = title || "U VAPE COLLECTION";
+  const displayTitle = rawTitle
+    .replace(/pairo\s*series/gi, "U VAPE SERIES")
+    .replace(/pairo/gi, "U VAPE");
+
   const productLabels = {
-    seriesLabel: seriesLabel || siteData?.products?.labels?.seriesLabel || "U VAPE CATALOG",
+    seriesLabel: displaySeriesLabel,
     ctaLabel: ctaLabel || siteData?.products?.labels?.archiveIndex || "Explore All Vapes"
   };
 
@@ -77,7 +87,7 @@ export default function ProductSection({
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-[26px] sm:text-[34px] md:text-[42px] font-black heading-font tracking-tighter text-[#000000] uppercase leading-tight truncate"
             >
-              {title}
+              {displayTitle}
             </MotionHeading>
           </div>
 
