@@ -1,15 +1,15 @@
 {
   "brand": {
-    "name": "PAIRO",
-    "tagline": "PREMIUM SHEARLING JACKETS",
-    "description": "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets. Built for comfort, designed for style."
+    "name": "U VAPE",
+    "tagline": "PREMIUM VAPES & E-LIQUIDS",
+    "description": "Discover premium disposable vapes, e-liquids, salt nics, and pod systems at U Vape Store. Built for flavor, engineered for satisfaction."
   },
   "navigation": {
     "offers": [
-      "Sign up and get 20% off your first order!",
-      "Free Express Shipping on orders over $500",
-      "Limited Time: 15% off on our Winter Collection",
-      "New Arrivals: The Black Edition Shearling"
+      "Sign up and get 20% off your first vape order!",
+      "Free Express Shipping on orders over $50",
+      "Limited Time: 15% off on Disposable Vapes & Salt Nics",
+      "New Arrivals: Pro Series 10,000 Puffs Disposable"
     ],
     "links": [
       { "name": "Home", "href": "/" },
@@ -23,27 +23,27 @@
     "slides": [
       {
         "id": 1,
-        "title": "ELITE SHEARLING COLLECTION",
-        "subtitle": "Discover the pinnacle of winter luxury with our handcrafted shearling jackets, meticulously designed for the modern individual.",
-        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=2000",
-        "buttonText": "Explore Men's",
-        "link": "/shop/men"
+        "title": "PREMIUM DISPOSABLE VAPES",
+        "subtitle": "Explore top-rated disposable vapes featuring smooth airflow, rechargeable mesh coils, and long-lasting flavor up to 10,000 puffs.",
+        "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=2000",
+        "buttonText": "Shop Disposables",
+        "link": "/shop/disposables"
       },
       {
         "id": 2,
-        "title": "TIMELESS FEMININE ELEGANCE",
-        "subtitle": "Experience unparalleled warmth and sophisticated silhouettes with our exclusive women's shearling outerwear.",
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=2000",
-        "buttonText": "Shop Women's",
-        "link": "/shop/women"
+        "title": "AUTHENTIC E-LIQUIDS & SALTS",
+        "subtitle": "Indulge in vibrant fruit, menthol, and dessert flavor profiles in 0mg, 3mg, 6mg, 20mg, and 50mg nicotine strengths.",
+        "image": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=2000",
+        "buttonText": "Explore E-Liquids",
+        "link": "/shop/e-liquids"
       },
       {
         "id": 3,
-        "title": "THE HERITAGE COAT SERIES",
-        "subtitle": "Classic longline designs that stand the test of time, crafted from the finest double-faced sheepskin.",
-        "image": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=2000",
-        "buttonText": "View Coats",
-        "link": "/shop/coats"
+        "title": "ADVANCED POD KITS & COILS",
+        "subtitle": "Sleek, powerful vape kits and replacement coils engineered for peak vapor output and leak-proof performance.",
+        "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=2000",
+        "buttonText": "View Vape Kits",
+        "link": "/shop/kits"
       }
     ],
     "labels": {
@@ -52,35 +52,35 @@
       "statsHeading": "Performance Stats"
     },
     "stats": [
-      { "value": "50+", "label": "Handcrafted Styles" },
-      { "value": "100%", "label": "Genuine Sheepskin" },
-      { "value": "10k+", "label": "Satisfied Clients" }
+      { "value": "100+", "label": "Vape Flavors" },
+      { "value": "100%", "label": "Authentic Brands" },
+      { "value": "25k+", "label": "Satisfied Vapers" }
     ],
-    "brands": ["VOGUE", "GQ", "ESQUIRE", "BAZAAR", "ELLE"]
+    "brands": ["U VAPE", "SMOK", "GEEKVAPE", "VOOPOO", "ELF"]
   },
   "categories": {
     "title": "Shop By Category",
-    "label": "PAIRO COLLECTION",
-    "viewAll": "Explore All Collection",
+    "label": "U VAPE COLLECTION",
+    "viewAll": "Explore All Categories",
     "exploreSingle": "Explore",
-    "exploreFull": "Explore Full Collection",
+    "exploreFull": "Explore Full Vape Catalog",
     "items": [
       {
-        "name": "Men",
-        "slug": "men",
-        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800",
+        "name": "Disposables",
+        "slug": "disposables",
+        "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=800",
         "className": "col-span-1"
       },
       {
-        "name": "Women",
-        "slug": "women",
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=800",
+        "name": "E-Liquids",
+        "slug": "e-liquids",
+        "image": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=800",
         "className": "col-span-1"
       },
       {
-        "name": "Coats",
-        "slug": "coats",
-        "image": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=800",
+        "name": "Vape Kits",
+        "slug": "vape-kits",
+        "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800",
         "className": "col-span-1 lg:col-span-3"
       }
     ]
@@ -90,373 +90,144 @@
       "newArrivals": "New Arrivals",
       "topSelling": "Best Sellers",
       "shopAll": "Shop All",
-      "seriesLabel": "PAIRO SERIES",
+      "seriesLabel": "U VAPE SERIES",
       "archiveIndex": "Explore Collection",
-      "addToBag": "Add to Bag",
+      "addToBag": "Add to Cart",
       "viewDetails": "View Details"
     },
     "newArrivals": [
       {
         "id": 1,
-        "name": "Classic Aviator Shearling Jacket",
-        "category": "Men",
-        "price": 890,
-        "oldPrice": 1200,
+        "name": "U Vape Pro 10,000 Puffs Disposable",
+        "category": "Disposables",
+        "price": 24,
+        "oldPrice": 32,
         "rating": 4.9,
-        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=500",
-        "image2": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Black", "Brown"],
-        "sizes": ["S", "M", "L", "XL"],
-        "details": "The Classic Aviator is our hallmark piece. It features a heavy-duty brass zipper, reinforced seams, and a plush shearling collar that provides extreme insulation. Handcrafted in our London studio using traditional methods.",
+        "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=500",
+        "colors": ["Cool Mint", "Blue Razz Ice", "Watermelon Bubblegum"],
+        "sizes": ["20mg", "50mg"],
+        "details": "The U Vape Pro features a smart LED battery & juice indicator, mesh coil technology, and up to 10,000 puffs of pure flavor.",
         "faqs": [
-          { "q": "How do I clean this jacket?", "a": "We recommend professional leather cleaning only. Avoid getting the shearling wet." },
-          { "q": "Is the leather waterproof?", "a": "It is water-resistant, but not fully waterproof. We suggest using a protective spray." }
+          { "q": "How many puffs does this device offer?", "a": "Up to 10,000 puffs depending on draw duration." },
+          { "q": "Is it rechargeable?", "a": "Yes, it features a fast USB-C charging port." }
         ]
       },
       {
         "id": 2,
-        "name": "Women's Oversized Biker Shearling",
-        "category": "Women",
-        "price": 750,
-        "oldPrice": 850,
+        "name": "Tropical Mango Salt Nic E-Liquid 30ml",
+        "category": "E-Liquids",
+        "price": 18,
+        "oldPrice": 22,
         "rating": 4.8,
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=500",
-        "image2": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Black", "Tan"],
-        "sizes": ["S", "M", "L"],
-        "details": "A contemporary take on the classic biker silhouette. This oversized piece offers unparalleled warmth and a bold, editorial look. Features asymmetric zip closure and buckled waist detail.",
+        "image": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=500",
+        "colors": ["Original Blend"],
+        "sizes": ["25mg", "50mg"],
+        "details": "A rich fusion of ripe tropical mangos with a smooth salt nicotine throat hit. Perfectly balanced 50/50 VG/PG blend.",
         "faqs": [
-          { "q": "What is the fit like?", "a": "This is an oversized fit. If you prefer a more tailored look, we recommend sizing down." },
-          { "q": "Does it have internal pockets?", "a": "Yes, it features one internal security pocket for your essentials." }
+          { "q": "What devices is this suitable for?", "a": "Designed for low-wattage pod systems and MTL devices." }
         ]
       },
       {
         "id": 3,
-        "name": "Longline Shearling Overcoat",
-        "category": "Coats",
-        "price": 1200,
-        "oldPrice": 1500,
+        "name": "U Vape Aegis Pod Mod Kit",
+        "category": "Vape Kits",
+        "price": 45,
+        "oldPrice": 55,
         "rating": 5.0,
-        "image": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=500",
-        "image2": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Brown", "Camel"],
-        "sizes": ["M", "L", "XL", "XXL"],
-        "details": "The ultimate expression of winter luxury. Our longline overcoat is crafted from double-faced sheepskin, providing a lightweight yet incredibly warm experience. Perfect for formal and casual occasions alike.",
+        "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=500",
+        "colors": ["Gunmetal", "Space Black", "Navy Blue"],
+        "sizes": ["Standard Kit"],
+        "details": "Durable zinc-alloy construction, 80W max output, 2000mAh built-in battery, and adjustable airflow control for DTL and MTL vaping.",
         "faqs": [
-          { "q": "What is the length?", "a": "The coat falls just below the knee for an average height of 5'10\"." },
-          { "q": "Is the shearling reversible?", "a": "While beautifully finished on both sides, it is designed to be worn leather-side out." }
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Suede B3 Bomber Jacket",
-        "category": "Men",
-        "price": 640,
-        "oldPrice": 720,
-        "rating": 4.7,
-        "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Tan", "Camel"],
-        "sizes": ["S", "M", "L"],
-        "details": "A lighter-weight bomber with a suede finish. The B3 inspired design features contrasting shearling trim and a comfortable, relaxed fit. Ideal for transitional weather.",
-        "faqs": [
-          { "q": "How do I maintain the suede?", "a": "Use a suede brush regularly to remove dust and keep the nap looking fresh." },
-          { "q": "Is it suitable for extreme cold?", "a": "It is comfortable down to -5°C. For colder climates, we recommend our Aviator series." }
+          { "q": "What replacement coils does it use?", "a": "Compatible with U Vape Mesh Coils 0.2ohm and 0.4ohm." }
         ]
       }
     ],
     "topSelling": [
       {
-        "id": 5,
-        "name": "Elite Leather Trench Coat",
-        "category": "Coats",
-        "price": 1500,
-        "oldPrice": 1800,
-        "rating": 5.0,
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Black"],
-        "sizes": ["S", "M", "L", "XL"],
-        "details": "Crafted from premium full-grain leather with a subtle sheen. This trench coat offers a modern silhouette with classic details like epaulettes and a waist belt. A true investment piece.",
-        "faqs": [
-          { "q": "Is it heavy?", "a": "Due to the high-quality leather, it has a substantial feel but is balanced for all-day wear." },
-          { "q": "Can I wear it in the rain?", "a": "It is naturally water-repellent, but we recommend avoiding heavy downpours." }
-        ]
-      },
-      {
-        "id": 6,
-        "name": "Black Diamond Shearling",
-        "category": "Men",
-        "price": 980,
-        "oldPrice": 1200,
+        "id": 4,
+        "name": "Strawberry Ice Cream E-Juice 100ml",
+        "category": "E-Liquids",
+        "price": 22,
+        "oldPrice": 28,
         "rating": 4.9,
-        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Black"],
-        "sizes": ["M", "L", "XL"],
-        "details": "Our most exclusive shearling jacket. The Black Diamond series uses the highest density wool for absolute warmth. Features matte black hardware and reinforced elbow patches.",
+        "image": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=500",
+        "colors": ["Original Blend"],
+        "sizes": ["0mg", "3mg", "6mg"],
+        "details": "Sweet field-ripe strawberries layered with creamy vanilla ice cream. 70/30 VG/PG ratio for thick vapor production.",
         "faqs": [
-          { "q": "What makes it 'Elite'?", "a": "It uses a rare selection of pelts that are thicker and more consistent than standard runs." },
-          { "q": "Is the hardware rust-proof?", "a": "Yes, we use gunmetal-plated brass that is resistant to corrosion." }
-        ]
-      },
-      {
-        "id": 7,
-        "name": "Double-Faced Sheepskin Jacket",
-        "category": "Women",
-        "price": 820,
-        "oldPrice": 950,
-        "rating": 4.6,
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Navy", "Black"],
-        "sizes": ["S", "M", "L"],
-        "details": "A versatile everyday piece. The double-faced construction allows for a slim profile without sacrificing insulation. Features a high collar and deep hand-warmer pockets.",
-        "faqs": [
-          { "q": "Is it true to size?", "a": "Yes, this model follows standard European sizing." },
-          { "q": "Are the pockets lined?", "a": "Yes, they are lined with soft fleece for extra warmth." }
-        ]
-      },
-      {
-        "id": 8,
-        "name": "Vintage Shearling Vest",
-        "category": "Coats",
-        "price": 450,
-        "oldPrice": 550,
-        "rating": 4.4,
-        "image": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=500",
-        "colors": ["Brown", "Tan"],
-        "sizes": ["S", "M", "L"],
-        "details": "A heritage-inspired vest perfect for layering. Features raw-edge finishes and traditional toggle closures. Adds a rugged, pioneer feel to any outfit.",
-        "faqs": [
-          { "q": "Can I wear it under a coat?", "a": "Yes, it is designed with a low-profile armhole for comfortable layering." },
-          { "q": "Is the shearling real?", "a": "100%. We never use synthetic or faux materials." }
+          { "q": "Can I use this in sub-ohm tanks?", "a": "Yes, high VG formula is ideal for sub-ohm tanks." }
         ]
       }
     ]
   },
   "productDetails": {
-    "colors": ["#1A1A1A", "#4A3B2F", "#D2B48C"],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "commonDescription": "Our premium shearling jackets are handcrafted using the finest ethically sourced sheepskin. Designed to provide maximum warmth in sub-zero temperatures while maintaining a sophisticated, high-fashion silhouette."
+    "colors": ["#000000", "#FF4500", "#1E90FF", "#32CD32"],
+    "sizes": ["0mg", "3mg", "6mg", "20mg", "50mg"],
+    "commonDescription": "All U Vape products undergo rigorous safety testing and quality control. Designed for exceptional flavor clarity, vapor density, and smooth throat hit."
   },
   "filters": {
     "labels": {
       "category": "Category",
       "price": "Price Range",
-      "color": "Color",
-      "size": "Size",
-      "style": "Style"
+      "color": "Flavor Profile",
+      "size": "Nicotine Strength",
+      "style": "Device Type"
     },
-    "categories": ["Men", "Women", "Coats"],
-    "priceRange": { "min": 200, "max": 2000 },
-    "colors": ["Black", "Brown", "Tan", "Camel", "Navy"],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "styles": ["Aviator", "Biker", "Bomber", "Longline"]
+    "categories": ["Disposables", "E-Liquids", "Vape Kits"],
+    "priceRange": { "min": 5, "max": 150 },
+    "colors": ["Mint", "Fruit", "Menthol", "Dessert", "Tobacco"],
+    "sizes": ["0mg", "3mg", "6mg", "20mg", "50mg"],
+    "styles": ["Disposable", "Pod System", "Sub-Ohm Kit"]
   },
   "testimonials": {
     "title": "WHAT OUR CLIENTS SAY",
-    "label": "PAIRO STUDIO",
+    "label": "U VAPE STORE",
     "buttonText": "Join The List",
-    "verifiedLabel": "Verified Member",
-    "perspectiveLabel": "Verified Archive Perspective — 0.1",
+    "verifiedLabel": "Verified Customer",
+    "perspectiveLabel": "Verified Customer Review",
     "reviews": [
       {
-        "name": "Michael R.",
+        "name": "Marcus T.",
         "verified": true,
         "rating": 5,
-        "text": "The warmth of this shearling is unmatched. I've worn it in -10°C weather and felt perfectly comfortable. The craftsmanship is world-class."
+        "text": "The flavor output on the U Vape Pro disposable is unmatched! Delivery was super fast and customer support was great."
       },
       {
-        "name": "Elena S.",
+        "name": "Sarah K.",
         "verified": true,
         "rating": 5,
-        "text": "Finally found a shearling jacket that doesn't feel bulky. The cut is so elegant, and the leather quality is buttery soft. Worth every penny."
+        "text": "Best salt nic selection anywhere. Tropical Mango has been my daily vape for 3 months straight."
       },
       {
         "name": "David L.",
         "verified": true,
         "rating": 5,
-        "text": "Pairo jackets are a statement piece. Everywhere I go, I get compliments. Fast shipping and premium packaging too."
+        "text": "Top quality vape gear and 100% authentic products. Highly recommend U Vape Store!"
       }
     ]
   },
   "footer": {
-    "newsletterTitle": "JOIN THE ELITE LIST FOR EXCLUSIVE PREVIEWS",
+    "newsletterTitle": "JOIN U VAPE FOR EXCLUSIVE FLAVOR DROPS & DEALS",
     "sections": [
       {
-        "title": "COMPANY",
+        "title": "STORE INFO",
         "links": [
-          { "name": "Our Heritage", "href": "/about" },
-          { "name": "Craftsmanship", "href": "/craft" },
-          { "name": "Stores", "href": "/stores" },
-          { "name": "Careers", "href": "/careers" }
+          { "name": "About U Vape", "href": "/about" },
+          { "name": "Authenticity Guarantee", "href": "/authenticity" },
+          { "name": "Locations", "href": "/stores" },
+          { "name": "Affiliate Program", "href": "/become-an-affiliate" }
         ]
       },
       {
-        "title": "ASSISTANCE",
+        "title": "CUSTOMER SUPPORT",
         "links": [
-          { "name": "Size Guide", "href": "/size-guide" },
-          { "name": "Care Instructions", "href": "/care" },
-          { "name": "Shipping", "href": "/shipping" },
-          { "name": "Returns", "href": "/returns" }
+          { "name": "Age Verification", "href": "/age-verification" },
+          { "name": "Shipping & Delivery", "href": "/shipping" },
+          { "name": "Returns & Warranty", "href": "/returns" },
+          { "name": "Contact Us", "href": "/contact" }
         ]
       }
     ]
-  },
-  "blogs": {
-    "title": "THE PAIRO JOURNAL",
-    "label": "PAIRO STUDIO",
-    "readMore": "Read Story",
-    "featuredProduct": {
-      "id": 1,
-      "label": "STUDIO SHOP",
-      "name": "The Heritage Aviator",
-      "buttonText": "Shop now",
-      "tagline": "A Modern Classic",
-      "description": "The ultimate expression of our shearling craftsmanship. Hand-cut and sewn for a lifetime of wear.",
-      "price": 890,
-      "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800"
-    },
-    "posts": [
-      {
-        "id": 1,
-        "slug": "art-of-shearling",
-        "title": "The Silent Art of Shearling Craftsmanship",
-        "date": "May 12, 2026",
-        "category": "CRAFTSMANSHIP",
-        "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=800",
-        "excerpt": "Discover the meticulous process behind our double-faced sheepskin jackets, from hand-selecting the finest pelts to the final polish.",
-        "content": "Full story content about craftsmanship..."
-      },
-      {
-        "id": 2,
-        "slug": "winter-styling-guide",
-        "title": "Quiet Luxury: The 2026 Winter Styling Guide",
-        "date": "April 28, 2026",
-        "category": "STYLE",
-        "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=800",
-        "excerpt": "How to layer premium shearling with minimalist essentials for an editorial look that transcends the season.",
-        "content": "Full story content about styling..."
-      },
-      {
-        "id": 3,
-        "slug": "pairo-series-01",
-        "title": "Pairo Series: The Evolution of the B3 Bomber",
-        "date": "April 15, 2026",
-        "category": "HERITAGE",
-        "image": "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=800",
-        "excerpt": "Tracing the history of the most iconic flight jacket ever made and how Pairo reimagined it for the modern pioneer.",
-        "content": "Full story content about heritage..."
-      }
-    ]
-  },
-  "about": {
-    "hero": {
-      "title": "Quality Jackets Made to Last",
-      "subtitle": "We make handmade shearling jackets with a focus on comfort and high-quality materials.",
-      "label": "Founded in 1994",
-      "buttonText": "Discover Our Story",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=2000"
-    },
-    "story": {
-      "label": "Our Story",
-      "title": "Traditional Methods, Modern Style.",
-      "description": "We don't just make jackets; we focus on every detail. Every stitch is carefully placed, and every material is hand-picked. Our process is simple: we take our time to make things right.",
-      "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=1000",
-      "features": [
-        {
-          "title": "Materials",
-          "desc": "Highest grade double-faced shearling from prestigious Spanish and Italian tanneries."
-        },
-        {
-          "title": "Handmade",
-          "desc": "Hand-cut and hand-sewn by master artisans with decades of experience."
-        }
-      ]
-    },
-    "studio": {
-      "label": "Our Studio",
-      "title": "Where We Work",
-      "images": [
-        "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=600",
-        "https://images.unsplash.com/photo-1539533377285-a42a8830ce11?auto=format&fit=crop&q=80&w=600",
-        "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=600",
-        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=600"
-      ]
-    },
-    "promise": {
-      "label": "Our Commitment",
-      "title": "Our Promise",
-      "description": "A jacket from our studio is built to last. We stand by our work and offer services to keep your jacket in great condition for years to come.",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=1000",
-      "overlayTitle": "Our Standard",
-      "overlaySubtitle": "Quality Guaranteed Since 1994",
-      "items": [
-        {
-          "title": "Free Repairs",
-          "desc": "We offer free repair services for life. We make sure your jacket stays in perfect shape so you can wear it for a long time."
-        },
-        {
-          "title": "Fair Sourcing",
-          "desc": "We only use materials from tanneries that follow strict environmental and animal welfare rules."
-        }
-      ],
-      "stats": [
-        { "label": "Craft Time", "value": "14 DAYS" },
-        { "label": "Heritage", "value": "30 YEARS" }
-      ]
-    },
-    "cta": {
-      "title": "Experience Pairo",
-      "shopNow": "Shop Now",
-      "contactUs": "Contact Us"
-    }
-  },
-  "contact": {
-    "hero": {
-      "label": "Customer Support",
-      "title": "Get in Touch with Our Team",
-      "subtitle": "We are here to help with your questions about sizing, orders, or custom jackets.",
-      "buttonText": "Send a Message",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=2000"
-    },
-    "details": {
-      "office": {
-        "label": "Our Office",
-        "title": "London Studio",
-        "address": "27 Savile Row, Mayfair London, W1S 2ER, United Kingdom"
-      },
-      "channels": [
-        { "label": "Email Us", "value": "hello@pairo.com", "type": "email" },
-        { "label": "Call Us", "value": "+44 (0) 20 7946 0958", "type": "phone" }
-      ],
-      "socialLabel": "Social Media",
-      "stores": {
-        "title": "Our Stores",
-        "cities": "London — Milan — New York — Tokyo",
-        "buttonText": "Find a Store"
-      }
-    },
-    "form": {
-      "title": "Send a Message",
-      "subtitle": "Typically responds within 24 hours",
-      "buttonText": "Send Message",
-      "subjects": ["General Question", "Help with Sizing", "Custom Orders", "Shipping Info"]
-    },
-    "map": {
-      "title": "Our Flagship Store",
-      "description": "Visit us for a custom fitting at our studio in London.",
-      "image": "https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&q=80&w=2000"
-    }
-  },
-  "search": {
-    "placeholder": "Search...",
-    "close": "Close",
-    "suggestedDepartments": "Suggested Departments",
-    "trendingSearches": "Trending Searches",
-    "matchingProducts": "Matching Products",
-    "noProductsFound": "No products found for",
-    "popularCategories": "Popular Categories",
-    "featuredCollection": "Featured Collection",
-    "featuredTitle": "Winter '24 Essentials",
-    "shopCollection": "Shop Collection",
-    "trending": ["Shearling Jackets", "Aviator Style", "Winter Coats", "New Arrivals"]
   }
 }

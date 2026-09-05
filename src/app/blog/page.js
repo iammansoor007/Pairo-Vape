@@ -14,8 +14,8 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page || {},
     type: "page",
-    fallbackTitle: "Journal | Pairo Editorial",
-    fallbackDesc: "Explore the stories, craftsmanship, and heritage behind Pairo's archival shearling collection.",
+    fallbackTitle: "Blog | U Vape Journal",
+    fallbackDesc: "Explore vape guides, flavor profiles, and news from U Vape Store.",
     path: "/blog"
   });
   return metadata;

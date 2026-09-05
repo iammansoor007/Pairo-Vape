@@ -23,8 +23,8 @@ export async function GET() {
     if (!process) {
       process = await ProductProcess.create({
         key: "global",
-        title: "Our Craftsmanship Process",
-        subtitle: "How we create our signature shearling masterpiece garments",
+        title: "Quality & Testing Process",
+        subtitle: "How we ensure pure flavor & authentic performance",
         steps: []
       });
     }

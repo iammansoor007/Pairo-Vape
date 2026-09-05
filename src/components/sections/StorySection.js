@@ -6,11 +6,11 @@ import Image from "next/image";
 export default function StorySection({
   label = "THE JOURNEY",
   title = "DEFINING A NEW STANDARDS OF QUALITY",
-  description = "Pairo was born from a simple observation: the world didn't need more products; it needed better ones. We focus on the intersection of intentional design and uncompromising quality.",
-  image = "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80",
+  description = "U Vape was born from a simple observation: vapers deserve better flavors and reliable performance. We focus on authentic products, clean e-liquids, and unmatched flavor delivery.",
+  image = "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80",
   features = [
-    { title: "Pure Materials", desc: "We source only the finest sustainable materials from certified global partners." },
-    { title: "Master Craft", desc: "Every piece is overseen by master artisans with decades of experience." }
+    { title: "Authentic Products", desc: "We source only 100% genuine devices and e-liquids directly from certified manufacturers." },
+    { title: "Peak Flavor", desc: "Every blend and device is tested to ensure rich flavor density and consistent draw." }
   ]
 }) {
 

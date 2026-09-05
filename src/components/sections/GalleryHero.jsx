@@ -8,7 +8,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 
 export default function GalleryHero({
   title = "OUR COLLECTION GALLERY",
-  subtitle = "Explore the artistry behind every piece — a curated showcase of Pairo's finest leather jackets and handcrafted accessories.",
+  subtitle = "Explore the artistry behind every flavor — a curated showcase of U Vape's finest devices and e-liquids.",
   label = "GALLERY",
   image = "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=2000&auto=format&fit=crop",
   mobileImage = "",
@@ -91,7 +91,7 @@ export default function GalleryHero({
           {/* Bottom */}
           <div className="flex items-center gap-4">
             <div className="h-px flex-1 bg-white/20" />
-            <span className="text-white/40 text-[10px] uppercase tracking-[4px] font-medium">Pairo Gallery</span>
+            <span className="text-white/40 text-[10px] uppercase tracking-[4px] font-medium">U Vape Gallery</span>
             <div className="h-px flex-1 bg-white/20" />
           </div>
         </div>

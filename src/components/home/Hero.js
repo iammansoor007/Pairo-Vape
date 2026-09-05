@@ -25,7 +25,7 @@ export default function Hero({
       labels: propLabels || siteData?.hero?.labels || { viewCollection: "View Collection" },
       marqueeItems: propMarqueeItems || siteData?.hero?.marqueeItems || []
     },
-    brand: propBrand || siteData?.brand || { tagline: "Premium Shearling" }
+    brand: propBrand || siteData?.brand || { tagline: "U Vape | Premium Disposables & E-Liquids" }
   };
 
   const { hero, brand } = heroData;

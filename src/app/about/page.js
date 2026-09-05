@@ -15,7 +15,7 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page,
     type: "page",
-    fallbackTitle: "About Us | Pairo - Premium Shearling Jackets",
+    fallbackTitle: "About Us | U Vape - Premium Disposables & E-Liquids",
     path: "/about"
   });
 

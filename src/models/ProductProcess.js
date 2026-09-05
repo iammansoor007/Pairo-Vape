@@ -12,7 +12,7 @@ const ProcessStepSchema = new mongoose.Schema({
 const ProductProcessSchema = new mongoose.Schema({
   key: { type: String, default: "global", unique: true },
   title: { type: String, required: true, default: "Our Product Process" },
-  subtitle: { type: String, default: "How we craft premium shearling garments" },
+  subtitle: { type: String, default: "How we ensure premium vape quality & flavor" },
   steps: [ProcessStepSchema]
 }, { timestamps: true });
 

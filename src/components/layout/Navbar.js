@@ -183,7 +183,7 @@ export default function Navbar() {
   const offers = useMemo(() => {
     const newOffers = siteData?.headerConfig?.topOffers;
     const legacyOffers = siteData?.navigation?.offers;
-    return (newOffers?.length > 0 ? newOffers : legacyOffers) || ["Welcome to Pairo Store"];
+    return (newOffers?.length > 0 ? newOffers : legacyOffers) || ["Welcome to U Vape Store"];
   }, [siteData]);
 
   // Navigation menu items - prefer new headerConfig.navItems, fallback to legacy links
@@ -324,9 +324,9 @@ export default function Navbar() {
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 {headerLogoUrl ? (
-                  <Image src={headerLogoUrl} alt="Logo" width={110} height={40} className="object-contain h-10 w-auto" priority />
+                  <Image src={headerLogoUrl} alt="Logo" width={160} height={60} className="object-contain h-12 md:h-16 w-auto" priority />
                 ) : (
-                  <Image src={logo} alt="Pairo Logo" width={110} height={40} className="object-contain h-10 w-auto" priority />
+                  <Image src={logo} alt="Pairo Logo" width={160} height={60} className="object-contain h-12 md:h-16 w-auto" priority />
                 )}
               </Link>
             </div>
@@ -516,9 +516,9 @@ export default function Navbar() {
             <div className="flex items-center justify-between p-6 border-b border-black/5">
               <Link href="/" onClick={() => setIsOpen(false)}>
                 {headerLogoUrl ? (
-                  <Image src={headerLogoUrl} alt="Logo" width={100} height={35} className="object-contain h-9 w-auto" />
+                  <Image src={headerLogoUrl} alt="Logo" width={140} height={50} className="object-contain h-11 w-auto" />
                 ) : (
-                  <Image src={logo} alt="Logo" width={100} height={35} className="object-contain" />
+                  <Image src={logo} alt="Logo" width={140} height={50} className="object-contain h-11 w-auto" />
                 )}
               </Link>
               <button onClick={() => setIsOpen(false)} className="p-3 bg-black/5 rounded-full"><X className="w-6 h-6" /></button>

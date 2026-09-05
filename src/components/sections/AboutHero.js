@@ -10,8 +10,8 @@ import MarqueeSection from "@/components/home/MarqueeSection";
 
 export default function AboutHero({
   slides,
-  title = "CRAFTING THE FUTURE OF MODERN ELEGANCE",
-  subtitle = "We bridge the gap between artisanal heritage and contemporary lifestyle, creating pieces that resonate with the spirit of the modern individual.",
+  title = "CRAFTING THE FUTURE OF VAPING EXCELLENCE",
+  subtitle = "We bridge the gap between premium flavors and cutting-edge vape technology, creating devices and e-liquids for an unparalleled experience.",
   label = "EST. 2024",
   image = "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&q=80",
   mobileImage = "",

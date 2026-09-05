@@ -25,9 +25,9 @@ export default function FeaturedBanner({
 
   const bannerData = {
     title: title || product.name,
-    description: description || "Premium shearling handcrafted for the modern pioneer. A season essential redefining winter luxury.",
-    badge1: badge1 || "Limited Edition",
-    badge2: badge2 || "Winter '24",
+    description: description || "Premium disposable vapes and authentic e-liquids engineered for unmatched flavor and performance.",
+    badge1: badge1 || "U Vape Edition",
+    badge2: badge2 || "Pro Series",
     ctaText: ctaText || "Buy Now",
     image: propImage || product.image
   };

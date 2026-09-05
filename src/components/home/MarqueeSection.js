@@ -5,12 +5,12 @@ import * as LucideIcons from "lucide-react";
 
 export default function MarqueeSection({ items: propItems, speed = 75, className = "" }) {
   const defaultItems = [
-    { text: "ELITE SHEARLING COLLECTION", icon: "Star" },
-    { text: "HANDCRAFTED LUXURY", icon: "Star" },
-    { text: "PAIRO EST. 2024", icon: "Star" },
-    { text: "GENUINE SHEEPSKIN", icon: "Star" },
-    { text: "GLOBAL SHIPPING", icon: "Star" },
-    { text: "LIMITED EDITION", icon: "Star" }
+    { text: "U VAPE PREMIUM COLLECTION", icon: "Star" },
+    { text: "RICH FLAVORS & DISPOSABLES", icon: "Star" },
+    { text: "U VAPE EST. 2024", icon: "Star" },
+    { text: "AUTHENTIC SALT NICS & E-LIQUIDS", icon: "Star" },
+    { text: "EXPRESS GLOBAL SHIPPING", icon: "Star" },
+    { text: "LIMITED EDITION VAPE KITS", icon: "Star" }
   ];
 
   // Map to support legacy array-of-strings fallback as well as new array-of-objects structure

@@ -6,8 +6,8 @@ import { Shield, Target, Award, ArrowLeft, ArrowUpRight } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Pairo Studio — Become an Affiliate Partner",
-  description: "Join the Pairo Lifestyle Affiliate Program. Partner with us, promote premium handcrafted shearling jackets, and earn high commissions.",
+  title: "U Vape — Become an Affiliate Partner",
+  description: "Join the U Vape Affiliate Program. Partner with us, promote premium vapes & e-liquids, and earn high commissions.",
   robots: "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
 };
 
@@ -36,13 +36,13 @@ export default async function BecomeAnAffiliatePage() {
         {/* Banner Section */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <p className="text-[10px] md:text-[11px] font-bold text-neutral-400 uppercase tracking-[0.3em]">
-            Pairo Studio
+            U Vape Affiliate Network
           </p>
           <h1 className="text-3xl md:text-4xl font-normal tracking-tight text-black">
             Become an Affiliate
           </h1>
           <p className="text-xs md:text-sm text-neutral-500 font-light leading-relaxed max-w-lg mx-auto">
-            Partner with Pairo Lifestyle to share the pinnacle of artisanal shearling outerwear. Promote our hand-stitched jackets and earn premium commissions on every acquisition.
+            Partner with U Vape Store to share premium vaping devices, disposables, and e-liquids. Promote our top-rated products and earn high commissions on every order.
           </p>
         </div>
 

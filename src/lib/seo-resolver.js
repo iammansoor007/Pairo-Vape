@@ -1,7 +1,7 @@
 import { normalizePath } from "./redirect-resolver";
 
-const DEFAULT_SITE_TITLE = "Pairo | Premium Handcrafted Shearling Jackets";
-const DEFAULT_SITE_DESC = "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets.";
+const DEFAULT_SITE_TITLE = "U Vape | Premium Disposables, E-Liquids & Vape Kits";
+const DEFAULT_SITE_DESC = "Discover premium vapes, disposables, e-liquids, and accessories at U Vape Store.";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com";
 
 /**
@@ -141,8 +141,8 @@ export async function resolveSEOMetadata(options = {}) {
     console.error("[SEO Resolver] Failed to load SiteConfig", err.message);
   }
 
-  const brandName = siteConfig?.brand?.name || "Pairo Lifestyle";
-  const brandDescription = siteConfig?.brand?.description || "Pairo Lifestyle is a premium clothing and leather apparel store dealing in custom tailored shearling coats, blazers, and jackets.";
+  const brandName = siteConfig?.brand?.name || "U Vape";
+  const brandDescription = siteConfig?.brand?.description || "U Vape is a premier vape store featuring top-rated disposable vapes, e-liquids, salt nics, and vaping kits.";
   const logoUrl = siteConfig?.headerConfig?.logoUrl || siteConfig?.footerConfig?.logoUrl || siteConfig?.brand?.logo || siteConfig?.brand?.faviconUrl || "/assets/pairo.webp";
   const logoUrlAbsolute = logoUrl.startsWith("http") ? logoUrl : `${SITE_URL}${logoUrl.startsWith("/") ? "" : "/"}${logoUrl}`;
   const telephone = siteConfig?.brand?.whatsappNumber || siteConfig?.brand?.phone || "+1 847-999-3787";
@@ -234,7 +234,7 @@ export async function resolveSEOMetadata(options = {}) {
     title: sanitizeSEOString(seo.ogTitle || metaTitle),
     description: sanitizeSEOString(seo.ogDescription || metaDescription),
     url: canonical,
-    siteName: "Pairo Store",
+    siteName: "U Vape Store",
     images: [{ url: ogImgUrl }],
     locale: "en_US",
     type: type === "blog" ? "article" : "website",
@@ -246,8 +246,8 @@ export async function resolveSEOMetadata(options = {}) {
     title: sanitizeSEOString(seo.twitterTitle || seo.ogTitle || metaTitle),
     description: sanitizeSEOString(seo.twitterDescription || seo.ogDescription || metaDescription),
     images: [twImgUrl],
-    site: "@pairostore",
-    creator: "@pairostore",
+    site: "@uvapestore",
+    creator: "@uvapestore",
   };
 
   // 7. Structured Data Assembly
@@ -683,7 +683,7 @@ export async function resolveSEOMetadata(options = {}) {
         "datePublished": datePublished,
         "description": pageDesc,
         "inLanguage": "en-US",
-        "name": metaTitle || `${brandName} | Premium Handcrafted Outerwear`,
+        "name": metaTitle || `${brandName} | Premium Disposables & E-Liquids`,
         "thumbnailUrl": heroImageUrl,
         "url": pageId,
         "about": { "@id": `${SITE_URL}/#organization` },

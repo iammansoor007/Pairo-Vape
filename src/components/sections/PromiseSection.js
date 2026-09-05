@@ -4,12 +4,12 @@ import Image from "next/image";
 
 export default function PromiseSection({
   label = "OUR PROMISE",
-  title = "UNCOMPROMISING QUALITY, ETHICAL SOURCING",
-  description = "We believe that luxury should not come at the cost of our planet or its people. Every decision we make is guided by a commitment to longevity and responsibility.",
-  image = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80",
+  title = "UNCOMPROMISING QUALITY, 100% AUTHENTIC VAPES",
+  description = "We believe every vaper deserves pure flavor, leak-proof hardware, and lab-tested safety. Every product in our catalog is verified authentic.",
+  image = "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80",
   items = [
-    { title: "Longevity First", desc: "Designed to endure seasons and trends, built with materials that age with grace." },
-    { title: "Ethical Craft", desc: "Fair wages and safe conditions for every hand that touches our products." }
+    { title: "Flavor First", desc: "Formulated for deep, rich taste profiles from first puff to last." },
+    { title: "Lab Tested", desc: "Rigorous quality and compliance testing for all e-liquids and disposable hardware." }
   ],
   stats = [
     { label: "ESTABLISHED", value: "2024" },

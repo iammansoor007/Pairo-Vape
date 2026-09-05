@@ -53,7 +53,7 @@ export async function GET(req) {
             items: [
               { text: "20% Off First" },
               { text: "Express Ship" },
-              { text: "Premium Pelt" },
+              { text: "Authentic Vapes" },
               { text: "30-Day Policy" },
               { text: "Global Reach" },
               { text: "Direct Desk" }

@@ -219,10 +219,10 @@ export default function Footer() {
   }
 
   // ── Brand & Bottom Links section ──
-  const rawBrandName = brand?.footerBrandName || 'PAiRO';
-  const footerBrandName = rawBrandName.replace(/./g, char => char.toLowerCase() === 'i' ? 'i' : char.toUpperCase());
-  const rawCopyright = brand?.copyrightText || fc?.copyrightText || 'PAiRO — ALL RIGHTS RESERVED © 2026.';
-  const copyrightText = rawCopyright.replace(/pairo/gi, 'PAiRO');
+  const rawBrandName = brand?.footerBrandName || 'U VAPE';
+  const footerBrandName = rawBrandName.toUpperCase();
+  const rawCopyright = brand?.copyrightText || fc?.copyrightText || 'U VAPE — ALL RIGHTS RESERVED © 2026.';
+  const copyrightText = rawCopyright.replace(/pairo/gi, 'U VAPE');
 
   const privacyLabel = fc?.privacyLabel || 'Privacy';
   const privacyUrl = fc?.privacyUrl || (fc?.privacyPageSlug
@@ -311,15 +311,15 @@ export default function Footer() {
                 <img
                   src={footerLogoUrl}
                   alt={brand?.name || "Pairo Logo"}
-                  className="object-contain h-10 w-auto max-h-10"
+                  className="object-contain h-14 md:h-16 w-auto max-h-16"
                 />
               ) : (
                 <Image
                   src={logo}
                   alt={brand?.name || "Pairo Logo"}
-                  width={110}
-                  height={40}
-                  className="object-contain h-10 w-auto"
+                  width={160}
+                  height={60}
+                  className="object-contain h-14 md:h-16 w-auto"
                 />
               )}
             </Link>

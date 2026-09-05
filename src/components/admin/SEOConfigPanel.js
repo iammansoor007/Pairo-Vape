@@ -77,7 +77,7 @@ export default function SEOConfigPanel({
   const handleAutoGenerate = () => {
     const cleanDesc = stripHtml(parentDescription).substring(0, 155);
     const resolvedSlug = parentSlug ? parentSlug.toLowerCase() : "";
-    const siteUrl = "https://pairo.store";
+    const siteUrl = "https://uvape.com";
     
     let pathPrefix = "/";
     if (parentType === "product") pathPrefix = "/shop/";

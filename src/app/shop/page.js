@@ -26,8 +26,8 @@ export async function generateMetadata({ searchParams }) {
   const { metadata } = await resolveSEOMetadata({
     entity: shopPage || {},
     type: "page",
-    fallbackTitle: "Shop All | Pairo Store",
-    fallbackDesc: "Browse Pairo's handcrafted premium shearling jackets, coats, and accessories.",
+    fallbackTitle: "Shop All | U Vape Store",
+    fallbackDesc: "Browse U Vape's premium disposable vapes, e-liquids, salt nics, and vape kits.",
     path: "/shop"
   });
 

@@ -13,8 +13,8 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page || {},
     type: "page",
-    fallbackTitle: "Collections | Pairo Store",
-    fallbackDesc: "Browse all Pairo collections — premium shearling and leather jackets crafted for modern wear.",
+    fallbackTitle: "Collections | U Vape Store",
+    fallbackDesc: "Browse all U Vape collections — premium disposables, e-liquids, salt nics, and vape kits.",
     path: "/collections"
   });
   return metadata;

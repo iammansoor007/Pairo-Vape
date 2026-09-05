@@ -36,13 +36,13 @@ export async function generateMetadata() {
       : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1";
 
     if (config?.brand) {
-      const name = config.brand.name || "Pairo";
-      const tagline = config.brand.tagline || "Premium Shearling Jackets";
+      const name = config.brand.name || "U Vape";
+      const tagline = config.brand.tagline || "Premium Disposables & E-Liquids";
       const title = tagline ? `${name} | ${tagline}` : name;
       const metadata = {
         title,
-        description: config.brand.description || "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets.",
-        metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com"),
+        description: config.brand.description || "Discover premium vapes, disposables, e-liquids, and accessories at U Vape Store.",
+        metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uvape.com"),
         robots: robotsString,
       };
 
@@ -66,9 +66,9 @@ export async function generateMetadata() {
   }
 
   return {
-    title: "Pairo | Premium Shearling Jackets",
-    description: "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets.",
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com"),
+    title: "U Vape | Premium Disposables, E-Liquids & Vape Kits",
+    description: "Discover premium vapes, disposables, e-liquids, and accessories at U Vape Store.",
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uvape.com"),
     robots: "noindex, nofollow",
   };
 }
@@ -77,9 +77,9 @@ const QUERY_TIMEOUT_MS = 4000;
 
 export default async function RootLayout({ children }) {
   let sanitizedConfig = {
-    brand: { name: "Pairo", tagline: "Premium Shearling", footerBrandName: "PAIRO", copyrightText: "PAIRO — ALL RIGHTS RESERVED © 2026", privacyUrl: "#", termsUrl: "#" },
-    navigation: { links: [], offers: ["Welcome to Pairo Store"] },
-    headerConfig: { logoUrl: '', navItems: [], megaCategoryIds: [], topOffers: ["Welcome to Pairo Store"] },
+    brand: { name: "U Vape", tagline: "Premium Vapes", footerBrandName: "U VAPE", copyrightText: "U VAPE — ALL RIGHTS RESERVED © 2026", privacyUrl: "#", termsUrl: "#" },
+    navigation: { links: [], offers: ["Welcome to U Vape Store"] },
+    headerConfig: { logoUrl: '', navItems: [], megaCategoryIds: [], topOffers: ["Welcome to U Vape Store"] },
     footerConfig: { logoUrl: '', newsletterHeading: 'Elite List', newsletterPlaceholder: 'JOIN THE LIST', footerCategoryIds: [], footerBlogIds: [], footerCustomLinks: [], footerCustomLinksHeading: 'Information' },
     socialLinks: [],
     hero: { slides: [], labels: { viewCollection: "View Collection" } },

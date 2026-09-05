@@ -10,8 +10,8 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page,
     type: "page",
-    fallbackTitle: "Pairo | Premium Handcrafted Shearling Jackets",
-    fallbackDesc: "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets.",
+    fallbackTitle: "Pairo Vape | Premium Vapes, E-Liquids & Accessories",
+    fallbackDesc: "Discover premium vapes, disposables, e-liquids, and accessories at Pairo Vape Store.",
     path: "/"
   });
 

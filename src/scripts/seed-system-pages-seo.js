@@ -14,12 +14,12 @@ async function seedSystemPages() {
   const systemPages = [
     {
       slug: "blog",
-      title: "Blog / Editorial",
-      description: "Manage editorial articles, brand journals, and news.",
+      title: "Blog / Journal",
+      description: "Manage vape guides, flavor profiles, and news.",
       seo: {
-        title: "Journal | Pairo Editorial",
-        description: "Explore the stories, craftsmanship, and heritage behind Pairo's archival shearling collection.",
-        keywords: ["blog", "journal", "pairo lifestyle"],
+        title: "Blog | U Vape Journal",
+        description: "Explore vape guides, flavor profiles, and news from U Vape Store.",
+        keywords: ["blog", "journal", "u vape", "vape guides"],
         noIndex: false,
         noFollow: false
       }
@@ -29,9 +29,9 @@ async function seedSystemPages() {
       title: "Collections",
       description: "Manage your categories/collections overview page.",
       seo: {
-        title: "Collections | Pairo Store",
-        description: "Browse all Pairo collections — premium shearling and leather jackets crafted for modern wear.",
-        keywords: ["collections", "categories", "pairo jackets"],
+        title: "Collections | U Vape Store",
+        description: "Browse all U Vape collections — premium disposables, e-liquids, salt nics, and vape kits.",
+        keywords: ["collections", "categories", "u vape"],
         noIndex: false,
         noFollow: false
       }
@@ -41,9 +41,9 @@ async function seedSystemPages() {
       title: "Shop All Catalog",
       description: "Manage your Shop All products catalog page.",
       seo: {
-        title: "Shop All | Pairo Store",
-        description: "Browse Pairo's handcrafted premium shearling jackets, coats, and accessories.",
-        keywords: ["shop all", "buy shearling jacket", "pairo outerwear"],
+        title: "Shop All | U Vape Store",
+        description: "Browse U Vape's premium disposable vapes, e-liquids, salt nics, and vape kits.",
+        keywords: ["shop all", "buy disposable vape", "u vape store"],
         noIndex: false,
         noFollow: false
       }
@@ -58,41 +58,28 @@ async function seedSystemPages() {
       status: "Published",
       template: "default",
       isSystem: true,
-      tenantId: "DEFAULT_STORE",
-      sections: [],
       seo: page.seo,
+      tenantId: "DEFAULT_STORE",
       updatedAt: new Date()
     };
 
-    const existing = await pagesCollection.findOne({ slug: page.slug, tenantId: "DEFAULT_STORE" });
-    if (existing) {
-      console.log(`Page "${page.slug}" already exists. Updating its metadata...`);
-      await pagesCollection.updateOne(
-        { _id: existing._id },
-        {
-          $set: {
-            title: pageData.title,
-            description: pageData.description,
-            isSystem: true,
-            seo: pageData.seo,
-            updatedAt: pageData.updatedAt
-          }
-        }
-      );
-    } else {
-      console.log(`Creating page "${page.slug}"...`);
-      await pagesCollection.insertOne({
-        ...pageData,
-        createdAt: new Date()
-      });
-    }
+    const result = await pagesCollection.updateOne(
+      { slug: page.slug },
+      { 
+        $set: pageData,
+        $setOnInsert: { createdAt: new Date() }
+      },
+      { upsert: true }
+    );
+
+    console.log(`Page '${page.slug}' processed:`, result.upsertedCount > 0 ? "Inserted" : "Updated");
   }
 
-  console.log("Seeding complete!");
-  process.exit(0);
+  console.log("System pages SEO seed complete.");
+  await mongoose.disconnect();
 }
 
 seedSystemPages().catch(err => {
-  console.error("Seeding failed:", err);
+  console.error("Error seeding system pages:", err);
   process.exit(1);
 });
