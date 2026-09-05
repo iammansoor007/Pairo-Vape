@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { getOptimizedImage } from "@/lib/cloudinary";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 export default function ProductGallery({ images = [], variantImage, productName = "", imageAlts = {} }) {
   const allImages = images.length > 0 ? images : ["/placeholder.jpg"];
@@ -160,8 +160,8 @@ export default function ProductGallery({ images = [], variantImage, productName 
           />
           {/* Zoom hint (shown only on non-zoomed hover) */}
           {!isZoomed && (
-            <div className="absolute bottom-3 right-3 bg-white/80 backdrop-blur-sm rounded-full px-2.5 py-1 text-[11px] font-medium text-black/60 shadow-sm pointer-events-none select-none opacity-0 group-hover:opacity-100 md:flex hidden items-center gap-1">
-              🔍 Hover to zoom
+            <div className="absolute bottom-3 right-3 bg-white/80 backdrop-blur-sm rounded-full px-2.5 py-1 text-[11px] font-medium text-black/60 shadow-sm pointer-events-none select-none opacity-0 group-hover:opacity-100 md:flex hidden items-center gap-1.5">
+              <ZoomIn className="w-3.5 h-3.5 text-black/70" /> Hover to zoom
             </div>
           )}
           {/* Mobile tap hint */}

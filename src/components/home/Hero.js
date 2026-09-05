@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Zap, BatteryCharging, Droplets } from "lucide-react";
 import MarqueeSection from "./MarqueeSection";
 import { useSiteData } from "@/context/SiteContext";
 
@@ -139,14 +139,17 @@ export default function Hero({
 
                     {/* Vape Spec Chips */}
                     <div className="flex flex-wrap items-center gap-2 pt-1">
-                      <span className="bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
-                        ⚡ UP TO 15,000 PUFFS
+                      <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
+                        <Zap className="w-3 h-3 text-amber-400" />
+                        UP TO 15,000 PUFFS
                       </span>
-                      <span className="bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
-                        🔋 TYPE-C RECHARGEABLE
+                      <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md text-white text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-white/15">
+                        <BatteryCharging className="w-3 h-3 text-cyan-400" />
+                        TYPE-C RECHARGEABLE
                       </span>
-                      <span className="bg-emerald-500/20 backdrop-blur-md text-emerald-300 text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-400/30">
-                        💧 5% SALT NICOTINE
+                      <span className="inline-flex items-center gap-1.5 bg-emerald-500/20 backdrop-blur-md text-emerald-300 text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-400/30">
+                        <Droplets className="w-3 h-3 text-emerald-400" />
+                        5% SALT NICOTINE
                       </span>
                     </div>
 
