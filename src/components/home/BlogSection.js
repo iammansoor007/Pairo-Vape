@@ -54,9 +54,9 @@ export default function BlogSection({
   const [loading, setLoading] = useState(true);
 
   const blogsConfig = {
-    title: title || siteData?.blogs?.title || "OUR JOURNAL",
-    label: label || siteData?.blogs?.label || "BLOG",
-    readMore: readMore || siteData?.blogs?.readMore || "READ MORE",
+    title: title || siteData?.blogs?.title || "VAPING GUIDES & FLAVOR RELEASES",
+    label: label || siteData?.blogs?.label || "U VAPE JOURNAL",
+    readMore: readMore || siteData?.blogs?.readMore || "READ GUIDE",
     limit: limit || 6,
     featuredProduct: siteData?.blogs?.featuredProduct || {
       label: "FEATURED",
@@ -111,25 +111,26 @@ export default function BlogSection({
   })) : (siteData?.blogs?.posts || []);
 
   return (
-    <section className="container mx-auto px-2 sm:px-4 md:px-8 py-2 md:py-4 overflow-hidden">
-      <div className="bg-white border border-black/5 rounded-[32px] md:rounded-[40px] shadow-sm overflow-hidden py-16 md:py-20 px-6 md:px-16">
-        <div className="flex items-end justify-between mb-10 md:mb-14 gap-4">
+    <section className="container mx-auto px-2 sm:px-4 md:px-8 py-4 md:py-8 overflow-hidden">
+      <div className="bg-white border border-black/5 rounded-[32px] md:rounded-[44px] shadow-sm overflow-hidden py-14 md:py-20 px-6 md:px-16">
+        <div className="flex items-end justify-between mb-8 md:mb-12 gap-4 pb-4 border-b border-black/5">
           <div className="space-y-3 md:space-y-4 flex-1 min-w-0">
-            <div className="inline-flex items-center bg-black text-white px-3 py-1 rounded-full">
+            <div className="inline-flex items-center gap-2 bg-black text-white px-3 py-1.5 rounded-full shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <p className="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">{blogsConfig.label}</p>
             </div>
-            <h2 className="text-[22px] md:text-[30px] font-bold heading-font tracking-tighter text-[#000000] uppercase leading-none truncate">{blogsConfig.title}</h2>
+            <h2 className="text-[22px] sm:text-[30px] md:text-[36px] font-black heading-font tracking-tighter text-[#000000] uppercase leading-tight truncate">{blogsConfig.title}</h2>
           </div>
           <div className="flex items-center gap-3 md:gap-6 shrink-0">
-            <div className="flex gap-1.5 md:gap-2">
-              <button onClick={() => scroll("left")} className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 flex items-center justify-center transition-all ${canScrollLeft ? "text-black hover:bg-black hover:text-white" : "text-black/30 cursor-default"}`}><ChevronLeft className="w-4 h-4 md:w-5 md:h-5" /></button>
-              <button onClick={() => scroll("right")} className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 flex items-center justify-center transition-all ${canScrollRight ? "text-black hover:bg-black hover:text-white" : "text-black/30 cursor-default"}`}><ChevronRight className="w-4 h-4 md:w-5 md:h-5" /></button>
+            <div className="flex gap-2">
+              <button onClick={() => scroll("left")} aria-label="Scroll left" className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 flex items-center justify-center transition-all ${canScrollLeft ? "text-black hover:bg-black hover:text-white active:scale-90 shadow-sm" : "text-black/20 border-black/5 cursor-default"}`}><ChevronLeft className="w-4 h-4 md:w-5 md:h-5" /></button>
+              <button onClick={() => scroll("right")} aria-label="Scroll right" className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 flex items-center justify-center transition-all ${canScrollRight ? "text-black hover:bg-black hover:text-white active:scale-90 shadow-sm" : "text-black/20 border-black/5 cursor-default"}`}><ChevronRight className="w-4 h-4 md:w-5 md:h-5" /></button>
             </div>
           </div>
         </div>
 
         <div className="relative -mx-4 md:-mx-8 px-4 md:px-8">
-          <div ref={carouselRef} className="flex gap-5 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+          <div ref={carouselRef} className="flex gap-5 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
             {posts.map((post) => (
               <div key={post.id} className="w-[75vw] sm:w-[45vw] md:w-[35vw] lg:w-[22.5vw] shrink-0 snap-start">
                 <BlogCard post={post} readMoreLabel={blogsConfig.readMore} />

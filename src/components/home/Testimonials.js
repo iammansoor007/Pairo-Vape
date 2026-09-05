@@ -105,10 +105,10 @@ export default function Testimonials({
   }, []);
 
   const testimonialsConfig = {
-    title: title || siteData?.testimonials?.title || "CUSTOMER LOVE",
-    label: label || siteData?.testimonials?.label || "REVIEWS",
+    title: title || siteData?.testimonials?.title || "WHAT OUR VAPERS SAY",
+    label: label || siteData?.testimonials?.label || "VERIFIED REVIEWS",
     buttonText: buttonText || siteData?.testimonials?.buttonText || "WRITE A REVIEW",
-    verifiedLabel: verifiedLabel || siteData?.testimonials?.verifiedLabel || "Verified Account",
+    verifiedLabel: verifiedLabel || siteData?.testimonials?.verifiedLabel || "21+ Verified Vaper",
     reviews: propReviews || siteData?.testimonials?.reviews || []
   };
 
@@ -132,22 +132,23 @@ export default function Testimonials({
   };
 
   return (
-    <section className="container mx-auto px-2 sm:px-4 md:px-8 py-2 md:py-4 overflow-hidden relative">
-      <div className="bg-white border border-black/5 rounded-[32px] md:rounded-[40px] shadow-sm overflow-hidden py-16 md:py-20 px-6 md:px-16 relative z-10">
-        <div className="flex items-end justify-between mb-8 md:mb-12 gap-6">
+    <section className="container mx-auto px-2 sm:px-4 md:px-8 py-4 md:py-8 overflow-hidden relative">
+      <div className="bg-neutral-950 text-white border border-neutral-800 rounded-[32px] md:rounded-[44px] shadow-2xl overflow-hidden py-14 md:py-20 px-6 md:px-16 relative z-10">
+        <div className="flex items-end justify-between mb-8 md:mb-12 gap-6 pb-6 border-b border-white/10">
           <div className="space-y-3 md:space-y-4 flex-1 min-w-0">
-            <div className="inline-flex items-center bg-black text-white px-3 py-1 rounded-full">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full border border-white/20">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <p className="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">{testimonialsConfig.label}</p>
             </div>
-            <h2 className="text-[22px] md:text-[30px] font-bold heading-font tracking-tighter text-[#000000] uppercase leading-none truncate">{testimonialsConfig.title}</h2>
+            <h2 className="text-[24px] sm:text-[32px] md:text-[40px] font-black heading-font tracking-tighter text-white uppercase leading-none truncate">{testimonialsConfig.title}</h2>
           </div>
-          <div className="flex gap-2 shrink-0">
-            <button onClick={() => handleSwipe("prev")} className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-500 active:scale-90 group"><ChevronLeft className="w-5 h-5 md:w-8 md:h-8 transition-transform duration-500 group-hover:-translate-x-1" /></button>
-            <button onClick={() => handleSwipe("next")} className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-500 active:scale-90 group"><ChevronRight className="w-5 h-5 md:w-8 md:h-8 transition-transform duration-500 group-hover:translate-x-1" /></button>
+          <div className="flex gap-2.5 shrink-0">
+            <button onClick={() => handleSwipe("prev")} aria-label="Previous Review" className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-90 group"><ChevronLeft className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:-translate-x-0.5" /></button>
+            <button onClick={() => handleSwipe("next")} aria-label="Next Review" className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-90 group"><ChevronRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-0.5" /></button>
           </div>
         </div>
 
-        <div className="relative h-[350px] md:h-[500px] flex items-center justify-center perspective-[2000px]">
+        <div className="relative h-[360px] md:h-[480px] flex items-center justify-center perspective-[2000px]">
           {reviews.map((review, index) => {
             const position = getPosition(index);
             if (Math.abs(position) > 1) return null;
@@ -156,9 +157,9 @@ export default function Testimonials({
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="mt-4 md:mt-6 flex gap-3">
+          <div className="mt-4 md:mt-6 flex gap-2.5">
             {reviews.map((_, i) => (
-              <button key={i} onClick={() => setCurrentIndex(i)} className={`h-1 transition-all duration-700 rounded-full ${i === currentIndex ? 'w-14 bg-black' : 'w-3 bg-black/5'}`} />
+              <button key={i} onClick={() => setCurrentIndex(i)} aria-label={`Go to slide ${i+1}`} className={`h-1.5 transition-all duration-500 rounded-full ${i === currentIndex ? 'w-12 bg-white' : 'w-3 bg-white/20'}`} />
             ))}
           </div>
         </div>

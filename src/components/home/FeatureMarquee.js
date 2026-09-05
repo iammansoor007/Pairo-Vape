@@ -6,9 +6,9 @@ import { ArrowUpRight, Zap } from "lucide-react";
 const MarqueeItem = ({ item }) => (
   <div className="flex items-center gap-3 md:gap-8 px-5 md:px-12 group cursor-pointer">
     {/* Texture Circle Accent */}
-    <div className="w-7 h-7 md:w-11 md:h-11 rounded-full bg-[var(--secondary)] border border-[var(--border)] overflow-hidden flex-shrink-0 relative">
+    <div className="w-7 h-7 md:w-11 md:h-11 rounded-full bg-[var(--secondary)] border border-[var(--border)] overflow-hidden flex-shrink-0 relative shadow-sm">
       <div className="absolute inset-0 bg-black/5 mix-blend-overlay" />
-      <item.icon className="w-3.5 h-3.5 md:w-5 md:h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black/40 group-hover:text-black transition-colors duration-500" />
+      <item.icon className="w-3.5 h-3.5 md:w-5 md:h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black/60 group-hover:text-black transition-colors duration-500" />
     </div>
 
     <div className="flex flex-col">
@@ -16,10 +16,10 @@ const MarqueeItem = ({ item }) => (
         <span className="text-sm md:text-2xl font-bold uppercase tracking-tighter heading-font text-black/90 group-hover:text-black transition-all duration-500 whitespace-nowrap">
           {item.text}
         </span>
-        <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5 text-black/10 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" />
+        <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5 text-black/20 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" />
       </div>
-      <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-black/70 group-hover:text-black/60 transition-colors duration-500">
-        {item.subText || "PAIRO — 26"}
+      <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.25em] text-black/50 group-hover:text-black/70 transition-colors duration-500">
+        {item.subText || "U VAPE — PRO"}
       </span>
     </div>
 
@@ -37,12 +37,12 @@ export default function FeatureMarquee({
   speed: propSpeed
 }) {
   const defaultFeatures = [
-    { text: "20% Off First" },
-    { text: "Express Ship" },
-    { text: "Premium Pelt" },
-    { text: "30-Day Policy" },
-    { text: "Global Reach" },
-    { text: "Direct Desk" },
+    { text: "21+ Verified Store", subText: "AUTHENTIC VAPES" },
+    { text: "Express Delivery", subText: "SAME-DAY DISPATCH" },
+    { text: "100% Original Brands", subText: "OFFICIAL DISTRIBUTOR" },
+    { text: "Flavor Guarantee", subText: "TOP-RATED E-LIQUIDS" },
+    { text: "Discrete Shipping", subText: "PRIVACY ASSURED" },
+    { text: "24/7 Vapers Support", subText: "EXPERT ASSISTANCE" },
   ];
 
   const features = (propItems || defaultFeatures).map(item => ({

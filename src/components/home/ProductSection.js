@@ -45,18 +45,19 @@ export default function ProductSection({
   const displayProducts = activeProducts.slice(0, 16);
 
   return (
-    <section className="py-4 md:py-6 bg-background">
-      <div className="container mx-auto px-2 sm:px-4 md:px-8 py-12 md:py-20 overflow-hidden">
+    <section className="py-6 md:py-10 bg-background">
+      <div className="container mx-auto px-2 sm:px-4 md:px-8 py-10 md:py-16 overflow-hidden">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 md:mb-14 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 md:mb-12 gap-6 pb-4 border-b border-black/5">
           <div className="space-y-3 md:space-y-4 flex-1 min-w-0">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center bg-black text-white px-3 py-1 rounded-full"
+              className="inline-flex items-center gap-2 bg-black text-white px-3.5 py-1.5 rounded-full shadow-md"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <p className="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
                 {productLabels.seriesLabel}
               </p>
@@ -66,7 +67,7 @@ export default function ProductSection({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-[22px] md:text-[30px] font-bold heading-font tracking-tighter text-[#000000] uppercase leading-none truncate"
+              className="text-[24px] sm:text-[32px] md:text-[40px] font-black heading-font tracking-tighter text-[#000000] uppercase leading-tight truncate"
             >
               {title}
             </MotionHeading>
@@ -76,11 +77,10 @@ export default function ProductSection({
             {/* CTA Button */}
             <Link
               href="/shop"
-              className="group relative flex items-center gap-2 sm:gap-4 border border-primary/40 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full font-bold text-[11px] sm:text-xs md:text-[13.5px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:text-background hover:border-primary active:scale-95 shadow-lg shadow-primary/5 text-foreground"
+              className="group relative flex items-center gap-2 sm:gap-4 border border-black/20 hover:border-black bg-black text-white px-5 py-3 sm:px-7 sm:py-3.5 rounded-full font-bold text-[11px] sm:text-xs md:text-[13px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-xl"
             >
               <span className="relative z-10">{productLabels.ctaLabel}</span>
               <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 relative z-10 transition-transform duration-500 group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
             </Link>
           </div>
         </div>
@@ -93,21 +93,19 @@ export default function ProductSection({
             viewport={{ once: true, amount: 0.1 }}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
+              visible: { opacity: 1, transition: { staggerChildren: 0.06 } }
             }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 md:gap-x-10"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-4 sm:gap-x-6 md:gap-x-8"
           >
             {displayProducts.map((product, index) => {
-              let responsiveClass = "w-full";
-
               return (
                 <motion.div
                   key={product._id || product.id}
                   variants={{
-                    hidden: { opacity: 0, y: 35, scale: 0.96 },
-                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+                    hidden: { opacity: 0, y: 30, scale: 0.97 },
+                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
                   }}
-                  className={responsiveClass}
+                  className="w-full h-full"
                 >
                   <ProductCard product={product} />
                 </motion.div>
