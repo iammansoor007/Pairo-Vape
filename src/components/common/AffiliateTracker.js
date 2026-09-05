@@ -57,13 +57,13 @@ export default function AffiliateTracker() {
             };
 
             // Set secure cookie
-            document.cookie = `pairo_ref=${encodeURIComponent(JSON.stringify(payload))}; path=/; expires=${expires.toUTCString()}; SameSite=Lax; Secure`;
+            document.cookie = `uvape_ref=${encodeURIComponent(JSON.stringify(payload))}; path=/; expires=${expires.toUTCString()}; SameSite=Lax; Secure`;
 
             // Set LocalStorage fallback
-            localStorage.setItem("pairo_ref", JSON.stringify(payload));
+            localStorage.setItem("uvape_ref", JSON.stringify(payload));
 
             // Instantly notify CartContext in the current tab/window
-            window.dispatchEvent(new Event("pairo_ref_updated"));
+            window.dispatchEvent(new Event("uvape_ref_updated"));
             console.log(`[AffiliateTracker] Active attribution registered: ${data.referralCode}. Cookies set for ${durationDays} days.`);
           }
         }

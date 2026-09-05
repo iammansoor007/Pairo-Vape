@@ -198,6 +198,17 @@ export default function ProductMainSection({ product }) {
             onVariantChange={handleVariantChange}
           />
 
+          {/* Age & Compliance Notice */}
+          <div className="flex items-center gap-3 p-3.5 bg-[#FAF9F6] border border-black/10 rounded-[var(--radius,0px)]">
+            <div className="w-8 h-8 rounded-full bg-black text-white font-mono font-bold text-[11px] flex items-center justify-center shrink-0 shadow-sm">
+              21+
+            </div>
+            <div className="space-y-0.5">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-black">Adult Age Verification Required (21+)</p>
+              <p className="text-[9px] text-black/60 font-semibold uppercase tracking-wider">Warning: Products may contain nicotine. Intended for adult vapers only.</p>
+            </div>
+          </div>
+
           {/* Stats Block - CMS Driven */}
           {product.stats && product.stats.length > 0 && (
             <div className="grid grid-cols-2 gap-6 pt-2">

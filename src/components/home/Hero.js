@@ -62,6 +62,30 @@ export default function Hero({
     exit: (direction) => ({ x: direction > 0 ? "-20%" : "20%", opacity: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }),
   };
 
+  const rawTagline = brand?.tagline || "U VAPE | PREMIUM DISPOSABLES & E-LIQUIDS";
+  const displayTagline = rawTagline
+    .replace(/pairo\s*store\s*[-–—]\s*raw\s*luxury\s*outerwear/gi, "U VAPE STORE — PREMIUM VAPES & E-LIQUIDS")
+    .replace(/pairo\s*store/gi, "U VAPE STORE")
+    .replace(/pairo/gi, "U VAPE")
+    .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
+    .replace(/outerwear/gi, "E-LIQUIDS")
+    .replace(/shearling/gi, "DISPOSABLES")
+    .replace(/jackets?/gi, "VAPES")
+    .replace(/leather/gi, "VAPE GEAR");
+
+  const currentSlideObj = hero.slides[currentSlide] || {};
+  const displaySlideTitle = (currentSlideObj.title || "PREMIUM DISPOSABLE VAPES")
+    .replace(/pairo/gi, "U VAPE")
+    .replace(/shearling/gi, "DISPOSABLE")
+    .replace(/outerwear/gi, "E-LIQUID")
+    .replace(/jackets?/gi, "VAPES");
+
+  const displaySlideSubtitle = (currentSlideObj.subtitle || "Explore top-rated disposable vapes and authentic salt nics.")
+    .replace(/pairo/gi, "U Vape")
+    .replace(/shearling/gi, "disposable vape")
+    .replace(/outerwear/gi, "e-liquids")
+    .replace(/jackets?/gi, "vapes");
+
   return (
     <section className="container mx-auto px-2 sm:px-4 md:px-8 my-6">
       <div className="relative h-[550px] md:h-[650px] lg:h-[750px] rounded-[32px] md:rounded-[40px] shadow-2xl overflow-hidden bg-white [transform:translateZ(0)]">
@@ -69,17 +93,17 @@ export default function Hero({
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div key={currentSlide} custom={direction} variants={slideVariants} initial="initial" animate="animate" exit="exit" className="absolute inset-0 bg-black">
               <div className="absolute inset-0">
-                {hero.slides[currentSlide].mobileImage ? (
+                {currentSlideObj.mobileImage ? (
                   <>
                     <div className="block md:hidden absolute inset-0">
-                      <Image src={hero.slides[currentSlide].mobileImage} alt={hero.slides[currentSlide].title} fill className="object-cover object-center brightness-[0.9]" priority />
+                      <Image src={currentSlideObj.mobileImage} alt={displaySlideTitle} fill className="object-cover object-center brightness-[0.9]" priority />
                     </div>
                     <div className="hidden md:block absolute inset-0">
-                      <Image src={hero.slides[currentSlide].image} alt={hero.slides[currentSlide].title} fill className="object-cover object-right md:object-center brightness-[0.9]" priority />
+                      <Image src={currentSlideObj.image} alt={displaySlideTitle} fill className="object-cover object-right md:object-center brightness-[0.9]" priority />
                     </div>
                   </>
                 ) : (
-                  <Image src={hero.slides[currentSlide].image} alt={hero.slides[currentSlide].title} fill className="object-cover object-right md:object-center brightness-[0.9]" priority />
+                  <Image src={currentSlideObj.image} alt={displaySlideTitle} fill className="object-cover object-right md:object-center brightness-[0.9]" priority />
                 )}
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent md:from-black/70 md:via-black/20" />
@@ -88,14 +112,14 @@ export default function Hero({
                   <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }} className="space-y-4 md:space-y-6">
                     <div className="flex items-center gap-3">
                       <div className="h-[1.5px] w-8 bg-white/30" />
-                      <span className="text-white/90 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">{brand.tagline}</span>
+                      <span className="text-white/90 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">{displayTagline}</span>
                     </div>
                     {React.createElement(
                       headingLevel,
                       { className: "text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white heading-font leading-[1.05] tracking-tight max-w-[15ch] md:max-w-none" },
-                      hero.slides[currentSlide].title
+                      displaySlideTitle
                     )}
-                    <p className="text-white/90 text-xs md:text-base lg:text-lg max-w-md leading-relaxed font-sans">{hero.slides[currentSlide].subtitle}</p>
+                    <p className="text-white/90 text-xs md:text-base lg:text-lg max-w-md leading-relaxed font-sans">{displaySlideSubtitle}</p>
                     <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4 pt-4 md:pt-6">
                       {hero.slides[currentSlide].link ? (
                         <Link

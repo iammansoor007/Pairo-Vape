@@ -523,12 +523,12 @@ export default function CheckoutPage() {
           } : null,
           referralCode: (() => {
             try {
-              const cookieMatch = document.cookie.match(/(^|;)\s*pairo_ref\s*=\s*([^;]+)/);
+              const cookieMatch = document.cookie.match(/(^|;)\s*uvape_ref\s*=\s*([^;]+)/);
               if (cookieMatch) {
                 const parsed = JSON.parse(decodeURIComponent(cookieMatch[2]));
                 if (parsed && parsed.expiresAt > Date.now()) return parsed.code;
               }
-              const stored = localStorage.getItem("pairo_ref");
+              const stored = localStorage.getItem("uvape_ref");
               if (stored) {
                 const parsed = JSON.parse(stored);
                 if (parsed && parsed.expiresAt > Date.now()) return parsed.code;
@@ -975,6 +975,20 @@ export default function CheckoutPage() {
 
             {/* Submit Action */}
             <div className="pt-4 space-y-4">
+              {/* Age Verification Confirmation */}
+              <div className="flex items-start gap-3 p-3.5 bg-neutral-50 border border-neutral-200 rounded-[4px]">
+                <input
+                  type="checkbox"
+                  id="ageVerification"
+                  required
+                  defaultChecked
+                  className="accent-black w-4 h-4 mt-0.5"
+                />
+                <label htmlFor="ageVerification" className="text-[11px] font-semibold text-black select-none leading-snug cursor-pointer">
+                  I confirm that I am <strong className="font-bold">21 years of age or older</strong> and agree to adult age verification upon delivery.
+                </label>
+              </div>
+
               <TurnstileWidget
                 ref={turnstileRef}
                 onVerify={(token) => setTurnstileToken(token)}
@@ -1022,23 +1036,7 @@ export default function CheckoutPage() {
                         </p>
                       )}
 
-                      {/* Made to Measure Badge */}
-                      {item.madeToMeasure?.enabled && (
-                        <div className="mt-1">
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 rounded text-[9px] font-bold uppercase tracking-wide">
-                            ✦ Made to Measure
-                          </span>
-                          <details className="mt-1">
-                            <summary className="text-[9px] text-black/60 cursor-pointer hover:text-black transition-colors select-none">View measurements</summary>
-                            <div className="mt-1.5 grid grid-cols-2 gap-x-3 gap-y-0.5 text-[9px] text-black font-semibold">
-                              {Object.entries(item.madeToMeasure.measurements || {}).map(([k, v]) => v ? (
-                                <span key={k}><span className="font-bold capitalize text-black">{k.replace(/([A-Z])/g, ' $1')}</span>: {v} {item.madeToMeasure.unit}</span>
-                              ) : null)}
-                              {item.madeToMeasure.notes && <span className="col-span-2 italic text-black/80 font-semibold">Note: {item.madeToMeasure.notes}</span>}
-                            </div>
-                          </details>
-                        </div>
-                      )}
+
 
                       <div className="flex items-center justify-between pt-1">
                         <p className="text-[12px] font-bold text-black font-mono">

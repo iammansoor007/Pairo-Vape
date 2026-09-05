@@ -110,7 +110,7 @@ export default function CartPage() {
         <div className="text-center space-y-3 max-w-sm relative z-10">
           <p className="text-lg md:text-xl font-bold uppercase tracking-wider text-black">Your cart is empty</p>
           <p className="text-black/60 text-xs md:text-sm leading-relaxed max-w-xs mx-auto">
-            Fill it with handcrafted masterworks and premium shearlings.
+            Fill it with premium disposable vapes, salt nics, and vape kits.
           </p>
         </div>
 
@@ -202,12 +202,7 @@ export default function CartPage() {
                           )}
                         </div>
 
-                        {/* Made to Measure Label */}
-                        {item.madeToMeasure?.enabled && (
-                          <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 rounded text-[9px] font-bold uppercase tracking-wide w-fit">
-                            ✦ Made to Measure
-                          </div>
-                        )}
+
 
                         <button 
                           onClick={() => removeFromCart(uniqueKey)}
@@ -252,9 +247,9 @@ export default function CartPage() {
             {/* Shopify-style Trust Badges */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8 border-t border-black/5">
               {[
-                { icon: ShieldCheck, title: "Secure Checkout", desc: "100% Encrypted Transactions" },
-                { icon: Truck, title: "Reliable Shipping", desc: "Tracked Worldwide Delivery" },
-                { icon: Sparkles, title: "Artisanal Care", desc: "Handcrafted to Order" }
+                { icon: ShieldCheck, title: "21+ Verified", desc: "Adult Age Verification Required" },
+                { icon: Truck, title: "Reliable Shipping", desc: "Tracked Express Delivery" },
+                { icon: Sparkles, title: "Authentic Products", desc: "100% Guaranteed Genuine" }
               ].map((prop, i) => (
                 <div key={i} className="flex items-center gap-3 p-4 rounded-[4px] bg-[#FAF9F6]/40 border border-black/[0.03]">
                   <prop.icon className="w-5 h-5 text-black/70 shrink-0" />
