@@ -17,6 +17,7 @@ export default function SearchModal({ isOpen, onClose }) {
 
   const siteContextData = useSiteData();
   const dbCategories = siteContextData?._dbCategories || [];
+  const contextProducts = siteContextData?._dbProducts || [];
   const search = siteData?.search || {
     placeholder: "Search U Vape Store...",
     close: "Close",
@@ -42,29 +43,41 @@ export default function SearchModal({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
-  // Fetch live products when modal is opened
+  // Fetch live products when modal is opened, with fallback to contextProducts
   useEffect(() => {
     if (isOpen) {
       fetch("/api/products")
         .then((res) => res.json())
         .then((data) => {
-          const flatProducts = data.all 
-            ? data.all 
-            : (data.newArrivals ? [...data.newArrivals, ...data.topSelling] : data);
+          let flatProducts = [];
+          if (Array.isArray(data)) {
+            flatProducts = data;
+          } else if (data && typeof data === "object") {
+            flatProducts = data.all || [...(data.newArrivals || []), ...(data.topSelling || [])];
+          }
+          if (!flatProducts || flatProducts.length === 0) {
+            flatProducts = contextProducts;
+          }
           setDbProducts(flatProducts || []);
         })
-        .catch((err) => console.error("Search modal products fetch failed:", err));
+        .catch((err) => {
+          console.error("Search modal products fetch failed:", err);
+          setDbProducts(contextProducts || []);
+        });
     }
-  }, [isOpen]);
+  }, [isOpen, contextProducts]);
 
   useEffect(() => {
     const runSearch = () => {
-      if (searchQuery.trim().length > 1) {
-        const query = searchQuery.toLowerCase();
-        const filteredProducts = dbProducts.filter(p => 
-          p.name?.toLowerCase().includes(query) || 
-          p.category?.toLowerCase().includes(query)
-        ).slice(0, 8);
+      const query = searchQuery.trim().toLowerCase();
+      if (query.length > 0) {
+        const pool = dbProducts.length > 0 ? dbProducts : contextProducts;
+        const filteredProducts = pool.filter(p => {
+          const nameStr = (p.name || p.title || "").toLowerCase();
+          const catStr = (p.category || "").toLowerCase();
+          const descStr = (p.shortDescription || p.description || "").toLowerCase();
+          return nameStr.includes(query) || catStr.includes(query) || descStr.includes(query);
+        }).slice(0, 10);
 
         const filteredCategories = dbCategories.filter(c => 
           c.name?.toLowerCase().includes(query) || 
@@ -73,15 +86,11 @@ export default function SearchModal({ isOpen, onClose }) {
 
         setResults({ products: filteredProducts, categories: filteredCategories });
       } else {
-        setResults((prev) => 
-          prev.products.length === 0 && prev.categories.length === 0 
-            ? prev 
-            : { products: [], categories: [] }
-        );
+        setResults({ products: [], categories: [] });
       }
     };
     Promise.resolve().then(runSearch);
-  }, [searchQuery, dbProducts, dbCategories]);
+  }, [searchQuery, dbProducts, contextProducts, dbCategories]);
 
   return (
     <AnimatePresence>
