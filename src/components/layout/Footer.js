@@ -470,7 +470,7 @@ export default function Footer() {
       <div className="container mx-auto px-2 sm:px-4 md:px-8 relative z-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-10 border-t border-white/10">
           <p className="text-white/50 text-[9px] font-bold tracking-widest">
-            <span className="normal-case">{copyrightText}</span> | Designed by <a href="https://mohsindesigns.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline transition-colors">Mohsin Designs</a>
+            <span className="normal-case">{copyrightText}</span>
           </p>
           <div className="flex flex-wrap items-center gap-6 sm:gap-10">
             {showPrivacy && (

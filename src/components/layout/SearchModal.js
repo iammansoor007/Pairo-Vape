@@ -17,7 +17,12 @@ export default function SearchModal({ isOpen, onClose }) {
 
   const siteContextData = useSiteData();
   const dbCategories = siteContextData?._dbCategories || [];
-  const { search } = siteData;
+  const search = siteData?.search || {
+    placeholder: "Search U Vape Store...",
+    close: "Close",
+    matchingProducts: "Matching Products",
+    noProductsFound: "No products found matching"
+  };
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -99,7 +104,7 @@ export default function SearchModal({ isOpen, onClose }) {
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder={search.placeholder || "Search Pairo..."}
+                  placeholder={search?.placeholder || "Search U Vape Store..."}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-transparent text-base md:text-lg font-semibold outline-none placeholder:text-black/60 uppercase tracking-[0.15em] text-black"
