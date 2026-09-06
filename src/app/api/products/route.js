@@ -9,13 +9,18 @@ export async function GET(req) {
     const category = searchParams.get('category');
     const type = searchParams.get('type');
     const id = searchParams.get('id');
+    const searchTerm = searchParams.get('q') || searchParams.get('search');
 
-    // Always filter for Published and not Deleted for public API
+    // Filter for non-deleted published products
     const baseQuery = { 
-        tenantId: searchParams.get('tenantId') || 'DEFAULT_STORE',
-        status: 'Published', 
-        isDeleted: { $ne: true } 
+        isDeleted: { $ne: true },
+        status: { $ne: 'Draft' }
     };
+
+    const requestedTenantId = searchParams.get('tenantId');
+    if (requestedTenantId) {
+      baseQuery.tenantId = requestedTenantId;
+    }
 
     const { getAltTextMap } = await import("@/lib/mediaUsage");
 
@@ -41,6 +46,17 @@ export async function GET(req) {
     let query = { ...baseQuery };
     if (category && category !== 'all') query.category = { $regex: new RegExp(category, 'i') };
     if (type) query.type = type;
+
+    if (searchTerm && searchTerm.trim().length > 0) {
+      const regex = new RegExp(searchTerm.trim(), 'i');
+      query.$or = [
+        { name: regex },
+        { slug: regex },
+        { category: regex },
+        { shortDescription: regex },
+        { sku: regex }
+      ];
+    }
 
     const products = await Product.find(query)
       .select('name slug price compareAtPrice image images categories primaryCategory rating reviewCount isFeatured type status attributes variantCombinations')

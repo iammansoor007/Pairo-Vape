@@ -68,28 +68,54 @@ export default function SearchModal({ isOpen, onClose }) {
   }, [isOpen, contextProducts]);
 
   useEffect(() => {
-    const runSearch = () => {
+    let isCancelled = false;
+
+    const runSearch = async () => {
       const query = searchQuery.trim().toLowerCase();
       if (query.length > 0) {
         const pool = dbProducts.length > 0 ? dbProducts : contextProducts;
-        const filteredProducts = pool.filter(p => {
+        let filteredProducts = pool.filter(p => {
           const nameStr = (p.name || p.title || "").toLowerCase();
           const catStr = (p.category || "").toLowerCase();
           const descStr = (p.shortDescription || p.description || "").toLowerCase();
-          return nameStr.includes(query) || catStr.includes(query) || descStr.includes(query);
-        }).slice(0, 10);
+          const slugStr = (p.slug || "").toLowerCase();
+          const skuStr = (p.sku || "").toLowerCase();
+          return nameStr.includes(query) || catStr.includes(query) || descStr.includes(query) || slugStr.includes(query) || skuStr.includes(query);
+        });
+
+        // If local pool produced no results, query the live server endpoint directly
+        if (filteredProducts.length === 0) {
+          try {
+            const apiRes = await fetch(`/api/products?q=${encodeURIComponent(query)}`);
+            const apiData = await apiRes.json();
+            if (!isCancelled && Array.isArray(apiData)) {
+              filteredProducts = apiData;
+            }
+          } catch (e) {
+            console.error("Live search fetch error:", e);
+          }
+        }
 
         const filteredCategories = dbCategories.filter(c => 
           c.name?.toLowerCase().includes(query) || 
           c.slug?.toLowerCase().includes(query)
         ).slice(0, 4);
 
-        setResults({ products: filteredProducts, categories: filteredCategories });
+        if (!isCancelled) {
+          setResults({ products: filteredProducts.slice(0, 12), categories: filteredCategories });
+        }
       } else {
-        setResults({ products: [], categories: [] });
+        if (!isCancelled) {
+          setResults({ products: [], categories: [] });
+        }
       }
     };
-    Promise.resolve().then(runSearch);
+
+    runSearch();
+
+    return () => {
+      isCancelled = true;
+    };
   }, [searchQuery, dbProducts, contextProducts, dbCategories]);
 
   return (
