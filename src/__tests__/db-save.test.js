@@ -24,7 +24,7 @@ describe("Database SEO Persistence Tests", () => {
         title: "Custom SEO Title for Jacket",
         description: "Custom SEO Description for Jacket",
         focusKeyword: "jacket",
-        keywords: ["jacket", "shearling"],
+        keywords: ["jacket", "vape"],
         ogTitle: "OG Title Jacket",
         ogDescription: "OG Description Jacket",
         ogImage: "http://example.com/og.jpg"

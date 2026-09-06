@@ -1,7 +1,7 @@
 // src/components/sections/BlogHero.js
 // Used by the page builder; the /blog page reads config directly from DB.
 export default function BlogHero({ config = {} }) {
-  const badge = config.badge || "Pairo Archive & Journal";
+  const badge = config.badge || "U Vape Archive & Journal";
   const heading = config.heading || "Editorial Stories";
   const subheading = config.subheading || "";
   const editionLabel = config.editionLabel || "VOLUME 2026 // EDITION 0.1";

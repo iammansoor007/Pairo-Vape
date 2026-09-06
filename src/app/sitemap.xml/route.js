@@ -61,7 +61,7 @@ function normalizeSitemapUrl(domain, type, slug) {
 
 export async function GET() {
   await dbConnect();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://uvapestore.com";
 
   try {
     // Check global indexing toggle

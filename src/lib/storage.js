@@ -65,7 +65,7 @@ function isServerless() {
  * Upload a file buffer to the active storage backend.
  * @returns { url, publicId, width, height, format, bytes }
  */
-export async function uploadToStorage(buffer, originalName, folder = 'pairo-media') {
+export async function uploadToStorage(buffer, originalName, folder = 'uvape-media') {
   if (initCloudinary() || isCloudinaryConfigured()) {
     return await uploadToCloudinary(buffer, originalName, folder);
   }

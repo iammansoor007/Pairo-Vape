@@ -4,8 +4,8 @@ import AffiliateResetPasswordClient from "@/components/affiliate/AffiliateResetP
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Reset Password — PAIRO Partner Portal",
-  description: "Set a new password for your PAIRO affiliate account.",
+  title: "Reset Password — U VAPE Partner Portal",
+  description: "Set a new password for your U VAPE affiliate account.",
 };
 
 export default function AffiliateResetPasswordPage() {

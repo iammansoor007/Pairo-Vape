@@ -6,7 +6,7 @@ import Product from "@/models/Product";
 import Discount from "@/models/Discount";
 import Promotion from "@/models/Promotion";
 import Engine from "@/lib/promotionEngine/Engine";
-import pairoEvents from "@/lib/events";
+import uvapeEvents from "@/lib/events";
 import mongoose from "mongoose";
 import logger, { getContextLogger, LogCategory } from "@/lib/logger";
 import { NextResponse } from "next/server";
@@ -428,7 +428,7 @@ export async function POST(req) {
 
         if (checkoutResult) {
             log.info({ orderNumber: checkoutResult.orderNumber }, "Checkout success");
-            pairoEvents.dispatch('ORDER_CREATED', checkoutResult);
+            uvapeEvents.dispatch('ORDER_CREATED', checkoutResult);
             return NextResponse.json({ success: true, orderNumber: checkoutResult.orderNumber, orderId: checkoutResult._id });
         }
 

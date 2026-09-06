@@ -57,8 +57,8 @@ export default async function ShopPage({ searchParams }) {
   const { structuredData } = await resolveSEOMetadata({
     entity: shopPage || {},
     type: "shop",
-    fallbackTitle: "Shop All | Pairo Store",
-    fallbackDesc: "Browse Pairo's handcrafted premium shearling jackets, coats, and accessories.",
+    fallbackTitle: "Shop All | U Vape Store",
+    fallbackDesc: "Browse U Vape's handcrafted premium vape devices, disposables,, and accessories.",
     path: "/shop"
   });
 

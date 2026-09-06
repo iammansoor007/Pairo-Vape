@@ -1,5 +1,5 @@
 /**
- * Enterprise Spam & Abuse Protection for Pairo Submissions
+ * Enterprise Spam & Abuse Protection for U Vape Submissions
  */
 
 const BLOCKED_KEYWORDS = [

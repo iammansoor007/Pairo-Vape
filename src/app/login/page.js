@@ -70,7 +70,7 @@ export default function LoginPage() {
       <div className="max-w-md w-full mx-auto bg-[#FAF9F6] border border-black/[0.04] p-8 sm:p-10 rounded-[4px] shadow-sm">
         <div className="text-center">
           <h1 className="text-2xl md:text-3xl font-black tracking-wider text-black">Sign In</h1>
-          <p className="mt-2 text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Access your Pairo Account</p>
+          <p className="mt-2 text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Access your U Vape Account</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -150,7 +150,7 @@ export default function LoginPage() {
 
           <div className="text-center pt-2">
             <p className="text-[11px] text-neutral-500 font-medium tracking-wide">
-              New to Pairo?{" "}
+              New to U Vape?{" "}
               <Link href="/signup" className="text-black font-black uppercase tracking-wider hover:underline underline-offset-2 ml-1">Create account</Link>
             </p>
           </div>

@@ -622,7 +622,7 @@ export default function PageForm({ pageId }) {
                      )}
                   </div>
                   <div className="text-[12px] text-gray-500 px-1 mt-1 flex items-center gap-1">
-                     Permalink: <span className="text-gray-400">pairo.store/</span>
+                     Permalink: <span className="text-gray-400">uvape.store/</span>
                      <input className="border-b border-dashed border-[#2271b1]/30 bg-transparent outline-none text-[#2271b1] font-mono w-fit min-w-[50px] focus:border-[#2271b1]" value={page.slug} onChange={(e) => setPage({ ...page, slug: e.target.value })} />
                   </div>
                </div>

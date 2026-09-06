@@ -5,7 +5,7 @@ import dbConnect from "@/lib/db";
 import AffiliateDashboardClient from "@/components/affiliate/AffiliateDashboardClient";
 
 export const metadata = {
-  title: "Affiliate Portal — Pairo Studio",
+  title: "Affiliate Portal — U Vape Store",
   robots: "noindex, nofollow"
 };
 

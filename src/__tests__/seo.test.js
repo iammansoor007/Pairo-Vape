@@ -4,7 +4,7 @@ import { sanitizeSEOString, validateAndParseJsonLd, resolveSEOMetadata, normaliz
 
 describe("SEO - Path Normalization", () => {
   it("should lowercase and trim paths", () => {
-    expect(normalizePath("  /Product/Shearling-Jacket/   ")).toBe("/product/shearling-jacket");
+    expect(normalizePath("  /Product/vape-Jacket/   ")).toBe("/product/vape-jacket");
   });
 
   it("should strip trailing slashes but preserve root", () => {
@@ -13,7 +13,7 @@ describe("SEO - Path Normalization", () => {
   });
 
   it("should clean duplicate slashes", () => {
-    expect(normalizePath("///product//shearling-jacket///")).toBe("/product/shearling-jacket");
+    expect(normalizePath("///product//vape-jacket///")).toBe("/product/vape-jacket");
   });
 
   it("should decode URI components", () => {
@@ -21,7 +21,7 @@ describe("SEO - Path Normalization", () => {
   });
 
   it("should keep absolute URLs intact", () => {
-    expect(normalizePath("https://pairolifestyle.com/product/jacket")).toBe("https://pairolifestyle.com/product/jacket");
+    expect(normalizePath("https://uvapestore.com/product/jacket")).toBe("https://uvapestore.com/product/jacket");
   });
 });
 
@@ -35,7 +35,7 @@ describe("SEO - Reserved Path Safeguards", () => {
   });
 
   it("should not flag normal storefront paths", () => {
-    expect(isReservedPath("/product/shearling-jacket")).toBe(false);
+    expect(isReservedPath("/product/vape-jacket")).toBe(false);
     expect(isReservedPath("/blog/style-guide")).toBe(false);
     expect(isReservedPath("/about-us")).toBe(false);
   });
@@ -43,19 +43,19 @@ describe("SEO - Reserved Path Safeguards", () => {
 
 describe("SEO - Metadata Sanitization", () => {
   it("should strip script tags and HTML elements", () => {
-    const dirty = "Premium <script>alert('XSS')</script> Shearling <b>Jacket</b>";
-    expect(sanitizeSEOString(dirty).replace(/\s+/g, " ")).toBe("Premium Shearling Jacket");
+    const dirty = "Premium <script>alert('XSS')</script> vape <b>Jacket</b>";
+    expect(sanitizeSEOString(dirty).replace(/\s+/g, " ")).toBe("Premium vape Jacket");
   });
 
   it("should strip quotes to prevent breaking meta tags", () => {
-    const dirty = 'Modern "Shearling" jacket\'s story';
-    expect(sanitizeSEOString(dirty)).toBe("Modern Shearling jackets story");
+    const dirty = 'Modern "vape" jacket\'s story';
+    expect(sanitizeSEOString(dirty)).toBe("Modern vape devices story");
   });
 });
 
 describe("SEO - JSON-LD Schema Validation", () => {
   it("should parse valid JSON-LD schemas and ensure @context", () => {
-    const valid = '{"@type": "Product", "name": "Shearling Co."}';
+    const valid = '{"@type": "Product", "name": "vape Co."}';
     const parsed = validateAndParseJsonLd(valid);
     expect(parsed).toBeDefined();
     expect(parsed["@context"]).toBe("https://schema.org");
@@ -63,7 +63,7 @@ describe("SEO - JSON-LD Schema Validation", () => {
   });
 
   it("should fail gracefully and return null for invalid JSON", () => {
-    const invalid = '{"@type": "Product", "name": "Shearling Co."'; // Missing closing brace
+    const invalid = '{"@type": "Product", "name": "vape Co."'; // Missing closing brace
     expect(validateAndParseJsonLd(invalid)).toBeNull();
   });
 });
@@ -71,13 +71,13 @@ describe("SEO - JSON-LD Schema Validation", () => {
 describe("SEO - Centralized Metadata Resolver", () => {
   it("should compile products with correct metadata and canonical fallback", async () => {
     const mockProduct = {
-      name: "Handcrafted Shearling Coat",
-      shortDescription: "Luxurious handcrafted shearling coat.",
-      slug: "handcrafted-shearling-coat",
+      name: "premium vape Coat",
+      shortDescription: "Luxurious premium vape coat.",
+      slug: "handcrafted-vape-coat",
       price: 1200,
       stock: 5,
       seo: {
-        title: "Buy Handcrafted Shearling Coat Online | Pairo",
+        title: "Buy premium vape Coat Online | U Vape",
         description: "Custom SEO description override.",
         noIndex: false,
         noFollow: true
@@ -87,15 +87,15 @@ describe("SEO - Centralized Metadata Resolver", () => {
     const { metadata, structuredData } = await resolveSEOMetadata({
       entity: mockProduct,
       type: "product",
-      path: "/product/handcrafted-shearling-coat"
+      path: "/product/handcrafted-vape-coat"
     });
 
-    expect(metadata.title).toBe("Buy Handcrafted Shearling Coat Online | Pairo");
+    expect(metadata.title).toBe("Buy premium vape Coat Online | U Vape");
     expect(metadata.description).toBe("Custom SEO description override.");
-    expect(metadata.alternates.canonical).toBe("https://pairolifestyle.com/product/handcrafted-shearling-coat");
+    expect(metadata.alternates.canonical).toBe("https://uvapestore.com/product/handcrafted-vape-coat");
     expect(metadata.robots).toBe("noindex, nofollow");
-    expect(metadata.twitter.site).toBe("@pairostore");
-    expect(metadata.twitter.creator).toBe("@pairostore");
+    expect(metadata.twitter.site).toBe("@uvapestore");
+    expect(metadata.twitter.creator).toBe("@uvapestore");
 
     expect(structuredData).toBeDefined();
     const productSchema = structuredData["@graph"] 
@@ -107,9 +107,9 @@ describe("SEO - Centralized Metadata Resolver", () => {
 
   it("should fall back to global settings when entity SEO is empty", async () => {
     const mockBlog = {
-      title: "The Shearling Heritage",
+      title: "The vape Heritage",
       excerpt: "Deep dive into the craftsmanship.",
-      slug: "shearling-heritage",
+      slug: "vape-heritage",
       createdAt: "2026-05-25T12:00:00.000Z"
     };
 
@@ -118,15 +118,15 @@ describe("SEO - Centralized Metadata Resolver", () => {
       type: "blog"
     });
 
-    expect(metadata.title).toBe("The Shearling Heritage");
+    expect(metadata.title).toBe("The vape Heritage");
     expect(metadata.description).toBe("Deep dive into the craftsmanship.");
-    expect(metadata.alternates.canonical).toBe("https://pairolifestyle.com/blog/shearling-heritage");
+    expect(metadata.alternates.canonical).toBe("https://uvapestore.com/blog/vape-heritage");
 
     expect(structuredData).toBeDefined();
     expect(structuredData["@graph"]).toBeDefined();
     const article = structuredData["@graph"].find(x => x["@type"] === "Article");
     expect(article).toBeDefined();
-    expect(article.headline).toBe("The Shearling Heritage");
+    expect(article.headline).toBe("The vape Heritage");
   });
 
   it("should resolve image fallback hierarchy correctly", async () => {
@@ -146,8 +146,8 @@ describe("SEO - Centralized Metadata Resolver", () => {
       type: "page",
       fallbackImage: "/global.jpg"
     });
-    expect(res1.metadata.openGraph.images[0].url).toBe("https://pairolifestyle.com/seo-og.jpg");
-    expect(res1.metadata.twitter.images[0]).toBe("https://pairolifestyle.com/seo-tw.jpg");
+    expect(res1.metadata.openGraph.images[0].url).toBe("https://uvapestore.com/seo-og.jpg");
+    expect(res1.metadata.twitter.images[0]).toBe("https://uvapestore.com/seo-tw.jpg");
 
     // Case 2: Custom SEO images missing, should fall back to entity featured image
     const mockEntityNoSeoImage = {
@@ -160,8 +160,8 @@ describe("SEO - Centralized Metadata Resolver", () => {
       type: "page",
       fallbackImage: "/global.jpg"
     });
-    expect(res2.metadata.openGraph.images[0].url).toBe("https://pairolifestyle.com/featured.jpg");
-    expect(res2.metadata.twitter.images[0]).toBe("https://pairolifestyle.com/featured.jpg");
+    expect(res2.metadata.openGraph.images[0].url).toBe("https://uvapestore.com/featured.jpg");
+    expect(res2.metadata.twitter.images[0]).toBe("https://uvapestore.com/featured.jpg");
 
     // Case 3: All missing, should fall back to global image
     const mockEntityEmpty = {
@@ -172,13 +172,13 @@ describe("SEO - Centralized Metadata Resolver", () => {
       type: "page",
       fallbackImage: "/global.jpg"
     });
-    expect(res3.metadata.openGraph.images[0].url).toBe("https://pairolifestyle.com/global.jpg");
-    expect(res3.metadata.twitter.images[0]).toBe("https://pairolifestyle.com/global.jpg");
+    expect(res3.metadata.openGraph.images[0].url).toBe("https://uvapestore.com/global.jpg");
+    expect(res3.metadata.twitter.images[0]).toBe("https://uvapestore.com/global.jpg");
   });
 
   it("should normalize and deduplicate canonical query parameters", () => {
-    expect(normalizeCanonicalUrl("https://pairolifestyle.com/shop?category=Men&color=black&size=XL&type=Jackets"))
-      .toBe("https://pairolifestyle.com/shop?category=men&type=jackets");
+    expect(normalizeCanonicalUrl("https://uvapestore.com/shop?category=Men&color=black&size=XL&type=Jackets"))
+      .toBe("https://uvapestore.com/shop?category=men&type=jackets");
   });
 
   it("should force noindex/nofollow on draft pages", async () => {

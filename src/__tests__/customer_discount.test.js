@@ -13,7 +13,7 @@
  *  TEST  8: Percentage edge case — 100% discount
  *  TEST  9: Authoritative total formula (subtotal - promo - affiliate + shipping + tax)
  *  TEST 10: Affiliate discount is INDEPENDENT of promo code discount
- *  TEST 11: Cookie payload — pairo_ref JSON has all required fields
+ *  TEST 11: Cookie payload — uvape_ref JSON has all required fields
  *  TEST 12: Cookie payload — correctly round-trips through JSON serialization
  *  TEST 13: CartContext — Percentage discount reduces cartTotal
  *  TEST 14: CartContext — Fixed discount reduces cartTotal
@@ -27,7 +27,7 @@
 
 const mongoose = require("mongoose");
 
-const URI = "mongodb://127.0.0.1:27017/pairo";
+const URI = "mongodb://127.0.0.1:27017/uvape";
 process.env.MONGODB_URI = URI;
 
 // ─── Assertion helpers ─────────────────────────────────────────────────────────
@@ -258,7 +258,7 @@ async function runTests() {
     console.log();
 
     // ─────────────────────────────────────────────────────────────────────────
-    // TEST 11 — Cookie payload: pairo_ref required fields
+    // TEST 11 — Cookie payload: uvape_ref required fields
     // ─────────────────────────────────────────────────────────────────────────
     console.log("─── TEST 11: Cookie payload — required fields present ───");
     const expiresAt = Date.now() + 30 * 86400000;
@@ -266,7 +266,7 @@ async function runTests() {
       affiliateId:          String(affiliateDoc._id),
       code:                 AFF_REF_CODE,
       timestamp:            Date.now(),
-      landingUrl:           "https://pairo.com/?ref=DISC2026SUITE",
+      landingUrl:           "https://uvapestore.com/?ref=DISC2026SUITE",
       referrer:             "",
       expiresAt,
       customerDiscountType:  "Percentage",

@@ -37,7 +37,7 @@ async function validateAndSaveFile(file, allowedMimes, maxSize, privateDir) {
 
   // If Cloudinary is configured (e.g. on Vercel or cloud deployment)
   if (isCloudinaryConfigured()) {
-    const stored = await uploadToStorage(buffer, file.name, "pairo-kyc");
+    const stored = await uploadToStorage(buffer, file.name, "uvape-kyc");
     return stored.url;
   }
 
@@ -99,7 +99,7 @@ export async function POST(req) {
         existingApplication.verificationTokenExpiry = verificationTokenExpiry;
         await existingApplication.save();
 
-        const siteUrl = process.env.NEXTAUTH_URL || "https://pairolifestyle.com";
+        const siteUrl = process.env.NEXTAUTH_URL || "https://uvapestore.com";
         const verificationUrl = `${siteUrl}/verify-email?token=${verificationToken}`;
         
         try {
@@ -283,7 +283,7 @@ export async function POST(req) {
     console.log(`[AffiliateAPI] Saved application for: ${email}. Code: ${referralCode}. Docs: ${uploadedDocs.length}`);
 
     // 14. Dispatch verification email
-    const siteUrl = process.env.NEXTAUTH_URL || "https://pairolifestyle.com";
+    const siteUrl = process.env.NEXTAUTH_URL || "https://uvapestore.com";
     const verificationUrl = `${siteUrl}/verify-email?token=${verificationToken}`;
     try {
       await sendAffiliateEmailVerification(email, name, verificationUrl);

@@ -14,7 +14,7 @@ const logger = pino({
     level: process.env.LOG_LEVEL || 'info',
     base: {
         env: process.env.NODE_ENV,
-        service: 'pairo-promotion-engine'
+        service: 'uvape-promotion-engine'
     },
     // In development, use pino-pretty for human readability
     transport: process.env.NODE_ENV !== 'production' ? {

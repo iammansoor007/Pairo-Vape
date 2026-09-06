@@ -66,7 +66,7 @@ const SiteConfigSchema = new mongoose.Schema({
     tagline: String,
     description: String,
     footerBrandName: String,      // animated brand name in footer
-    copyrightText: String,        // e.g. "PAIRO — ALL RIGHTS RESERVED © 2026"
+    copyrightText: String,        // e.g. "U VAPE — ALL RIGHTS RESERVED © 2026"
     privacyUrl: String,
     termsUrl: String,
     whatsappNumber: String,

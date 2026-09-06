@@ -580,7 +580,7 @@ export default function AdminTopbar() {
           <div className="w-4 h-4 bg-white/20 rounded-sm flex items-center justify-center">
             <span className="text-[10px] font-black italic text-white">P</span>
           </div>
-          <span className="text-[13px] font-bold hidden sm:block">Pairo Admin</span>
+          <span className="text-[13px] font-bold hidden sm:block">U Vape Admin</span>
         </Link>
         <Link href="/" target="_blank" className="flex items-center gap-1 hover:text-[#72aee6] text-[13px] transition-colors px-2 py-1 h-8">
           <Globe className="w-3.5 h-3.5" />

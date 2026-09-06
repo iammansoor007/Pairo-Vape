@@ -63,7 +63,7 @@ export async function resolvePageAndTemplate(slug, defaultTemplate = "default") 
         order: i
       })),
       seo: {
-        title: `${slug.charAt(0).toUpperCase() + slug.slice(1)} | Pairo`,
+        title: `${slug.charAt(0).toUpperCase() + slug.slice(1)} | U Vape`,
         description: `Archival page for ${slug}.`
       }
     };

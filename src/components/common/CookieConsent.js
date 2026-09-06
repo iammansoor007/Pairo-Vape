@@ -8,7 +8,7 @@ export default function CookieConsent() {
 
   useEffect(() => {
     // Check if user has already made a choice
-    const consent = localStorage.getItem("pairo_cookie_consent");
+    const consent = localStorage.getItem("uvape_cookie_consent");
     if (!consent) {
       // Small delay for natural slide-in feeling
       const timer = setTimeout(() => setIsVisible(true), 1500);
@@ -17,12 +17,12 @@ export default function CookieConsent() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem("pairo_cookie_consent", "accepted");
+    localStorage.setItem("uvape_cookie_consent", "accepted");
     setIsVisible(false);
   };
 
   const handleDecline = () => {
-    localStorage.setItem("pairo_cookie_consent", "declined");
+    localStorage.setItem("uvape_cookie_consent", "declined");
     setIsVisible(false);
   };
 

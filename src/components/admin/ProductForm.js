@@ -514,7 +514,7 @@ export default function ProductForm({ productId = null }) {
                   {/* Permalink / Slug Row */}
                   <div className="text-[12px] text-gray-500 px-1 mt-1 flex flex-wrap items-center gap-1.5">
                      <span>Permalink:</span>
-                     <span className="text-gray-400 font-mono">pairolifestyle.com/product/</span>
+                     <span className="text-gray-400 font-mono">uvapestore.com/product/</span>
 
                      {slugLocked ? (
                         // Read-only view with pencil edit button

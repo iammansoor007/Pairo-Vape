@@ -77,7 +77,7 @@ export async function POST(req) {
         existingCustomer.verificationTokenExpiry = expiry;
         await existingCustomer.save();
 
-        const siteUrl = process.env.NEXTAUTH_URL || "https://pairolifestyle.com";
+        const siteUrl = process.env.NEXTAUTH_URL || "https://uvapestore.com";
         const verificationUrl = `${siteUrl}/verify-email?token=${token}`;
         try {
           await sendEmailVerification(email, name, verificationUrl);
@@ -115,7 +115,7 @@ export async function POST(req) {
     console.log(`[Signup] ✨ Customer created (unverified): ${customer._id}`);
 
     // Send verification email
-    const siteUrl = process.env.NEXTAUTH_URL || "https://pairolifestyle.com";
+    const siteUrl = process.env.NEXTAUTH_URL || "https://uvapestore.com";
     const verificationUrl = `${siteUrl}/verify-email?token=${verificationToken}`;
     try {
       await sendEmailVerification(email, name, verificationUrl);

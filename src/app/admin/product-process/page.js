@@ -10,7 +10,7 @@ export default function AdminProductProcessPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [title, setTitle] = useState("Our Craftsmanship Process");
-  const [subtitle, setSubtitle] = useState("How we create our signature shearling masterpiece garments");
+  const [subtitle, setSubtitle] = useState("How we create our signature vape masterpiece garments");
   const [steps, setSteps] = useState([]);
   
   // Step editing modal or inline form state
@@ -215,7 +215,7 @@ export default function AdminProductProcessPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full bg-[#f6f7f7] border border-[#dcdcde] px-3 py-2 text-[13px] focus:outline-none focus:border-[#2271b1] focus:bg-white transition-all rounded-[3px]"
-              placeholder="e.g., The Craftsmanship Behind Pairo"
+              placeholder="e.g., The Craftsmanship Behind U Vape"
             />
           </div>
 

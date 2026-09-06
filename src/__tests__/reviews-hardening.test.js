@@ -115,7 +115,7 @@ describe("Reviews Hardening Verification Suite", () => {
   it("should ensure only approved and non-deleted reviews enter SEO structured JSON-LD data", async () => {
     const mockProduct = {
       name: "SEO Test Jacket",
-      shortDescription: "Sleek shearling",
+      shortDescription: "Sleek vape",
       price: 1200,
       stock: 10,
       reviewCount: 1,

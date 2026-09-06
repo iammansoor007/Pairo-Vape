@@ -101,8 +101,8 @@ export default function SEOConfigPanel({
   };
 
   // Live fallback titles & descriptions for preview calculations
-  const displayTitle = title || parentTitle || "Pairo Store | Premium Shearling Jackets";
-  const displayDesc = description || stripHtml(parentDescription) || "Experience the ultimate warmth and luxury with Pairo's handcrafted shearling jackets.";
+  const displayTitle = title || parentTitle || "U Vape Store | Premium vape devices";
+  const displayDesc = description || stripHtml(parentDescription) || "Experience the ultimate warmth and luxury with U Vape's premium vape jackets.";
   const displayOgTitle = ogTitle || displayTitle;
   const displayOgDesc = ogDescription || displayDesc;
   const displayOgImage = ogImage || parentImage || "/placeholder.jpg";
@@ -220,7 +220,7 @@ export default function SEOConfigPanel({
                   <label className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block">Focus Keyword</label>
                   <input
                     type="text"
-                    placeholder="e.g. shearling jacket"
+                    placeholder="e.g. vape jacket"
                     className="w-full bg-white border border-[#8c8f94] hover:border-neutral-500 focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] rounded-lg px-4 py-3 text-sm text-[#1d2327] placeholder-neutral-400 outline-none transition-all font-semibold"
                     value={focusKeyword}
                     onChange={e => updateField("focusKeyword", e.target.value)}
@@ -230,7 +230,7 @@ export default function SEOConfigPanel({
                   <label className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block">Keywords (Comma-separated)</label>
                   <input
                     type="text"
-                    placeholder="jacket, leather, shearling"
+                    placeholder="jacket, leather, vape"
                     className="w-full bg-white border border-[#8c8f94] hover:border-neutral-500 focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] rounded-lg px-4 py-3 text-sm text-[#1d2327] placeholder-neutral-400 outline-none transition-all font-semibold"
                     value={keywords}
                     onChange={e => updateField("keywords", e.target.value)}
@@ -322,7 +322,7 @@ export default function SEOConfigPanel({
                   {activePreviewTab === "google-mobile" ? (
                     <div className="space-y-1.5 text-left font-sans">
                       <div className="flex items-center gap-1 text-[11px] text-[#4d5156]">
-                        <span className="font-semibold text-[#202124]">pairo.store</span>
+                        <span className="font-semibold text-[#202124]">uvape.store</span>
                         <span>› {parentSlug || "slug"}</span>
                       </div>
                       <h4 className="text-[#1a0dab] text-[16px] leading-[20px] font-normal hover:underline cursor-pointer">
@@ -336,7 +336,7 @@ export default function SEOConfigPanel({
                   ) : (
                     <div className="space-y-1.5 text-left font-sans">
                       <div className="text-[11px] text-[#4d5156]">
-                        https://pairo.store › {parentSlug || "slug"}
+                        https://uvape.store › {parentSlug || "slug"}
                       </div>
                       <h4 className="text-[#1a0dab] text-[19px] leading-[24px] font-normal hover:underline cursor-pointer">
                         {displayTitle}
@@ -515,7 +515,7 @@ export default function SEOConfigPanel({
                     <img src={displayOgImage} alt="OG Card" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-4 border-t border-[#dcdcde] bg-white">
-                    <div className="text-neutral-400 uppercase text-[10px] tracking-wider font-bold">pairo.store</div>
+                    <div className="text-neutral-400 uppercase text-[10px] tracking-wider font-bold">uvape.store</div>
                     <div className="font-bold text-[14px] text-black truncate mt-1">{displayOgTitle}</div>
                     <div className="text-neutral-500 text-xs mt-1.5 line-clamp-2 leading-relaxed">{displayOgDesc}</div>
                   </div>
@@ -530,7 +530,7 @@ export default function SEOConfigPanel({
                     <img src={displayTwImage} alt="Twitter Card" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-4 border-t border-[#dcdcde] bg-white">
-                    <div className="text-neutral-400 text-[10px] tracking-wider font-bold uppercase">pairo.store</div>
+                    <div className="text-neutral-400 text-[10px] tracking-wider font-bold uppercase">uvape.store</div>
                     <div className="font-bold text-[14px] text-black truncate mt-1">{displayTwTitle}</div>
                     <div className="text-neutral-500 text-xs mt-1.5 line-clamp-2 leading-relaxed">{displayTwDesc}</div>
                   </div>
@@ -561,7 +561,7 @@ export default function SEOConfigPanel({
                 )}
               </div>
               <textarea
-                placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "Product",\n  "name": "Custom Shearling Jacket"\n}`}
+                placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "Product",\n  "name": "Custom vape Jacket"\n}`}
                 rows={10}
                 className={`w-full font-mono text-xs p-4 border rounded-lg outline-none transition-all bg-white ${jsonLdError ? "border-rose-400 focus:border-rose-500" : "border-[#8c8f94] focus:border-[#2271b1]"}`}
                 value={structuredData}

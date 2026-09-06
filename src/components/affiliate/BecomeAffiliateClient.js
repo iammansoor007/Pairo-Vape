@@ -481,7 +481,7 @@ export default function BecomeAffiliateClient() {
         </div>
         <p className="text-xl font-normal tracking-tight uppercase text-black">Application Received</p>
         <p className="text-xs text-neutral-500 max-w-md mx-auto leading-relaxed">
-          Thank you for applying to the Pairo Partner Program. We have sent a confirmation email to <span className="font-semibold text-black">{formData.email}</span>. Our team will review your identity files and get back to you shortly.
+          Thank you for applying to the U Vape Partner Program. We have sent a confirmation email to <span className="font-semibold text-black">{formData.email}</span>. Our team will review your identity files and get back to you shortly.
         </p>
       </div>
     );
@@ -917,7 +917,7 @@ export default function BecomeAffiliateClient() {
               </h3>
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <label className="text-[11px] uppercase tracking-wider font-semibold text-gray-500">How will you promote Pairo Lifestyle? *</label>
+                  <label className="text-[11px] uppercase tracking-wider font-semibold text-gray-500">How will you promote U Vape Store? *</label>
                   <textarea 
                     name="promotionStrategy" 
                     value={formData.promotionStrategy} 

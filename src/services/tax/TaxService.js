@@ -2,7 +2,7 @@
  * TaxService
  * 
  * Completely independent from ShippingService. Handles all tax calculations
- * for the Pairo storefront. Reads configuration from TaxSettings model.
+ * for the U Vape Storefront. Reads configuration from TaxSettings model.
  */
 
 import dbConnect   from '@/lib/db';

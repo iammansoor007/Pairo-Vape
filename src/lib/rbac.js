@@ -1,5 +1,5 @@
 /**
- * Centralized Permission Resolver for Pairo Enterprise RBAC
+ * Centralized Permission Resolver for U Vape Enterprise RBAC
  */
 
 export const PERMISSION_MODULES = {

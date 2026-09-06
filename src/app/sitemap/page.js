@@ -74,17 +74,17 @@ export default async function SitemapPage() {
   const seoRes = await resolveSEOMetadata({
     entity: {},
     type: "page",
-    fallbackTitle: "Sitemap | Pairo Store",
-    fallbackDesc: "Browse the complete directory of Pairo Store — premium shearling outerwear, categories, editorial stories, and information.",
+    fallbackTitle: "Sitemap | U Vape Store",
+    fallbackDesc: "Browse the complete directory of U Vape Store — premium vape devices & e-liquids, categories, editorial stories, and information.",
     path: "/sitemap"
   });
 
   const structuredData = seoRes?.structuredData || {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Sitemap | Pairo Store",
-    "description": "Browse the complete directory of Pairo Store — premium shearling outerwear, categories, editorial stories, and information.",
-    "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com"}/sitemap`
+    "name": "Sitemap | U Vape Store",
+    "description": "Browse the complete directory of U Vape Store — premium vape devices & e-liquids, categories, editorial stories, and information.",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://uvapestore.com"}/sitemap`
   };
 
   return (

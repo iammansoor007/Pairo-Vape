@@ -57,13 +57,13 @@ export async function sendEmailVerification(toEmail, name, verificationUrl) {
   const html = `
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">PAIRO</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
         <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Lifestyle Collection</p>
       </div>
       <div style="padding: 48px 40px; background: #fff;">
         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.5px;">Verify Your Email</h2>
         <p style="color: #555; font-size: 15px; line-height: 1.7; margin: 0 0 32px;">
-          Hi ${firstName}, welcome to PAIRO Lifestyle.<br/>
+          Hi ${firstName}, welcome to U Vape Store.<br/>
           Please verify your email address to activate your account and start shopping.
         </p>
         <div style="text-align: center; margin: 36px 0;">
@@ -74,7 +74,7 @@ export async function sendEmailVerification(toEmail, name, verificationUrl) {
         </div>
         <p style="color: #999; font-size: 12px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 24px; margin: 0;">
           This link expires in <strong>24 hours</strong>.<br/>
-          If you did not create an account at PAIRO, you can safely ignore this email.
+          If you did not create an account at U VAPE, you can safely ignore this email.
         </p>
         <p style="color: #bbb; font-size: 11px; margin-top: 12px;">
           Or copy this link into your browser:<br/>
@@ -83,7 +83,7 @@ export async function sendEmailVerification(toEmail, name, verificationUrl) {
       </div>
       <div style="border-top: 1px solid #eee; padding: 18px 32px; text-align: center; background: #fafafa;">
         <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          PAIRO Lifestyle • pairolifestyle.com
+          U Vape Store • uvapestore.com
         </p>
       </div>
     </div>
@@ -96,9 +96,9 @@ export async function sendEmailVerification(toEmail, name, verificationUrl) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Lifestyle" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U Vape Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: `Verify your email — PAIRO Lifestyle`,
+      subject: `Verify your email — U Vape Store`,
       html,
     });
     console.log(`[Email] ✅ Verification email sent to ${toEmail} | MsgID: ${info.messageId}`);
@@ -117,13 +117,13 @@ export async function sendAffiliateEmailVerification(toEmail, name, verification
   const html = `
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">PAIRO</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
         <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Affiliate Partners</p>
       </div>
       <div style="padding: 48px 40px; background: #fff;">
         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.5px;">Verify Your Email</h2>
         <p style="color: #555; font-size: 15px; line-height: 1.7; margin: 0 0 32px;">
-          Hi ${firstName}, thank you for applying to the PAIRO Affiliate Program.<br/>
+          Hi ${firstName}, thank you for applying to the U VAPE Affiliate Program.<br/>
           Please verify your email address to submit your application for review.
         </p>
         <div style="text-align: center; margin: 36px 0;">
@@ -134,7 +134,7 @@ export async function sendAffiliateEmailVerification(toEmail, name, verification
         </div>
         <p style="color: #999; font-size: 12px; line-height: 1.6; border-top: 1px solid #f0f0f0; padding-top: 24px; margin: 0;">
           This link expires in <strong>24 hours</strong>.<br/>
-          If you did not apply for the Pairo Affiliate Program, you can safely ignore this email.
+          If you did not apply for the U Vape Affiliate Program, you can safely ignore this email.
         </p>
         <p style="color: #bbb; font-size: 11px; margin-top: 12px;">
           Or copy this link into your browser:<br/>
@@ -143,7 +143,7 @@ export async function sendAffiliateEmailVerification(toEmail, name, verification
       </div>
       <div style="border-top: 1px solid #eee; padding: 18px 32px; text-align: center; background: #fafafa;">
         <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          PAIRO Lifestyle • pairolifestyle.com
+          U Vape Store • uvapestore.com
         </p>
       </div>
     </div>
@@ -156,9 +156,9 @@ export async function sendAffiliateEmailVerification(toEmail, name, verification
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: `Verify your email — PAIRO Affiliates`,
+      subject: `Verify your email — U VAPE Affiliates`,
       html,
     });
     console.log(`[Email] ✅ Affiliate verification email sent to ${toEmail} | MsgID: ${info.messageId}`);
@@ -210,7 +210,7 @@ export async function sendOrderConfirmation(order) {
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a;">
       <div style="background: #1a1a1a; padding: 30px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: -1px; font-size: 28px;">PAIRO</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: -1px; font-size: 28px;">U VAPE</h1>
       </div>
       <div style="padding: 40px 30px;">
         <h2 style="font-size: 20px; margin-bottom: 8px;">Order Confirmed ✓</h2>
@@ -247,7 +247,7 @@ export async function sendOrderConfirmation(order) {
       </div>
       <div style="border-top: 1px solid #eee; padding: 20px 30px; text-align: center;">
         <p style="font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          Pairo Excellence • Global Acquisition Logistics
+          U Vape Excellence • Global Acquisition Logistics
         </p>
       </div>
     </div>
@@ -255,7 +255,7 @@ export async function sendOrderConfirmation(order) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U Vape Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: order.customer?.email,
       subject: `Order Confirmed: #${order.orderNumber}`,
       html,
@@ -325,7 +325,7 @@ export async function sendAdminOrderNotification(order) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: adminEmail,
       subject: `🛍 New Order: #${order.orderNumber} — $${(order.financials?.total || 0).toLocaleString()}`,
       html,
@@ -349,25 +349,25 @@ export async function sendSubmissionReply(toEmail, subject, message, customerNam
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; line-height: 1.6;">
       <div style="background: #1a1a1a; padding: 25px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">PAIRO CONCIERGE</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">U VAPE CONCIERGE</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff;">
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Dear ${customerName || 'Customer'},</p>
         <div style="font-size: 15px; color: #1a1a1a; white-space: pre-wrap;">${message}</div>
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
           <p style="font-size: 13px; color: #888; margin: 0;">Kind Regards,</p>
-          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The Pairo Team</p>
+          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The U Vape Team</p>
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} PAIRO — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
       </div>
     </div>
   `;
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Support" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Support" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: subject,
       html,
@@ -391,32 +391,32 @@ export async function sendAffiliateApplicationReceived(toEmail, affiliateName) {
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; line-height: 1.6;">
       <div style="background: #1a1a1a; padding: 25px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">PAIRO AFFILIATES</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">U VAPE AFFILIATES</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff;">
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Hi ${affiliateName},</p>
         <p style="font-size: 15px; color: #1a1a1a;">
-          Thank you for applying to the Pairo Affiliate Program! We have received your application and identity documents.
+          Thank you for applying to the U Vape Affiliate Program! We have received your application and identity documents.
         </p>
         <p style="font-size: 15px; color: #1a1a1a; margin-top: 15px;">
           Our review team is auditing your details. You will receive an email update with your login credentials as soon as your account is approved.
         </p>
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
           <p style="font-size: 13px; color: #888; margin: 0;">Kind Regards,</p>
-          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The Pairo Team</p>
+          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The U Vape Team</p>
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} PAIRO — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
       </div>
     </div>
   `;
 
   try {
     await transporter.sendMail({
-      from: `"PAIRO Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: "Affiliate Application Received — Pairo Lifestyle",
+      subject: "Affiliate Application Received — U Vape Store",
       html,
     });
     console.log(`[Email] ✅ Affiliate Application Received sent to ${toEmail}`);
@@ -434,12 +434,12 @@ export async function sendAffiliateApplicationApproved(toEmail, affiliateName, r
     return;
   }
 
-  const loginUrl = `${process.env.NEXTAUTH_URL || "https://pairolifestyle.com"}/affiliate-login`;
+  const loginUrl = `${process.env.NEXTAUTH_URL || "https://uvapestore.com"}/affiliate-login`;
 
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; line-height: 1.6;">
       <div style="background: #1a1a1a; padding: 25px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">PAIRO AFFILIATES</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">U VAPE AFFILIATES</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff;">
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Dear ${affiliateName},</p>
@@ -461,20 +461,20 @@ export async function sendAffiliateApplicationApproved(toEmail, affiliateName, r
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
           <p style="font-size: 13px; color: #888; margin: 0;">Kind Regards,</p>
-          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The Pairo Team</p>
+          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The U Vape Team</p>
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} PAIRO — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
       </div>
     </div>
   `;
 
   try {
     await transporter.sendMail({
-      from: `"PAIRO Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: "Affiliate Account Approved! — Pairo Lifestyle",
+      subject: "Affiliate Account Approved! — U Vape Store",
       html,
     });
     console.log(`[Email] ✅ Affiliate Application Approved sent to ${toEmail}`);
@@ -495,12 +495,12 @@ export async function sendAffiliateApplicationRejected(toEmail, affiliateName, r
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; line-height: 1.6;">
       <div style="background: #1a1a1a; padding: 25px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">PAIRO AFFILIATES</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">U VAPE AFFILIATES</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff;">
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Dear ${affiliateName},</p>
         <p style="font-size: 15px; color: #1a1a1a;">
-          Thank you for your interest in the Pairo Affiliate Program.
+          Thank you for your interest in the U Vape Affiliate Program.
         </p>
         <p style="font-size: 15px; color: #1a1a1a; margin-top: 15px;">
           After reviewing your application details and marketing channels, we regret to inform you that we are unable to accept your application at this time.
@@ -512,20 +512,20 @@ export async function sendAffiliateApplicationRejected(toEmail, affiliateName, r
         ` : ''}
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
           <p style="font-size: 13px; color: #888; margin: 0;">Kind Regards,</p>
-          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The Pairo Team</p>
+          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The U Vape Team</p>
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} PAIRO — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
       </div>
     </div>
   `;
 
   try {
     await transporter.sendMail({
-      from: `"PAIRO Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: "Affiliate Application Update — Pairo Lifestyle",
+      subject: "Affiliate Application Update — U Vape Store",
       html,
     });
     console.log(`[Email] ✅ Affiliate Application Rejected sent to ${toEmail}`);
@@ -546,7 +546,7 @@ export async function sendAffiliatePayoutUpdate(toEmail, affiliateName, amount, 
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; line-height: 1.6;">
       <div style="background: #1a1a1a; padding: 25px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">PAIRO AFFILIATES</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 20px; font-weight: 300;">U VAPE AFFILIATES</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff;">
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Dear ${affiliateName},</p>
@@ -563,20 +563,20 @@ export async function sendAffiliatePayoutUpdate(toEmail, affiliateName, amount, 
         ` : ''}
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #f0f0f0;">
           <p style="font-size: 13px; color: #888; margin: 0;">Kind Regards,</p>
-          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The Pairo Team</p>
+          <p style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 5px 0;">The U Vape Team</p>
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} PAIRO — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
       </div>
     </div>
   `;
 
   try {
     await transporter.sendMail({
-      from: `"PAIRO Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Affiliates" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: `Affiliate Payout Update: $${amount} — Pairo Lifestyle`,
+      subject: `Affiliate Payout Update: $${amount} — U Vape Store`,
       html,
     });
     console.log(`[Email] ✅ Affiliate Payout Update sent to ${toEmail}`);
@@ -599,13 +599,13 @@ export async function sendAffiliatePasswordReset(toEmail, name, resetUrl) {
   const html = `
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase;">PAIRO</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
         <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Partner Portal</p>
       </div>
       <div style="padding: 40px 32px;">
         <h2 style="font-size: 22px; font-weight: 700; margin: 0 0 8px;">Reset Your Password</h2>
         <p style="color: #555; font-size: 14px; line-height: 1.7; margin: 0 0 28px;">
-          Hi ${firstName}, we received a request to reset the password for your PAIRO Partner account.<br/>
+          Hi ${firstName}, we received a request to reset the password for your U VAPE Partner account.<br/>
           Click the button below to create a new password. This link expires in <strong>1 hour</strong>.
         </p>
         <div style="text-align: center; margin: 32px 0;">
@@ -620,7 +620,7 @@ export async function sendAffiliatePasswordReset(toEmail, name, resetUrl) {
       </div>
       <div style="border-top: 1px solid #eee; padding: 18px 32px; text-align: center;">
         <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          Pairo Excellence • Partner Programme
+          U Vape Excellence • Partner Programme
         </p>
       </div>
     </div>
@@ -628,9 +628,9 @@ export async function sendAffiliatePasswordReset(toEmail, name, resetUrl) {
 
   try {
     await transporter.sendMail({
-      from: `"PAIRO Partners" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Partners" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: `Reset Your PAIRO Partner Password`,
+      subject: `Reset Your U VAPE Partner Password`,
       html,
     });
     console.log(`[Email] ✅ Password reset email sent to ${toEmail}`);
@@ -686,7 +686,7 @@ export async function sendCustomOrderConfirmation(order) {
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a;">
       <div style="background: #1a1a1a; padding: 30px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 24px;">PAIRO LIFESTYLE</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 24px;">U Vape Store</h1>
       </div>
       <div style="padding: 40px 30px; background: #fff; border: 1px solid #eee; border-top: none;">
         <h2 style="font-size: 18px; margin-top:0; margin-bottom: 12px; color:#1a1a1a; font-weight:700;">Bespoke Design Request Received</h2>
@@ -706,7 +706,7 @@ export async function sendCustomOrderConfirmation(order) {
       </div>
       <div style="background: #f9f9f9; border-top:1px solid #eee; padding: 20px 30px; text-align: center;">
         <p style="font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          Pairo Concierge • Bespoke Artisanal Tailoring & Heritage
+          U Vape Concierge • Bespoke Artisanal Tailoring & Heritage
         </p>
       </div>
     </div>
@@ -714,9 +714,9 @@ export async function sendCustomOrderConfirmation(order) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Custom Design" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Custom Design" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: order.customer?.email,
-      subject: `PAIRO Bespoke Design Request Received: #${order.orderNumber}`,
+      subject: `U VAPE Bespoke Design Request Received: #${order.orderNumber}`,
       html,
     });
     console.log(`[Email] ✅ Custom confirmation sent to ${order.customer?.email} | MsgID: ${info.messageId}`);
@@ -800,7 +800,7 @@ export async function sendAdminCustomOrderNotification(order) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: adminEmail,
       subject: `✨ New Custom Order: #${order.orderNumber} by ${order.shippingAddress?.fullName || 'Guest'}`,
       html,
@@ -823,7 +823,7 @@ export async function sendQuestionConfirmationEmail({ customerEmail, customerNam
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; padding: 20px; border: 1px solid #eaeaea;">
       <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eaeaea;">
-        <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 2px;">PAIRO</h1>
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 2px;">U VAPE</h1>
       </div>
       <div style="padding: 30px 10px;">
         <p style="font-size: 15px; line-height: 1.6;">Dear ${customerName || 'Customer'},</p>
@@ -833,7 +833,7 @@ export async function sendQuestionConfirmationEmail({ customerEmail, customerNam
       </div>
       <div style="border-top: 1px solid #eaeaea; padding-top: 20px; text-align: center;">
         <p style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          PAIRO Store • Customer Experience Team
+          U Vape Store • Customer Experience Team
         </p>
       </div>
     </div>
@@ -841,7 +841,7 @@ export async function sendQuestionConfirmationEmail({ customerEmail, customerNam
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U Vape Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: customerEmail,
       subject: `We have received your question regarding ${productName}`,
       html,
@@ -899,7 +899,7 @@ export async function sendAdminQuestionNotification({ customerName, customerEmai
           <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #1a1a1a; font-style: italic;">"${questionText}"</p>
         </div>
         <div style="margin-top: 24px; text-align: center;">
-          <a href="${process.env.NEXTAUTH_URL || 'https://pairolifestyle.com'}/admin/products/questions"
+          <a href="${process.env.NEXTAUTH_URL || 'https://uvapestore.com'}/admin/products/questions"
              style="display:inline-block; background: #1a1a1a; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 3px; font-size: 12px; font-weight: 700; text-transform:uppercase; letter-spacing:1px;">
             Moderate Questions & Answers →
           </a>
@@ -910,7 +910,7 @@ export async function sendAdminQuestionNotification({ customerName, customerEmai
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Store System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U Vape Store System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: adminEmail,
       subject: `❓ New Q&A Question on ${productName} by ${customerName}`,
       html,
@@ -930,13 +930,13 @@ export async function sendQuestionReplyEmail({ customerEmail, customerName, orig
     return;
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXTAUTH_URL || 'https://pairolifestyle.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXTAUTH_URL || 'https://uvapestore.com';
   const productLink = `${siteUrl}/product/${productSlug}`;
 
   const html = `
     <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a; padding: 20px; border: 1px solid #eaeaea;">
       <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eaeaea;">
-        <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 2px;">PAIRO</h1>
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 2px;">U VAPE</h1>
       </div>
       <div style="padding: 30px 10px;">
         <p style="font-size: 15px; line-height: 1.6;">Dear ${customerName || 'Customer'},</p>
@@ -948,7 +948,7 @@ export async function sendQuestionReplyEmail({ customerEmail, customerName, orig
         </div>
 
         <div style="margin: 20px 0; padding: 15px; background-color: #f0f7ff; border-left: 3px solid #0070f3;">
-          <p style="margin: 0 0 5px 0; font-size: 12px; color: #0070f3; text-transform: uppercase; font-weight: bold;">PAIRO Store Reply:</p>
+          <p style="margin: 0 0 5px 0; font-size: 12px; color: #0070f3; text-transform: uppercase; font-weight: bold;">U Vape Store Reply:</p>
           <p style="margin: 0; font-size: 14px; color: #111; font-weight: 500;">${replyText}</p>
         </div>
 
@@ -959,7 +959,7 @@ export async function sendQuestionReplyEmail({ customerEmail, customerName, orig
       </div>
       <div style="border-top: 1px solid #eaeaea; padding-top: 20px; text-align: center;">
         <p style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          PAIRO Store • Customer Experience Team
+          U Vape Store • Customer Experience Team
         </p>
       </div>
     </div>
@@ -967,7 +967,7 @@ export async function sendQuestionReplyEmail({ customerEmail, customerName, orig
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Support" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U VAPE Support" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: customerEmail,
       subject: `Answered: Your question regarding ${productName}`,
       html,
@@ -987,14 +987,14 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
   const html = `
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">PAIRO</h1>
+        <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
         <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Lifestyle Collection</p>
       </div>
       <div style="padding: 48px 40px; background: #fff;">
         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.5px;">Reset Your Password</h2>
         <p style="color: #555; font-size: 15px; line-height: 1.7; margin: 0 0 32px;">
           Hi ${firstName},<br/>
-          We received a request to reset the password for your PAIRO account. Click the button below to set a new password.
+          We received a request to reset the password for your U VAPE account. Click the button below to set a new password.
         </p>
         <div style="text-align: center; margin: 36px 0;">
           <a href="${resetUrl}"
@@ -1013,7 +1013,7 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
       </div>
       <div style="border-top: 1px solid #eee; padding: 18px 32px; text-align: center; background: #fafafa;">
         <p style="font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          PAIRO Lifestyle • pairolifestyle.com
+          U Vape Store • uvapestore.com
         </p>
       </div>
     </div>
@@ -1026,9 +1026,9 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"PAIRO Lifestyle" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
+      from: `"U Vape Store" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: toEmail,
-      subject: `Reset your password — PAIRO Lifestyle`,
+      subject: `Reset your password — U Vape Store`,
       html,
     });
     console.log(`[Email] ✅ Customer password reset email sent to ${toEmail} | MsgID: ${info.messageId}`);
@@ -1044,9 +1044,9 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
  * Send a confirmation email to the customer who submitted a Custom Jacket inquiry.
  */
 export async function sendCustomJacketConfirmation(toEmail, firstName, inquiry) {
-  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@pairolifestyle.com';
-  const storeName = process.env.STORE_NAME || 'PAIRO Lifestyle';
-  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://pairolifestyle.com';
+  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@uvapestore.com';
+  const storeName = process.env.STORE_NAME || 'U Vape Store';
+  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://uvapestore.com';
 
   const html = `
 <!DOCTYPE html>
@@ -1111,10 +1111,10 @@ export async function sendCustomJacketConfirmation(toEmail, firstName, inquiry) 
  * Notify admin of a new Custom Jacket inquiry.
  */
 export async function sendCustomJacketAdminNotification(inquiry) {
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.STORE_EMAIL || 'info@pairolifestyle.com';
-  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@pairolifestyle.com';
-  const storeName = process.env.STORE_NAME || 'PAIRO Lifestyle';
-  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://pairolifestyle.com';
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.STORE_EMAIL || 'info@uvapestore.com';
+  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@uvapestore.com';
+  const storeName = process.env.STORE_NAME || 'U Vape Store';
+  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://uvapestore.com';
 
   const html = `
 <!DOCTYPE html>

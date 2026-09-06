@@ -32,7 +32,7 @@ async function validateAndSaveFile(file, allowedMimes, maxSize, privateDir) {
 
   // If Cloudinary is configured (e.g. on Vercel or cloud deployment)
   if (isCloudinaryConfigured()) {
-    const stored = await uploadToStorage(buffer, file.name, "pairo-kyc");
+    const stored = await uploadToStorage(buffer, file.name, "uvape-kyc");
     return stored.url;
   }
 

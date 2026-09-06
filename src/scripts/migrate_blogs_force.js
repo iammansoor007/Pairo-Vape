@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function migrate() {
   try {
-    await mongoose.connect('mongodb://localhost:27017/pairo');
+    await mongoose.connect('mongodb://localhost:27017/uvape');
     console.log('Connected to MongoDB');
 
     const Blog = mongoose.models.Blog || mongoose.model('Blog', new mongoose.Schema({}, { strict: false }));

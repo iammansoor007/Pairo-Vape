@@ -59,7 +59,7 @@ export async function POST(req) {
     const buffer = Buffer.from(bytes);
 
     // Upload to storage (Cloudinary or local fallback)
-    const stored = await uploadToStorage(buffer, file.name, "pairo-artwork");
+    const stored = await uploadToStorage(buffer, file.name, "uvape-artwork");
 
     return NextResponse.json(
       {

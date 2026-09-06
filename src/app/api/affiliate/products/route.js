@@ -31,7 +31,7 @@ export async function GET(req) {
       .sort({ createdAt: -1 })
       .lean();
 
-    const host = process.env.NEXT_PUBLIC_SITE_URL || `https://${req.headers.get("host") || "pairolifestyle.com"}`;
+    const host = process.env.NEXT_PUBLIC_SITE_URL || `https://${req.headers.get("host") || "uvapestore.com"}`;
     const code = affiliate.referralCode;
 
     // Map referral link to each product

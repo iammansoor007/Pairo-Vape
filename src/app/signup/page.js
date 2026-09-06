@@ -109,7 +109,7 @@ export default function SignupPage() {
       <div className="max-w-md w-full mx-auto bg-[#FAF9F6] border border-black/[0.04] p-8 sm:p-10 rounded-[4px] shadow-sm">
         <div className="text-center">
           <h1 className="text-2xl md:text-3xl font-black tracking-wider text-black">Create Account</h1>
-          <p className="mt-2 text-[10px] font-bold text-black/50 uppercase tracking-widest">Join Pairo Lifestyle</p>
+          <p className="mt-2 text-[10px] font-bold text-black/50 uppercase tracking-widest">Join U Vape Store</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

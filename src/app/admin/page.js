@@ -109,7 +109,7 @@ export default function AdminDashboard() {
                  </div>
               </div>
               <div className="mt-6 pt-4 border-t border-[#f0f0f1] text-[13px] text-gray-500 italic">
-                 Pairo v1.0.0 running Modern Theme.
+                 U Vape v1.0.0 running Modern Theme.
               </div>
             </MetaBox>
 

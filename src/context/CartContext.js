@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
   const [prevStorageKey, setPrevStorageKey] = useState("");
 
   // Dynamic storage key based on user ID
-  const storageKey = session?.user?.id ? `pairo-cart-${session.user.id}` : "pairo-cart-guest";
+  const storageKey = session?.user?.id ? `uvape-cart-${session.user.id}` : "uvape-cart-guest";
 
   if (storageKey !== prevStorageKey) {
     setPrevStorageKey(storageKey);
@@ -52,7 +52,7 @@ export function CartProvider({ children }) {
   // Read affiliate referral cookie/localStorage on mount and whenever storage changes
   const readAffiliateCookie = useCallback(() => {
     try {
-      const cookieMatch = document.cookie.match(/(^|;)\s*pairo_ref\s*=\s*([^;]+)/);
+      const cookieMatch = document.cookie.match(/(^|;)\s*uvape_ref\s*=\s*([^;]+)/);
       if (cookieMatch) {
         const parsed = JSON.parse(decodeURIComponent(cookieMatch[2]));
         if (parsed && parsed.expiresAt > Date.now()) {
@@ -64,7 +64,7 @@ export function CartProvider({ children }) {
           return;
         }
       }
-      const stored = localStorage.getItem('pairo_ref');
+      const stored = localStorage.getItem('uvape_ref');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && parsed.expiresAt > Date.now()) {
@@ -83,15 +83,15 @@ export function CartProvider({ children }) {
   useEffect(() => {
     readAffiliateCookie();
     window.addEventListener('storage', readAffiliateCookie);
-    window.addEventListener('pairo_ref_updated', readAffiliateCookie);
+    window.addEventListener('uvape_ref_updated', readAffiliateCookie);
     return () => {
       window.removeEventListener('storage', readAffiliateCookie);
-      window.removeEventListener('pairo_ref_updated', readAffiliateCookie);
+      window.removeEventListener('uvape_ref_updated', readAffiliateCookie);
     };
   }, [readAffiliateCookie]);
   // Load promo code from localStorage when storageKey changes
   useEffect(() => {
-    const savedPromo = localStorage.getItem(`pairo-promo-${storageKey}`);
+    const savedPromo = localStorage.getItem(`uvape-promo-${storageKey}`);
     Promise.resolve().then(() => {
       if (savedPromo) {
         try {
@@ -108,9 +108,9 @@ export function CartProvider({ children }) {
   // Save promo code to localStorage when it changes
   useEffect(() => {
     if (appliedPromo) {
-      localStorage.setItem(`pairo-promo-${storageKey}`, JSON.stringify(appliedPromo));
+      localStorage.setItem(`uvape-promo-${storageKey}`, JSON.stringify(appliedPromo));
     } else {
-      localStorage.removeItem(`pairo-promo-${storageKey}`);
+      localStorage.removeItem(`uvape-promo-${storageKey}`);
     }
   }, [appliedPromo, storageKey]);
 

@@ -239,7 +239,7 @@ export default function BlogForm({ blogId }) {
                   />
                   <div className="text-[12px] text-gray-500 px-1 mt-1 flex items-center gap-1.5 flex-wrap">
                      <span>Permalink:</span>
-                     <span className="text-gray-400 font-mono">pairo.store/blog/</span>
+                     <span className="text-gray-400 font-mono">uvape.store/blog/</span>
                      <input
                         readOnly={!editSlug}
                         className={`outline-none text-[#2271b1] font-mono px-1.5 py-0.5 rounded transition-all text-xs ${

@@ -32,7 +32,7 @@ describe("Coupons Validate API Route — E2E Integration Suite", () => {
 
   beforeAll(async () => {
     if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/pairo");
+      await mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/uvape");
     }
 
     testCollection = new mongoose.Types.ObjectId().toString();

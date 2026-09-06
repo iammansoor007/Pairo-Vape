@@ -42,7 +42,7 @@ function VerifyEmailContent() {
   return (
     <div className="max-w-md w-full bg-[#FAF9F6] border border-black/[0.06] rounded-[4px] p-10 shadow-sm text-center space-y-6">
       {/* Logo */}
-      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40">Pairo Lifestyle</p>
+      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40">U Vape Store</p>
 
       {status === "loading" && (
         <div className="space-y-4">
@@ -102,7 +102,7 @@ export default function VerifyEmailPage() {
         <Suspense
           fallback={
             <div className="max-w-md w-full bg-[#FAF9F6] border border-black/[0.06] rounded-[4px] p-10 shadow-sm text-center space-y-4">
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40">Pairo Lifestyle</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40">U Vape Store</p>
               <Loader2 className="w-10 h-10 mx-auto text-black animate-spin" />
               <p className="text-[11px] font-bold uppercase tracking-widest text-black">Loading...</p>
             </div>

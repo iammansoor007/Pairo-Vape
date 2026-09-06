@@ -414,7 +414,7 @@ export default function BlogDetailClient({ post, posts, featuredProduct, postDat
                         <div className={`${post.excerpt ? 'pt-3.5 border-t border-black/5' : ''} flex flex-col gap-2.5`}>
                            <div className="flex justify-between items-center text-xs text-black">
                               <span className="font-medium text-neutral-500">Author</span>
-                              <span className="font-semibold">{post.author || "Pairo Studio"}</span>
+                              <span className="font-semibold">{post.author || "U Vape Store"}</span>
                            </div>
                            <div className="flex justify-between items-center text-xs text-black">
                               <span className="font-medium text-neutral-500">Published</span>
@@ -555,7 +555,7 @@ export default function BlogDetailClient({ post, posts, featuredProduct, postDat
                              <div className={`${post.excerpt ? 'pt-3.5 border-t border-black/5' : ''} flex flex-col gap-2.5`}>
                                 <div className="flex justify-between items-center text-xs text-black">
                                    <span className="font-medium text-neutral-500">Author</span>
-                                   <span className="font-semibold">{post.author || "Pairo Studio"}</span>
+                                   <span className="font-semibold">{post.author || "U Vape Store"}</span>
                                 </div>
                                 <div className="flex justify-between items-center text-xs text-black">
                                    <span className="font-medium text-neutral-500">Published</span>

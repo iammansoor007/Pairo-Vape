@@ -12,7 +12,7 @@ async function seedAdmin() {
     console.log('Connecting to MongoDB...');
     await mongoose.connect(MONGODB_URI);
     
-    const adminEmail = 'admin@pairo.com';
+    const adminEmail = 'admin@uvapestore.com';
     const adminPassword = 'adminpassword123'; // User should change this
     
     const existingAdmin = await User.findOne({ email: adminEmail });

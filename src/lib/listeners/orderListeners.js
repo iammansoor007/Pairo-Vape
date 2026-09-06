@@ -1,4 +1,4 @@
-import pairoEvents from '../events';
+import uvapeEvents from '../events';
 import QueueService from '../queue';
 import { sendOrderConfirmation, sendAdminOrderNotification } from '../email';
 
@@ -7,7 +7,7 @@ import { sendOrderConfirmation, sendAdminOrderNotification } from '../email';
  */
 export function initOrderListeners() {
   // 1. ORDER_CREATED
-  pairoEvents.on('ORDER_CREATED', async (order) => {
+  uvapeEvents.on('ORDER_CREATED', async (order) => {
     try {
         console.log(`[Event Received] ORDER_CREATED: ${order.orderNumber}`);
         // Email Customer
@@ -23,7 +23,7 @@ export function initOrderListeners() {
   });
 
   // 2. ORDER_CANCELLED
-  pairoEvents.on('ORDER_CANCELLED', (order) => {
+  uvapeEvents.on('ORDER_CANCELLED', (order) => {
      QueueService.push('SEND_CANCELLATION_EMAIL', async () => {
         // We'll need to add sendCancellationEmail to email.js
         console.log(`Sending cancellation email for order ${order.orderNumber}`);
@@ -31,7 +31,7 @@ export function initOrderListeners() {
   });
 
   // 3. ORDER_STATUS_UPDATED
-  pairoEvents.on('ORDER_STATUS_UPDATED', ({ order, oldStatus, newStatus }) => {
+  uvapeEvents.on('ORDER_STATUS_UPDATED', ({ order, oldStatus, newStatus }) => {
     console.log(`Order ${order.orderNumber} status changed from ${oldStatus} to ${newStatus}`);
     // Future: Trigger status-specific emails (Shipped, Delivered)
   });

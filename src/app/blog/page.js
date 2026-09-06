@@ -101,7 +101,7 @@ export default async function BlogArchive() {
 
   // Hero config from admin page builder
   const heroSection = page?.sections?.find(s => s.type === "blog_hero");
-  const badge       = heroSection?.config?.badge        || "Pairo Archive & Journal";
+  const badge       = heroSection?.config?.badge        || "U Vape Archive & Journal";
   const heading     = heroSection?.config?.heading      || "Editorial Stories";
   const subheading  = heroSection?.config?.subheading   || "";
   const editionLabel = heroSection?.config?.editionLabel || "VOLUME 2026 // EDITION 0.1";
@@ -109,8 +109,8 @@ export default async function BlogArchive() {
   const { structuredData } = await resolveSEOMetadata({
     entity: page || {},
     type: "page",
-    fallbackTitle: "Journal | Pairo Editorial",
-    fallbackDesc: "Explore the stories, craftsmanship, and heritage behind Pairo's archival shearling collection.",
+    fallbackTitle: "Journal | U Vape Editorial",
+    fallbackDesc: "Explore the stories, craftsmanship, and heritage behind U Vape's archival vape collection.",
     path: "/blog"
   });
 

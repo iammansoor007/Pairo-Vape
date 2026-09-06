@@ -19,13 +19,13 @@ export default function ProductSection({
 
   const rawSeriesLabel = seriesLabel || siteData?.products?.labels?.seriesLabel || "U VAPE SERIES";
   const displaySeriesLabel = rawSeriesLabel
-    .replace(/pairo\s*series/gi, "U VAPE SERIES")
-    .replace(/pairo/gi, "U VAPE");
+    .replace(/uvape\s*series/gi, "U VAPE SERIES")
+    .replace(/uvape/gi, "U VAPE");
 
   const rawTitle = title || "U VAPE COLLECTION";
   const displayTitle = rawTitle
-    .replace(/pairo\s*series/gi, "U VAPE SERIES")
-    .replace(/pairo/gi, "U VAPE");
+    .replace(/uvape\s*series/gi, "U VAPE SERIES")
+    .replace(/uvape/gi, "U VAPE");
 
   const productLabels = {
     seriesLabel: displaySeriesLabel,

@@ -43,7 +43,7 @@ export default function ProductProcessSection() {
               className="inline-flex items-center bg-black text-white px-3 py-1 rounded-full mx-auto"
             >
               <span className="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
-                {process.subtitle || "The Craftsmanship Behind Pairo"}
+                {process.subtitle || "The Craftsmanship Behind U Vape"}
               </span>
             </motion.div>
             <motion.h2

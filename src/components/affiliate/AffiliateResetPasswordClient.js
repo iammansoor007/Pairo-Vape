@@ -120,7 +120,7 @@ export default function AffiliateResetPasswordClient() {
             <ShieldCheck size={22} color="#0a0a0a" />
           </div>
           <div style={{ letterSpacing: "6px", fontSize: "13px", fontWeight: 800, color: "#d4af37", textTransform: "uppercase", marginBottom: "6px" }}>
-            PAIRO
+            U VAPE
           </div>
           <div style={{ fontSize: "10px", letterSpacing: "3px", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>
             Partner Portal

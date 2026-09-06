@@ -2,7 +2,7 @@ import { EventEmitter } from 'events';
 import AuditLog from '@/models/AuditLog';
 
 // Singleton Event Emitter
-class PairoEventEmitter extends EventEmitter {
+class UVapeEventEmitter extends EventEmitter {
   constructor() {
     super();
     this.setMaxListeners(20);
@@ -51,15 +51,15 @@ class PairoEventEmitter extends EventEmitter {
 }
 
 // Ensure singleton in development to prevent memory leaks during HMR
-let pairoEvents;
+let uvapeEvents;
 
 if (process.env.NODE_ENV === 'production') {
-  pairoEvents = new PairoEventEmitter();
+  uvapeEvents = new UVapeEventEmitter();
 } else {
-  if (!global.pairoEvents) {
-    global.pairoEvents = new PairoEventEmitter();
+  if (!global.uvapeEvents) {
+    global.uvapeEvents = new UVapeEventEmitter();
   }
-  pairoEvents = global.pairoEvents;
+  uvapeEvents = global.uvapeEvents;
 }
 
-export default pairoEvents;
+export default uvapeEvents;

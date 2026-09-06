@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 async function run() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/pairo');
+  await mongoose.connect('mongodb://127.0.0.1:27017/uvape');
   
   // Find all collections
   const db = mongoose.connection.db;
   const collections = await db.listCollections().toArray();
-  console.log('Collections in pairo database:', collections.map(c => c.name));
+  console.log('Collections in uvape database:', collections.map(c => c.name));
   
   // Check promotions
   const promotions = await db.collection('promotions').find({}).toArray();

@@ -266,7 +266,7 @@ export default function AdminTrash() {
                       )}
                       <div>
                         <h4 className="font-bold text-black text-[13px]">{b.title}</h4>
-                        <p className="text-[10px] text-black/40 mt-0.5">Author: {b.author || "Pairo Studio"}</p>
+                        <p className="text-[10px] text-black/40 mt-0.5">Author: {b.author || "U Vape Store"}</p>
                       </div>
                     </div>
                   </td>

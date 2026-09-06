@@ -1,7 +1,7 @@
-const mongoose = require('/var/www/pairolifestyle.com/node_modules/mongoose');
+const mongoose = require('/var/www/uvapestore.com/node_modules/mongoose');
 
 async function main() {
-  const uri = 'mongodb://pairolifestyle_user:mD%26tEam%2FpLs-19yY@127.0.0.1:27017/pairo?authSource=pairo&replicaSet=rs0';
+  const uri = 'mongodb://pairolifestyle_user:mD%26tEam%2FpLs-19yY@127.0.0.1:27017/uvape?authSource=uvape&replicaSet=rs0';
   
   try {
     await mongoose.connect(uri);
@@ -9,15 +9,15 @@ async function main() {
     const redirectsCollection = db.collection('redirects');
 
     const invalidRedirects = [
-      "/product/pairo-womens-brown-hooded-shearling-leather-jacket-b3-bomber",
-      "/product/pairo-womens-black-shearling-leather-jacket-b3-biker-style",
-      "/product/pairo-womens-brown-shearling-leather-jacket-b3-bomber",
-      "/product/pairo-womens-black-fur-black-leather-shearling-jacket-b3-bomber",
-      "/product/pairo-womens-black-leather-white-fur-collar-shearling-jacket-b3-bomber",
-      "/product/pairo-womens-brown-belted-shearling-leather-long-coat-b3-style",
-      "/product/pairo-womens-warm-brown-belted-shearling-leather-long-coat-b3-style",
-      "/product/pairo-womens-black-white-shearling-leather-long-coat-b3-style",
-      "/product/pairo-womens-long-brown-shearling-leather-long-coat-b3-style"
+      "/product/uvape-womens-brown-hooded-vape-leather-jacket-b3-bomber",
+      "/product/uvape-womens-black-vape-leather-jacket-b3-biker-style",
+      "/product/uvape-womens-brown-vape-leather-jacket-b3-bomber",
+      "/product/uvape-womens-black-fur-black-leather-vape-jacket-b3-bomber",
+      "/product/uvape-womens-black-leather-white-fur-collar-vape-jacket-b3-bomber",
+      "/product/uvape-womens-brown-belted-vape-leather-long-coat-b3-style",
+      "/product/uvape-womens-warm-brown-belted-vape-leather-long-coat-b3-style",
+      "/product/uvape-womens-black-white-vape-leather-long-coat-b3-style",
+      "/product/uvape-womens-long-brown-vape-leather-long-coat-b3-style"
     ];
 
     console.log('\n--- CLEANING INVALID PRODUCT REDIRECTS ON VPS ---');

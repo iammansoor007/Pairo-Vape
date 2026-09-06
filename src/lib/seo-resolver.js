@@ -2,7 +2,7 @@ import { normalizePath } from "./redirect-resolver";
 
 const DEFAULT_SITE_TITLE = "U Vape | Premium Disposables, E-Liquids & Vape Kits";
 const DEFAULT_SITE_DESC = "Discover premium vapes, disposables, e-liquids, and accessories at U Vape Store.";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://uvapestore.com";
 
 /**
  * Sanitizes input strings to prevent HTML tag or script injection in metadata.
@@ -50,21 +50,21 @@ export function escapeJsonLd(data) {
 }
 
 /**
- * Normalizes competitor brand references and URLs to Pairo.
+ * Normalizes competitor brand references and URLs to U Vape.
  */
 export function cleanCompetitorDetails(jsonLd) {
   if (!jsonLd) return jsonLd;
   let str = typeof jsonLd === "string" ? jsonLd : JSON.stringify(jsonLd);
 
-  // Replace competitor names with Pairo Lifestyle
+  // Replace competitor names with U Vape Store
   str = str
-    .replace(/Excellent Leather Shop/gi, "Pairo Lifestyle")
-    .replace(/Prime Jackets/gi, "Pairo Lifestyle")
-    .replace(/Jackets Junction/gi, "Pairo Lifestyle")
-    .replace(/The Jacket Maker/gi, "Pairo Lifestyle")
-    .replace(/The Jacket M/gi, "Pairo Lifestyle");
+    .replace(/Excellent Leather Shop/gi, "U Vape Store")
+    .replace(/Prime Jackets/gi, "U Vape Store")
+    .replace(/Jackets Junction/gi, "U Vape Store")
+    .replace(/The Jacket Maker/gi, "U Vape Store")
+    .replace(/The Jacket M/gi, "U Vape Store");
 
-  // Replace competitor URLs with Pairo Lifestyle URL
+  // Replace competitor URLs with U Vape Store URL
   str = str
     .replace(/https?:\/\/excellentleathershop\.com/gi, SITE_URL)
     .replace(/https?:\/\/primejackets\.com/gi, SITE_URL)
@@ -143,7 +143,7 @@ export async function resolveSEOMetadata(options = {}) {
 
   const brandName = siteConfig?.brand?.name || "U Vape";
   const brandDescription = siteConfig?.brand?.description || "U Vape is a premier vape store featuring top-rated disposable vapes, e-liquids, salt nics, and vaping kits.";
-  const logoUrl = siteConfig?.headerConfig?.logoUrl || siteConfig?.footerConfig?.logoUrl || siteConfig?.brand?.logo || siteConfig?.brand?.faviconUrl || "/assets/pairo.webp";
+  const logoUrl = siteConfig?.headerConfig?.logoUrl || siteConfig?.footerConfig?.logoUrl || siteConfig?.brand?.logo || siteConfig?.brand?.faviconUrl || "/assets/uvape.webp";
   const logoUrlAbsolute = logoUrl.startsWith("http") ? logoUrl : `${SITE_URL}${logoUrl.startsWith("/") ? "" : "/"}${logoUrl}`;
   const telephone = siteConfig?.brand?.whatsappNumber || siteConfig?.brand?.phone || "+1 847-999-3787";
 
@@ -153,11 +153,11 @@ export async function resolveSEOMetadata(options = {}) {
   const heroImageUrl = firstSlideImage.startsWith("http") ? firstSlideImage : `${SITE_URL}${firstSlideImage.startsWith("/") ? "" : "/"}${firstSlideImage}`;
 
   const socials = [
-    "https://www.facebook.com/pairolifestyle/",
-    "https://www.instagram.com/pairo.lifestyle",
-    "https://www.youtube.com/@PairoLifestyle",
-    "https://www.tiktok.com/@pairo.lifestyle",
-    "https://x.com/Pairolifestyle"
+    "https://www.facebook.com/uvapestore/",
+    "https://www.instagram.com/uvapestore",
+    "https://www.youtube.com/@uvapestore",
+    "https://www.tiktok.com/@uvapestore",
+    "https://x.com/uvapestore"
   ];
 
   const orgSchema = {
@@ -555,7 +555,7 @@ export async function resolveSEOMetadata(options = {}) {
       const primaryImageId = `${postUrl}/#primaryimage`;
       const datePublished = (entity.publishedAt || entity.createdAt) ? new Date(entity.publishedAt || entity.createdAt).toISOString() : new Date().toISOString();
       const dateModified = entity.updatedAt ? new Date(entity.updatedAt).toISOString() : datePublished;
-      const authorName = entity.author || "Pairo Studio";
+      const authorName = entity.author || "U Vape Store";
       const authorId = `${SITE_URL}/#/schema/person/${Buffer.from(authorName).toString('hex').slice(0, 16)}`;
 
       const articleSchema = {
@@ -818,8 +818,8 @@ export async function resolveSEOMetadata(options = {}) {
         "@context": "https://schema.org",
         "@type": "ContactPage",
         "@id": `${SITE_URL}/contact#webpage`,
-        "name": "Contact Pairo - Direct Concierge Line",
-        "description": "Get in touch with Pairo Lifestyle atelier for bespoke fittings, sizing advice, and order inquiries.",
+        "name": "Contact U Vape - Direct Concierge Line",
+        "description": "Get in touch with U Vape Store atelier for bespoke fittings, sizing advice, and order inquiries.",
         "url": `${SITE_URL}/contact`
       };
 
@@ -841,8 +841,8 @@ export async function resolveSEOMetadata(options = {}) {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "@id": `${SITE_URL}/about#webpage`,
-        "name": "About Pairo Lifestyle - Artisanal Shearling Heritage",
-        "description": "Discover Pairo's journey in crafting the future of modern elegance, bridging heritage craftsmanship and contemporary design.",
+        "name": "About U Vape Store - Artisanal vape Heritage",
+        "description": "Discover U Vape's journey in crafting the future of modern elegance, bridging heritage craftsmanship and contemporary design.",
         "url": `${SITE_URL}/about`
       };
 
@@ -866,7 +866,7 @@ export async function resolveSEOMetadata(options = {}) {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is Pairo Lifestyle's estimated delivery time?",
+            "name": "What is U Vape Store's estimated delivery time?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Our handcrafted pieces are made-to-order. The estimated delivery time is between 15–20 working days."

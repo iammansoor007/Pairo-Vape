@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Order from "@/models/Order";
 import Product from "@/models/Product";
-import pairoEvents from "@/lib/events";
+import uvapeEvents from "@/lib/events";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
@@ -65,7 +65,7 @@ export async function PATCH(req, { params }) {
     await order.save();
 
     // 3. Dispatch Event
-    pairoEvents.dispatch('ORDER_CANCELLED', order);
+    uvapeEvents.dispatch('ORDER_CANCELLED', order);
 
     return NextResponse.json({ 
       success: true, 

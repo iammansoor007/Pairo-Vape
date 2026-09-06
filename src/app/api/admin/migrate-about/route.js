@@ -9,7 +9,7 @@ export async function GET() {
     const { about } = siteData;
 
     const aboutPageData = {
-      title: "About Pairo",
+      title: "About U Vape",
       slug: "about",
       status: "Published",
       sections: [
@@ -91,7 +91,7 @@ export async function GET() {
       ],
       template: "about",
       seo: {
-        title: "About Us | Pairo - Premium Shearling Jackets",
+        title: "About Us | U Vape - Premium vape devices",
         description: about.hero.subtitle,
         noIndex: false
       }

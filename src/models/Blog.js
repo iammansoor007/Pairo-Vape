@@ -7,7 +7,7 @@ const BlogSchema = new mongoose.Schema({
   content: String,
   image: String,
   category: String,
-  author: { type: String, default: "Pairo Studio" },
+  author: { type: String, default: "U Vape Store" },
   status: { type: String, enum: ['Draft', 'Published'], default: 'Draft' },
   isFeatured: { type: Boolean, default: false },
   tags: [String],

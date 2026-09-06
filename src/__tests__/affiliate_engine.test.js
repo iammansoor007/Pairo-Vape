@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI = "mongodb://127.0.0.1:27017/pairo";
+const URI = "mongodb://127.0.0.1:27017/uvape";
 process.env.MONGODB_URI = URI;
 
 async function runTests() {
@@ -24,7 +24,7 @@ async function runTests() {
   const clickQueue = (await import('../lib/affiliate/ClickQueue.js')).default;
   const { can } = await import('../lib/rbac.js');
 
-  const testEmail = "comprehensive_test_partner@pairolifestyle.com";
+  const testEmail = "comprehensive_test_partner@uvapestore.com";
 
   // Clean old run records
   await Affiliate.deleteMany({ email: testEmail });

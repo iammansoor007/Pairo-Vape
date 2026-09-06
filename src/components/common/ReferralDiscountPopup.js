@@ -5,7 +5,7 @@ import { useCart } from "@/context/CartContext";
 import { X, Gift, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
-const SESSION_KEY = "pairo_referral_popup_shown";
+const SESSION_KEY = "uvape_referral_popup_shown";
 
 export default function ReferralDiscountPopup() {
   const { affiliateDiscount, affiliateDiscountAmount } = useCart();

@@ -6,44 +6,46 @@ import SiteConfig from "@/models/SiteConfig";
 export async function GET(req) {
   try {
     await dbConnect();
+    const mongoose = (await import("mongoose")).default;
+    const db = mongoose.connection.db;
 
-    // 1. Update SiteConfig
-    const siteConfig = await SiteConfig.findOne({ key: 'main' });
-    if (siteConfig) {
-      let str = JSON.stringify(siteConfig);
-      str = str
-        .replace(/pairo\s*series/gi, "U VAPE SERIES")
-        .replace(/pairo\s*store/gi, "U VAPE STORE")
-        .replace(/pairo\s*studio/gi, "U VAPE STORE")
-        .replace(/pairo/gi, "U VAPE")
-        .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
-        .replace(/shearling/gi, "DISPOSABLE")
-        .replace(/jacket/gi, "VAPE");
-      const cleaned = JSON.parse(str);
-      delete cleaned._id;
-      await SiteConfig.replaceOne({ _id: siteConfig._id }, cleaned);
-    }
+    const collections = await db.listCollections().toArray();
+    let totalUpdated = 0;
 
-    // 2. Update Pages
-    const pages = await Page.find({});
-    for (const page of pages) {
-      let str = JSON.stringify(page);
-      if (/pairo/i.test(str) || /shearling/i.test(str)) {
-        str = str
-          .replace(/pairo\s*series/gi, "U VAPE SERIES")
-          .replace(/pairo\s*store/gi, "U VAPE STORE")
-          .replace(/pairo\s*studio/gi, "U VAPE STORE")
-          .replace(/pairo/gi, "U VAPE")
-          .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
-          .replace(/shearling/gi, "DISPOSABLE")
-          .replace(/jacket/gi, "VAPE");
-        const cleanedPage = JSON.parse(str);
-        delete cleanedPage._id;
-        await Page.replaceOne({ _id: page._id }, cleanedPage);
+    for (const colInfo of collections) {
+      const colName = colInfo.name;
+      const collection = db.collection(colName);
+      const docs = await collection.find({}).toArray();
+
+      for (const doc of docs) {
+        let str = JSON.stringify(doc);
+        if (/pairo/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
+          let cleaned = str
+            .replace(/pairolifestyle\.com/gi, "uvapestore.com")
+            .replace(/pairo\.com/gi, "uvapestore.com")
+            .replace(/pairo\s*lifestyle/gi, "U Vape Store")
+            .replace(/pairo\s*store/gi, "U Vape Store")
+            .replace(/pairo\s*series/gi, "U VAPE SERIES")
+            .replace(/pairo\s*studio/gi, "U Vape Store")
+            .replace(/pairo/gi, "U Vape")
+            .replace(/handcrafted shearling/gi, "premium vape")
+            .replace(/shearling outerwear/gi, "vape devices & e-liquids")
+            .replace(/shearling coats/gi, "vape devices")
+            .replace(/shearling jacket/gi, "vape device")
+            .replace(/shearling/gi, "vape")
+            .replace(/bespoke leather jackets/gi, "custom vape kits");
+
+          if (cleaned !== str) {
+            const updatedObj = JSON.parse(cleaned);
+            delete updatedObj._id;
+            await collection.replaceOne({ _id: doc._id }, updatedObj);
+            totalUpdated++;
+          }
+        }
       }
     }
 
-    return NextResponse.json({ success: true, message: "Database cleansed of Pairo terms." });
+    return NextResponse.json({ success: true, message: `Database cleansed. Updated ${totalUpdated} records across all collections.` });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

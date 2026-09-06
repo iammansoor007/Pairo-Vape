@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   await dbConnect();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pairolifestyle.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://uvapestore.com";
 
   const siteConfig = await SiteConfig.findOne({ key: 'main' }).lean();
   const isGlobalNoIndex = siteConfig?.disableSearchEngineIndexing === true;

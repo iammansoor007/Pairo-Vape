@@ -9,7 +9,7 @@ import MarqueeSection from "@/components/home/MarqueeSection";
 export default function ContactHero({
   slides,
   label = "Get In Touch",
-  title = "CONTACT PAIRO",
+  title = "CONTACT U VAPE",
   subtitle = "Our team is here to assist you with any inquiries regarding our collections, orders, or artisanal process.",
   buttonText = "SCROLL TO FORM",
   link = "#contact-form",

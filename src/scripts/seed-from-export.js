@@ -13,7 +13,7 @@ const path = require("path");
 
 const MONGO_URI =
   "mongodb+srv://ammansoor0077_db_user:j6IwD1LfEd0k5Zaj@cluster0.a5ey9cl.mongodb.net/?appName=Cluster0";
-const DB_NAME = "pairo"; // change if your DB name differs
+const DB_NAME = "uvape"; // change if your DB name differs
 
 const EXPORT_PATH = path.join(__dirname, "../../db-export.json");
 

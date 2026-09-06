@@ -148,7 +148,7 @@ export async function POST(req) {
           customer.pendingEmailToken = token;
           customer.pendingEmailTokenExpiry = expiry;
 
-          const siteUrl = process.env.NEXTAUTH_URL || "https://pairolifestyle.com";
+          const siteUrl = process.env.NEXTAUTH_URL || "https://uvapestore.com";
           const verificationUrl = `${siteUrl}/verify-email?token=${token}&type=change`;
           
           const { sendEmailVerification } = await import("@/lib/email");
@@ -213,8 +213,8 @@ export async function POST(req) {
         await order.save();
         
         // Dispatch event for listeners (like email)
-        const pairoEvents = (await import("@/lib/events")).default;
-        pairoEvents.dispatch('ORDER_CANCELLED', order);
+        const uvapeEvents = (await import("@/lib/events")).default;
+        uvapeEvents.dispatch('ORDER_CANCELLED', order);
         
         return NextResponse.json({ message: "Order cancelled successfully" });
       }

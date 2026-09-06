@@ -20,7 +20,7 @@ export default function AffiliatesManagerClient({ userSession }) {
     cookieDurationDays: 30,
     minimumPayoutAmount: 50,
     autoApproveApplications: false,
-    supportEmail: "affiliates@pairolifestyle.com"
+    supportEmail: "affiliates@uvapestore.com"
   });
 
   // Action / Edit Modal States
@@ -525,7 +525,7 @@ export default function AffiliatesManagerClient({ userSession }) {
                 {affiliates.length === 0 ? (
                   <tr><td colSpan="5" className="p-8 text-center text-gray-400 italic">No active affiliates registered.</td></tr>
                 ) : affiliates.map(aff => {
-                  const link = typeof window !== 'undefined' ? `${window.location.origin}/?ref=${aff.referralCode}` : `https://pairolifestyle.com/?ref=${aff.referralCode}`;
+                  const link = typeof window !== 'undefined' ? `${window.location.origin}/?ref=${aff.referralCode}` : `https://uvapestore.com/?ref=${aff.referralCode}`;
                   const discountLabel = aff.customerDiscountType === 'None' || !aff.customerDiscountValue ? 'None' :
                     aff.customerDiscountType === 'Percentage' ? `${aff.customerDiscountValue}% Off` : `$${aff.customerDiscountValue} Off`;
                   return (

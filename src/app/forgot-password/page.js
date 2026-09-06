@@ -65,7 +65,7 @@ export default function ForgotPasswordPage() {
             {success ? "Check Your Inbox" : "Forgot Password?"}
           </h1>
           <p className="mt-2 text-[10px] font-bold text-neutral-400 uppercase tracking-widest">
-            {success ? "Reset link sent" : "Reset your Pairo account password"}
+            {success ? "Reset link sent" : "Reset your U Vape account password"}
           </p>
         </div>
 

@@ -46,7 +46,7 @@ export const SECTION_SCHEMAS = {
     fields: [
       { name: "items", label: "Marquee Items", type: "repeater", fields: [
         { name: "text", label: "Display Text", type: "text" },
-        { name: "subText", label: "Sub Text (e.g. PAIRO — 26)", type: "text" },
+        { name: "subText", label: "Sub Text (e.g. U VAPE — 26)", type: "text" },
         { name: "icon", label: "Icon", type: "icon" }
       ]},
       { name: "speed", label: "Scroll Speed (seconds)", type: "number", default: 80 }

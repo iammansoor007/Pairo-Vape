@@ -234,7 +234,7 @@ export default function AffiliateDashboardClient({ userSession }) {
       {/* Mobile Header Bar */}
       <header className="flex md:hidden items-center justify-between px-5 py-4 bg-[#1d2327] text-white border-b border-neutral-800 select-none z-50 sticky top-0 shadow-sm">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-xs uppercase tracking-[0.2em] text-[#72aee6]">Pairo Portal</span>
+          <span className="font-bold text-xs uppercase tracking-[0.2em] text-[#72aee6]">U Vape Portal</span>
           <span className="text-[10px] bg-neutral-800 text-neutral-400 px-1.5 py-0.5 rounded font-mono font-bold">ID: {profile?.referralCode}</span>
         </div>
         <button 
@@ -253,7 +253,7 @@ export default function AffiliateDashboardClient({ userSession }) {
         <div className="space-y-6">
           {/* Header Profile info */}
           <div className="space-y-1 pb-5 border-b border-neutral-700/60">
-            <p className="text-[9px] font-bold text-[#72aee6] uppercase tracking-[0.3em]">Pairo Partner</p>
+            <p className="text-[9px] font-bold text-[#72aee6] uppercase tracking-[0.3em]">U Vape Partner</p>
             <h3 className="text-sm font-bold tracking-tight text-white uppercase truncate">{profile?.name}</h3>
             <div className="inline-flex px-1.5 py-0.5 rounded bg-neutral-800 text-[9px] font-mono text-neutral-400 uppercase font-bold">
               ID: {profile?.referralCode}

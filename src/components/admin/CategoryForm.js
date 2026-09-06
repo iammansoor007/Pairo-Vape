@@ -176,7 +176,7 @@ export default function CategoryForm({ categoryId = null, type = "product" }) {
                <div className="text-[12px] text-gray-500 px-1 mt-1 flex flex-wrap items-center gap-1.5">
                   <span>Permalink:</span>
                   <span className="text-gray-400 font-mono">
-                    pairolifestyle.com/{type === 'product' ? 'collections' : 'blog'}/
+                    uvapestore.com/{type === 'product' ? 'collections' : 'blog'}/
                   </span>
                   {slugLocked ? (
                     <>

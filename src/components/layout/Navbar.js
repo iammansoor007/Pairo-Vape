@@ -326,7 +326,7 @@ export default function Navbar() {
                 {headerLogoUrl ? (
                   <Image src={headerLogoUrl} alt="Logo" width={160} height={60} className="object-contain h-12 md:h-16 w-auto" priority />
                 ) : (
-                  <Image src={logo} alt="Pairo Logo" width={160} height={60} className="object-contain h-12 md:h-16 w-auto" priority />
+                  <Image src={logo} alt="U Vape Logo" width={160} height={60} className="object-contain h-12 md:h-16 w-auto" priority />
                 )}
               </Link>
             </div>

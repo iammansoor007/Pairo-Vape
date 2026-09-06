@@ -78,7 +78,7 @@ export default function AdminLoginPage() {
         <div className="text-center mb-4">
           <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
             <div className="w-28 h-16 bg-white rounded-xl flex items-center justify-center mx-auto shadow-md border border-[#c3c4c7] px-3 py-2">
-              <Image src={logo} alt="Pairo Logo" width={110} height={40} className="object-contain w-full h-full" priority />
+              <Image src={logo} alt="U Vape Logo" width={110} height={40} className="object-contain w-full h-full" priority />
             </div>
           </Link>
         </div>
@@ -157,7 +157,7 @@ export default function AdminLoginPage() {
         <div className="flex flex-col items-start gap-2 px-1 py-1">
           <Link href="/forgot-password" title="Lost your password?" className="text-[12px] text-[#2271b1] hover:text-[#135e96]">Lost your password?</Link>
           <Link href="/" className="text-[12px] text-[#2271b1] hover:text-[#135e96] flex items-center gap-1.5">
-            <ArrowLeft className="w-3.5 h-3.5" /> Go to Pairo Store
+            <ArrowLeft className="w-3.5 h-3.5" /> Go to U Vape Store
           </Link>
         </div>
       </div>

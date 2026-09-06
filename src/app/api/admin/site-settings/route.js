@@ -17,8 +17,8 @@ export async function GET(req) {
       // Auto-create default if missing
       config = await SiteConfig.create({
         key: 'main',
-        brand: { name: 'Pairo', tagline: 'Premium Shearling', footerBrandName: 'PAIRO', copyrightText: 'PAIRO — ALL RIGHTS RESERVED © 2026', privacyUrl: '#', termsUrl: '#' },
-        headerConfig: { logoUrl: '', navItems: [], megaCategoryIds: [], topOffers: ['Welcome to Pairo'] },
+        brand: { name: 'U Vape', tagline: 'Premium vape', footerBrandName: 'U VAPE', copyrightText: 'U VAPE — ALL RIGHTS RESERVED © 2026', privacyUrl: '#', termsUrl: '#' },
+        headerConfig: { logoUrl: '', navItems: [], megaCategoryIds: [], topOffers: ['Welcome to U Vape'] },
         footerConfig: { logoUrl: '', newsletterHeading: 'Elite List', newsletterPlaceholder: 'JOIN THE LIST', footerCategoryIds: [], footerBlogIds: [], footerCustomLinks: [], footerCustomLinksHeading: 'Information' },
         socialLinks: [
           { platform: 'facebook', url: '', enabled: false },

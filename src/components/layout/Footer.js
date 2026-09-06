@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
-import logo from "../../assets/pairo.webp";
+import logo from "../../assets/uvape.webp";
 
 const FacebookIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" className={className} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -222,7 +222,7 @@ export default function Footer() {
   const rawBrandName = brand?.footerBrandName || 'U VAPE';
   const footerBrandName = rawBrandName.toUpperCase();
   const rawCopyright = brand?.copyrightText || fc?.copyrightText || 'U VAPE — ALL RIGHTS RESERVED © 2026.';
-  const copyrightText = rawCopyright.replace(/pairo/gi, 'U VAPE');
+  const copyrightText = rawCopyright.replace(/uvape/gi, 'U VAPE');
 
   const privacyLabel = fc?.privacyLabel || 'Privacy';
   const privacyUrl = fc?.privacyUrl || (fc?.privacyPageSlug
@@ -310,13 +310,13 @@ export default function Footer() {
               {footerLogoUrl ? (
                 <img
                   src={footerLogoUrl}
-                  alt={brand?.name || "Pairo Logo"}
+                  alt={brand?.name || "U Vape Logo"}
                   className="object-contain h-14 md:h-16 w-auto max-h-16"
                 />
               ) : (
                 <Image
                   src={logo}
-                  alt={brand?.name || "Pairo Logo"}
+                  alt={brand?.name || "U Vape Logo"}
                   width={160}
                   height={60}
                   className="object-contain h-14 md:h-16 w-auto"

@@ -114,7 +114,7 @@ async function seedLegalPages() {
       const pageData = {
         title: def.title,
         slug: def.slug,
-        description: `${def.title} for Pairo Lifestyle.`,
+        description: `${def.title} for U Vape Store.`,
         status: "Published",
         template: "default",
         isSystem: true,
@@ -137,9 +137,9 @@ async function seedLegalPages() {
           }
         ],
         seo: {
-          title: `${def.title} | Pairo Lifestyle`,
-          description: `Read Pairo Lifestyle's official ${def.title}.`,
-          keywords: [def.slug, "legal", "pairo"],
+          title: `${def.title} | U Vape Store`,
+          description: `Read U Vape Store's official ${def.title}.`,
+          keywords: [def.slug, "legal", "uvape"],
           noIndex: false,
           noFollow: false
         },

@@ -55,7 +55,7 @@ export async function POST(req) {
         const buffer = Buffer.from(bytes);
 
         // ── Upload to Storage (Cloudinary or Local) ─────
-        const stored = await uploadToStorage(buffer, file.name, 'pairo-media');
+        const stored = await uploadToStorage(buffer, file.name, 'uvape-media');
 
         // ── Sanitize filename ────────────────────────────
         const sanitizedName = file.name

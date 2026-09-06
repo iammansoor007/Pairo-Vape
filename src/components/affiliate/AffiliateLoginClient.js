@@ -71,7 +71,7 @@ export default function AffiliateLoginClient() {
         {/* Header */}
         <div className="text-center">
           <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.3em] mb-3">
-            Pairo Partners Program
+            U Vape Partners Program
           </p>
           <h1 className="text-3xl font-bold heading-font uppercase tracking-tight text-black">
             Partner Login

@@ -44,8 +44,8 @@ const NEW_PAGES = [
       }
     ],
     seo: {
-      title: "Custom Jacket | Bespoke Leather Jackets — PAIRO",
-      description: "Design your dream leather jacket with PAIRO's bespoke service.",
+      title: "Custom Jacket | custom vape kits — U VAPE",
+      description: "Design your dream leather jacket with U VAPE's bespoke service.",
       ogImage: ""
     }
   },
@@ -69,7 +69,7 @@ const NEW_PAGES = [
       }
     ],
     seo: {
-      title: "Gallery | PAIRO Leather Jackets Collection",
+      title: "Gallery | U VAPE Leather Jackets Collection",
       description: "Browse our curated gallery of premium leather jackets and accessories.",
       ogImage: ""
     }
@@ -93,7 +93,7 @@ const NEW_PAGES = [
       }
     ],
     seo: {
-      title: "Size Chart | Find Your Perfect Fit — PAIRO",
+      title: "Size Chart | Find Your Perfect Fit — U VAPE",
       description: "Use our comprehensive size charts to find your perfect leather jacket fit.",
       ogImage: ""
     }

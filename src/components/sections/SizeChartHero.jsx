@@ -92,7 +92,7 @@ export default function SizeChartHero({
           {/* Bottom */}
           <div className="flex items-center gap-4">
             <div className="h-px flex-1 bg-white/20" />
-            <span className="text-white/40 text-[10px] uppercase tracking-[4px] font-medium">Pairo Size Guide</span>
+            <span className="text-white/40 text-[10px] uppercase tracking-[4px] font-medium">U Vape Size Guide</span>
             <div className="h-px flex-1 bg-white/20" />
           </div>
         </div>

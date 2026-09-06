@@ -4,7 +4,7 @@ const ALGORITHM = 'aes-256-cbc';
 const IV_LENGTH = 16;
 
 // Derive a secure 32-byte key from whatever key passphrase is provided in Env variables
-const rawKey = process.env.AFFILIATE_ENCRYPTION_KEY || 'pairo-lifestyle-affiliate-system-passphrase-key-32-chars-long';
+const rawKey = process.env.AFFILIATE_ENCRYPTION_KEY || 'uvape-lifestyle-affiliate-system-passphrase-key-32-chars-long';
 const ENCRYPTION_KEY = crypto.createHash('sha256').update(rawKey).digest();
 
 /**

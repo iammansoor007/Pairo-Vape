@@ -6,7 +6,7 @@ import dbConnect from "@/lib/db";
 import AffiliatesManagerClient from "@/components/admin/AffiliatesManagerClient";
 
 export const metadata = {
-  title: "Affiliate Management — Pairo Admin",
+  title: "Affiliate Management — U Vape Admin",
   robots: "noindex, nofollow"
 };
 

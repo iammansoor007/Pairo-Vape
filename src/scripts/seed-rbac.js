@@ -98,18 +98,18 @@ async function seed() {
 
     // 2. Create Super Admin Staff (If not exists)
     const superAdminRole = await Role.findOne({ slug: 'super-admin' });
-    const existingStaff = await Staff.findOne({ email: 'admin@pairo.com' });
+    const existingStaff = await Staff.findOne({ email: 'admin@uvapestore.com' });
 
     if (!existingStaff) {
       const hashedPassword = await bcrypt.hash('Admin123!', 10);
       await Staff.create({
         name: 'Super Admin',
-        email: 'admin@pairo.com',
+        email: 'admin@uvapestore.com',
         password: hashedPassword,
         roleId: superAdminRole._id,
         status: 'Active'
       });
-      console.log("Super Admin user created: admin@pairo.com / Admin123!");
+      console.log("Super Admin user created: admin@uvapestore.com / Admin123!");
     }
 
     console.log("Seeding completed successfully!");

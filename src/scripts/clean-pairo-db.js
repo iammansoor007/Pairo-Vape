@@ -4,7 +4,7 @@ const path = require('path');
 
 dotenv.config({ path: path.join(__dirname, '../../.env.local') });
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://ammansoor0077_db_user:ZYW27mQw7femXreQ@ac-aoukvtk-shard-00-00.qlku7y7.mongodb.net:27017,ac-aoukvtk-shard-00-01.qlku7y7.mongodb.net:27017,ac-aoukvtk-shard-00-02.qlku7y7.mongodb.net:27017/pairo?ssl=true&authSource=admin&retryWrites=true&w=majority";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://ammansoor0077_db_user:ZYW27mQw7femXreQ@ac-aoukvtk-shard-00-00.qlku7y7.mongodb.net:27017,ac-aoukvtk-shard-00-01.qlku7y7.mongodb.net:27017,ac-aoukvtk-shard-00-02.qlku7y7.mongodb.net:27017/uvape?ssl=true&authSource=admin&retryWrites=true&w=majority";
 
 async function run() {
   try {
@@ -20,14 +20,14 @@ async function run() {
     const configs = await siteConfigColl.find({}).toArray();
     for (const cfg of configs) {
       let str = JSON.stringify(cfg);
-      if (/pairo/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
+      if (/uvape/i.test(str) || /vape/i.test(str) || /jacket/i.test(str)) {
         str = str
-          .replace(/pairo\s*series/gi, "U VAPE SERIES")
-          .replace(/pairo\s*store/gi, "U VAPE STORE")
-          .replace(/pairo\s*studio/gi, "U VAPE STORE")
-          .replace(/pairo/gi, "U VAPE")
+          .replace(/uvape\s*series/gi, "U VAPE SERIES")
+          .replace(/uvape\s*store/gi, "U VAPE STORE")
+          .replace(/uvape\s*studio/gi, "U VAPE STORE")
+          .replace(/uvape/gi, "U VAPE")
           .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
-          .replace(/shearling/gi, "DISPOSABLE")
+          .replace(/vape/gi, "DISPOSABLE")
           .replace(/jacket/gi, "VAPE");
         const updatedObj = JSON.parse(str);
         delete updatedObj._id;
@@ -42,14 +42,14 @@ async function run() {
     const pages = await pagesColl.find({}).toArray();
     for (const page of pages) {
       let str = JSON.stringify(page);
-      if (/pairo/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
+      if (/uvape/i.test(str) || /vape/i.test(str) || /jacket/i.test(str)) {
         str = str
-          .replace(/pairo\s*series/gi, "U VAPE SERIES")
-          .replace(/pairo\s*store/gi, "U VAPE STORE")
-          .replace(/pairo\s*studio/gi, "U VAPE STORE")
-          .replace(/pairo/gi, "U VAPE")
+          .replace(/uvape\s*series/gi, "U VAPE SERIES")
+          .replace(/uvape\s*store/gi, "U VAPE STORE")
+          .replace(/uvape\s*studio/gi, "U VAPE STORE")
+          .replace(/uvape/gi, "U VAPE")
           .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
-          .replace(/shearling/gi, "DISPOSABLE")
+          .replace(/vape/gi, "DISPOSABLE")
           .replace(/jacket/gi, "VAPE");
         const updatedObj = JSON.parse(str);
         delete updatedObj._id;

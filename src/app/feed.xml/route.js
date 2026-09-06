@@ -10,7 +10,7 @@ export async function GET() {
     await dbConnect();
 
     const siteConfig = await SiteConfig.findOne({ tenantId: "DEFAULT_STORE" }).lean();
-    let domain = siteConfig?.domain || "https://pairolifestyle.com";
+    let domain = siteConfig?.domain || "https://uvapestore.com";
     if (!domain.startsWith("http")) {
       domain = `https://${domain}`;
     }
@@ -40,7 +40,7 @@ export async function GET() {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
-    <title>${escapeXml(siteConfig?.siteName || "Pairo Lifestyle")}</title>
+    <title>${escapeXml(siteConfig?.siteName || "U Vape Store")}</title>
     <link>${domain}</link>
     <description>${escapeXml(siteConfig?.description || "Premium Handcrafted Outerwear")}</description>
 `;
@@ -64,7 +64,7 @@ export async function GET() {
       }
 
       const availability = (prod.stock > 0 || prod.availabilityStatus === "In Stock") ? "in stock" : "out of stock";
-      const brand = escapeXml(siteConfig?.siteName || "PAIRO");
+      const brand = escapeXml(siteConfig?.siteName || "U VAPE");
       const sku = escapeXml(prod.sku || prod._id.toString());
       const gCategory = prod.primaryCategory?.name ? escapeXml(prod.primaryCategory.name) : "Apparel &amp; Accessories &gt; Clothing &gt; Outerwear";
 
@@ -140,8 +140,8 @@ export async function GET() {
       `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Pairo Lifestyle Product Feed Error</title>
-    <link>https://pairolifestyle.com</link>
+    <title>U Vape Store Product Feed Error</title>
+    <link>https://uvapestore.com</link>
     <description>An error occurred generating the Google Merchant feed.</description>
   </channel>
 </rss>`,

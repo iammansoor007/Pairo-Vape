@@ -531,7 +531,7 @@ export default function SizeChartForm({ initialId = null }) {
                 type="text"
                 value={label}
                 onChange={(e) => setLabel(e.target.value)}
-                placeholder="e.g. Men's Shearling Jacket"
+                placeholder="e.g. Men's vape Jacket"
                 className={inputClass}
               />
             </div>
@@ -545,7 +545,7 @@ export default function SizeChartForm({ initialId = null }) {
                 type="text"
                 value={publicHeading}
                 onChange={(e) => setPublicHeading(e.target.value)}
-                placeholder="e.g. Shearling Jacket Size Guide"
+                placeholder="e.g. vape Jacket Size Guide"
                 className={inputClass}
               />
             </div>

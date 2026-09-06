@@ -1,7 +1,7 @@
-const mongoose = require('/var/www/pairolifestyle.com/node_modules/mongoose');
+const mongoose = require('/var/www/uvapestore.com/node_modules/mongoose');
 
 async function main() {
-  const uri = 'mongodb://pairolifestyle_user:mD%26tEam%2FpLs-19yY@127.0.0.1:27017/pairo?authSource=pairo&replicaSet=rs0';
+  const uri = 'mongodb://pairolifestyle_user:mD%26tEam%2FpLs-19yY@127.0.0.1:27017/uvape?authSource=uvape&replicaSet=rs0';
   
   try {
     console.log("Connecting to Mongoose...");

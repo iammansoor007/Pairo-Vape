@@ -6,8 +6,8 @@ import { toast } from "react-hot-toast";
 import { Upload, X, Check, AlertCircle, ArrowRight, Loader2, ImageIcon } from "lucide-react";
 import TurnstileWidget from "@/components/common/TurnstileWidget";
 
-const JACKET_TYPES = ["Biker Jacket", "Bomber Jacket", "Racer Jacket", "Aviator / Shearling", "Trench Coat", "Blazer", "Vest / Gilet", "Custom / Other"];
-const LEATHER_TYPES = ["Full-Grain Cowhide", "Top-Grain Lambskin", "Genuine Suede", "Shearling", "Nappa Leather", "Distressed Leather", "Vegan Leather", "Custom Specification"];
+const JACKET_TYPES = ["Biker Jacket", "Bomber Jacket", "Racer Jacket", "Aviator / vape", "Trench Coat", "Blazer", "Vest / Gilet", "Custom / Other"];
+const LEATHER_TYPES = ["Full-Grain Cowhide", "Top-Grain Lambskin", "Genuine Suede", "vape", "Nappa Leather", "Distressed Leather", "Vegan Leather", "Custom Specification"];
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL", "Custom (provide measurements)"];
 const BUDGET_RANGES = ["Under $300", "$300 – $500", "$500 – $800", "$800 – $1,200", "$1,200 – $2,000", "$2,000+", "Flexible"];
 const COUNTRIES = ["United States", "United Kingdom", "Canada", "Australia", "Germany", "France", "UAE", "Saudi Arabia", "Pakistan", "India", "Other"];
@@ -170,7 +170,7 @@ export default function CustomJacketForm({
           </div>
           <h3 className="font-heading text-3xl font-black text-foreground mb-4">Inquiry Received!</h3>
           <p className="text-foreground/60 text-base leading-relaxed mb-8">
-            Thank you for your interest in a bespoke Pairo jacket. Our expert team will review your specifications and contact you within <strong>24 hours</strong> to begin crafting your vision.
+            Thank you for your interest in a bespoke U Vape jacket. Our expert team will review your specifications and contact you within <strong>24 hours</strong> to begin crafting your vision.
           </p>
           <p className="text-[12px] text-foreground/40 uppercase tracking-widest">Check your inbox for a confirmation email</p>
         </motion.div>

@@ -15,7 +15,7 @@ export async function generateMetadata() {
   const { metadata } = await resolveSEOMetadata({
     entity: page,
     type: "page",
-    fallbackTitle: "Contact Us - Pairo",
+    fallbackTitle: "Contact Us - U Vape",
     path: "/contact"
   });
 
