@@ -83,17 +83,21 @@ export default function SearchModal({ isOpen, onClose }) {
           return nameStr.includes(query) || catStr.includes(query) || descStr.includes(query) || slugStr.includes(query) || skuStr.includes(query);
         });
 
-        // If local pool produced no results, query the live server endpoint directly
-        if (filteredProducts.length === 0) {
-          try {
-            const apiRes = await fetch(`/api/products?q=${encodeURIComponent(query)}`);
-            const apiData = await apiRes.json();
-            if (!isCancelled && Array.isArray(apiData)) {
-              filteredProducts = apiData;
-            }
-          } catch (e) {
-            console.error("Live search fetch error:", e);
+        // Query live server endpoint for full search accuracy
+        try {
+          const apiRes = await fetch(`/api/products?q=${encodeURIComponent(query)}`);
+          const apiData = await apiRes.json();
+          let liveProducts = [];
+          if (Array.isArray(apiData)) {
+            liveProducts = apiData;
+          } else if (apiData && typeof apiData === "object") {
+            liveProducts = apiData.all || [...(apiData.newArrivals || []), ...(apiData.topSelling || [])];
           }
+          if (liveProducts && liveProducts.length > 0) {
+            filteredProducts = liveProducts;
+          }
+        } catch (e) {
+          console.error("Live search fetch error:", e);
         }
 
         const filteredCategories = dbCategories.filter(c => 

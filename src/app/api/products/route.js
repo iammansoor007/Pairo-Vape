@@ -78,7 +78,7 @@ export async function GET(req) {
     }));
 
     // Group them like data.json for compatibility but include ALL for the shop
-    if (!category && !type && !id) {
+    if (!category && !type && !id && !searchTerm) {
       const newArrivals = enrichedProducts.filter(p => p.type === 'newArrival');
       const topSelling = enrichedProducts.filter(p => p.type === 'topSelling');
       return Response.json({ newArrivals, topSelling, all: enrichedProducts });
