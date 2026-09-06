@@ -6,26 +6,26 @@ function replaceContent(content) {
 
   // Specific domain / store phrases first
   updated = updated.replace(/pairolifestyle\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/pairo\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/PAIRO\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/pairo\s+lifestyle/gi, 'U Vape Store');
-  updated = updated.replace(/PAIRO\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/pairo\s+store/gi, 'U Vape Store');
-  updated = updated.replace(/PAIRO\s+SERIES/g, 'U VAPE SERIES');
-  updated = updated.replace(/Pairo\s+Series/g, 'U Vape Series');
-  updated = updated.replace(/pairo\s+series/gi, 'U VAPE SERIES');
-  updated = updated.replace(/PAIRO\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/@pairostore/gi, '@uvapestore');
-  updated = updated.replace(/pairo_ref/gi, 'uvape_ref');
-  updated = updated.replace(/pairo-media/gi, 'uvape-media');
-  updated = updated.replace(/pairo-artwork/gi, 'uvape-artwork');
-  updated = updated.replace(/pairo-kyc/gi, 'uvape-kyc');
-  updated = updated.replace(/pairoEvents/g, 'uvapeEvents');
+  updated = updated.replace(/uvape\.com/gi, 'uvapestore.com');
+  updated = updated.replace(/U VAPE\s+Lifestyle/g, 'U Vape Store');
+  updated = updated.replace(/U Vape\s+Lifestyle/g, 'U Vape Store');
+  updated = updated.replace(/uvape\s+lifestyle/gi, 'U Vape Store');
+  updated = updated.replace(/U VAPE\s+Store/g, 'U Vape Store');
+  updated = updated.replace(/U Vape\s+Store/g, 'U Vape Store');
+  updated = updated.replace(/uvape\s+store/gi, 'U Vape Store');
+  updated = updated.replace(/U VAPE\s+SERIES/g, 'U VAPE SERIES');
+  updated = updated.replace(/U Vape\s+Series/g, 'U Vape Series');
+  updated = updated.replace(/uvape\s+series/gi, 'U VAPE SERIES');
+  updated = updated.replace(/U VAPE\s+Studio/g, 'U Vape Store');
+  updated = updated.replace(/U Vape\s+Studio/g, 'U Vape Store');
+  updated = updated.replace(/@uvapestore/gi, '@uvapestore');
+  updated = updated.replace(/uvape_ref/gi, 'uvape_ref');
+  updated = updated.replace(/uvape-media/gi, 'uvape-media');
+  updated = updated.replace(/uvape-artwork/gi, 'uvape-artwork');
+  updated = updated.replace(/uvape-kyc/gi, 'uvape-kyc');
+  updated = updated.replace(/uvapeEvents/g, 'uvapeEvents');
 
-  // Single word PAIRO / Pairo / pairo
+  // Single word U VAPE / U Vape / uvape
   updated = updated.replace(/\bPAIRO\b/g, 'U VAPE');
   updated = updated.replace(/\bPairo\b/g, 'U Vape');
   updated = updated.replace(/\bpairo\b/g, 'uvape');
@@ -61,7 +61,7 @@ function cleanDirectory(dirPath) {
       } else {
         const ext = path.extname(item).toLowerCase();
         if (validExts.includes(ext)) {
-          if (item === 'purge-all-pairo.js') continue;
+          if (item === 'purge-all-uvape.js') continue;
           fileCount++;
           try {
             const original = fs.readFileSync(fullPath, 'utf8');
@@ -84,7 +84,7 @@ function cleanDirectory(dirPath) {
 }
 
 function run() {
-  console.log('--- PURGING ALL PAIRO REFERENCES FROM LOCAL FILES ---');
+  console.log('--- PURGING ALL U VAPE REFERENCES FROM LOCAL FILES ---');
   cleanDirectory(path.join(__dirname, '../..'));
   console.log('--- FILE PURGE COMPLETE ---');
 }

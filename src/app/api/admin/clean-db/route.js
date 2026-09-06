@@ -19,15 +19,15 @@ export async function GET(req) {
 
       for (const doc of docs) {
         let str = JSON.stringify(doc);
-        if (/pairo/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
+        if (/uvape/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
           let cleaned = str
             .replace(/pairolifestyle\.com/gi, "uvapestore.com")
-            .replace(/pairo\.com/gi, "uvapestore.com")
-            .replace(/pairo\s*lifestyle/gi, "U Vape Store")
-            .replace(/pairo\s*store/gi, "U Vape Store")
-            .replace(/pairo\s*series/gi, "U VAPE SERIES")
-            .replace(/pairo\s*studio/gi, "U Vape Store")
-            .replace(/pairo/gi, "U Vape")
+            .replace(/uvape\.com/gi, "uvapestore.com")
+            .replace(/uvape\s*lifestyle/gi, "U Vape Store")
+            .replace(/uvape\s*store/gi, "U Vape Store")
+            .replace(/uvape\s*series/gi, "U VAPE SERIES")
+            .replace(/uvape\s*studio/gi, "U Vape Store")
+            .replace(/uvape/gi, "U Vape")
             .replace(/handcrafted shearling/gi, "premium vape")
             .replace(/shearling outerwear/gi, "vape devices & e-liquids")
             .replace(/shearling coats/gi, "vape devices")

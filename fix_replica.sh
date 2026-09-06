@@ -20,8 +20,8 @@ echo "Initializing replica set..."
 mongosh -u admin -p "rP&tEam/mD-19yY" --authenticationDatabase admin --eval 'rs.initiate()' || echo "Replica set might already be initialized."
 
 echo "Updating MONGODB_URI to include replicaSet=rs0..."
-if ! grep -q "replicaSet=rs0" /var/www/pairolifestyle.com/.env.local; then
-    sed -i 's/authSource=pairo/authSource=pairo\&replicaSet=rs0/' /var/www/pairolifestyle.com/.env.local
+if ! grep -q "replicaSet=rs0" /var/www/uvapestore.com/.env.local; then
+    sed -i 's/authSource=uvape/authSource=uvape\&replicaSet=rs0/' /var/www/uvapestore.com/.env.local
 fi
 
 echo "Restarting PM2 to establish new connections..."

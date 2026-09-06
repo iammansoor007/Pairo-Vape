@@ -96,7 +96,7 @@ async function runTests() {
   const AffiliateApplication = (await import("../models/AffiliateApplication.js")).default;
   const Order = (await import("../models/Order.js")).default;
 
-  const TEST_EMAIL      = "discount_suite_2026@pairotest.dev";
+  const TEST_EMAIL      = "discount_suite_2026@uvapetest.dev";
   const AFF_REF_CODE    = "DISC2026SUITE";
   const TEST_ORDER_NUM  = "DS-ORDER-SUITE-001";
   const AFF_ID          = `DISC-AFF-${Date.now()}`;
