@@ -96,7 +96,7 @@ export default function ProductQuestionsAnswers({ productId, productName }) {
             Questions & Answers
           </h2>
           <p className="text-xs text-[#6F655B]/60 uppercase tracking-widest font-medium">
-            Ask our team about materials, sizing, and styling details.
+            Ask our team about flavors, nicotine strength, and device specs.
           </p>
         </div>
         
@@ -283,7 +283,7 @@ export default function ProductQuestionsAnswers({ productId, productName }) {
                       rows={5}
                       value={questionText}
                       onChange={(e) => setQuestionText(e.target.value)}
-                      placeholder="Ask about materials, sizing fit, or custom design request options..."
+                      placeholder="Ask about flavors, nicotine strength, battery life, or device compatibility..."
                       className="w-full border border-neutral-200 rounded-lg p-3 text-xs outline-none focus:border-black transition-colors resize-none"
                     />
                   </div>

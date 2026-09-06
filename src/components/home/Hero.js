@@ -62,27 +62,29 @@ export default function Hero({
     exit: (direction) => ({ x: direction > 0 ? "-20%" : "20%", opacity: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }),
   };
 
-  const rawTagline = brand?.tagline || "U VAPE | PREMIUM DISPOSABLES & E-LIQUIDS";
+  const rawTagline = brand?.tagline || "U VAPE STORE — PREMIUM DISPOSABLES & E-LIQUIDS";
   const displayTagline = rawTagline
-    .replace(/uvape\s*store\s*[-–—]\s*raw\s*luxury\s*outerwear/gi, "U VAPE STORE — PREMIUM VAPES & E-LIQUIDS")
+    .replace(/pairo\s*store/gi, "U VAPE STORE")
+    .replace(/pairo/gi, "U VAPE")
     .replace(/uvape\s*store/gi, "U VAPE STORE")
     .replace(/uvape/gi, "U VAPE")
-    .replace(/raw luxury outerwear/gi, "PREMIUM VAPES & E-LIQUIDS")
+    .replace(/raw luxury outerwear/gi, "PREMIUM DISPOSABLES & E-LIQUIDS")
     .replace(/outerwear/gi, "E-LIQUIDS")
-    .replace(/vape/gi, "DISPOSABLES")
+    .replace(/shearling/gi, "DISPOSABLE")
     .replace(/jackets?/gi, "VAPES")
-    .replace(/leather/gi, "VAPE GEAR");
+    .replace(/leather/gi, "VAPE GEAR")
+    .replace(/disposabless/gi, "DISPOSABLES");
 
   const currentSlideObj = hero.slides[currentSlide] || {};
   const displaySlideTitle = (currentSlideObj.title || "PREMIUM DISPOSABLE VAPES")
+    .replace(/pairo/gi, "U VAPE")
     .replace(/uvape/gi, "U VAPE")
-    .replace(/vape/gi, "DISPOSABLE")
     .replace(/outerwear/gi, "E-LIQUID")
     .replace(/jackets?/gi, "VAPES");
 
   const displaySlideSubtitle = (currentSlideObj.subtitle || "Explore top-rated disposable vapes and authentic salt nics engineered for maximum flavor.")
+    .replace(/pairo/gi, "U Vape")
     .replace(/uvape/gi, "U Vape")
-    .replace(/vape/gi, "disposable vape")
     .replace(/outerwear/gi, "e-liquids")
     .replace(/jackets?/gi, "vapes");
 
