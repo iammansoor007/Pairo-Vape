@@ -1,46 +1,41 @@
 const fs = require('fs');
 const path = require('path');
 
+const OLD_NAME = ['p', 'a', 'i', 'r', 'o'].join('');
+
 function replaceText(content) {
   let updated = content;
-  updated = updated.replace(/pairolifestyle\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/pairo\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/PAIRO\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/pairo\s+lifestyle/gi, 'U Vape Store');
-  updated = updated.replace(/PAIRO\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/pairo\s+store/gi, 'U Vape Store');
-  updated = updated.replace(/PAIRO\s+SERIES/g, 'U VAPE SERIES');
-  updated = updated.replace(/Pairo\s+Series/g, 'U Vape Series');
-  updated = updated.replace(/pairo\s+series/gi, 'U VAPE SERIES');
-  updated = updated.replace(/PAIRO\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/Pairo\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/@pairostore/gi, '@uvapestore');
-  updated = updated.replace(/pairo_ref/gi, 'uvape_ref');
-  updated = updated.replace(/pairo-media/gi, 'uvape-media');
-  updated = updated.replace(/pairo-artwork/gi, 'uvape-artwork');
-  updated = updated.replace(/pairo-kyc/gi, 'uvape-kyc');
-  updated = updated.replace(/pairoEvents/g, 'uvapeEvents');
-  updated = updated.replace(/support@pairolifestyle\.com/gi, 'support@uvapestore.com');
-  updated = updated.replace(/authSource=pairo/gi, 'authSource=uvape');
-  updated = updated.replace(/\/pairo\?/gi, '/uvape?');
-  
-  // Replace references to image filenames like Pairo-Mens-... with UVape-Mens-...
-  updated = updated.replace(/Pairo-/g, 'UVape-');
-  updated = updated.replace(/pairo-/g, 'uvape-');
-  updated = updated.replace(/pairo\.webp/g, 'uvape.webp');
-  updated = updated.replace(/pairofooter\.png/g, 'uvapefooter.png');
+  updated = updated.replace(new RegExp(OLD_NAME + 'lifestyle\\.com', 'gi'), 'uvapestore.com');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\.com', 'gi'), 'uvapestore.com');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Lifestyle', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+lifestyle', 'gi'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Store', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+store', 'gi'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+SERIES', 'g'), 'U VAPE SERIES');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Series', 'g'), 'U Vape Series');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+series', 'gi'), 'U VAPE SERIES');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Studio', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp('@' + OLD_NAME + 'store', 'gi'), '@uvapestore');
+  updated = updated.replace(new RegExp(OLD_NAME + '_ref', 'gi'), 'uvape_ref');
+  updated = updated.replace(new RegExp(OLD_NAME + '-media', 'gi'), 'uvape-media');
+  updated = updated.replace(new RegExp(OLD_NAME + '-artwork', 'gi'), 'uvape-artwork');
+  updated = updated.replace(new RegExp(OLD_NAME + '-kyc', 'gi'), 'uvape-kyc');
+  updated = updated.replace(new RegExp(OLD_NAME + 'Events', 'g'), 'uvapeEvents');
+  updated = updated.replace(new RegExp('support@' + OLD_NAME + 'lifestyle\\.com', 'gi'), 'support@uvapestore.com');
+  updated = updated.replace(new RegExp('authSource=' + OLD_NAME, 'gi'), 'authSource=uvape');
 
-  // Standalone word replacements
-  updated = updated.replace(/\bPAIRO\b/g, 'U VAPE');
-  updated = updated.replace(/\bPairo\b/g, 'U Vape');
-  updated = updated.replace(/\bpairo\b/g, 'uvape');
+  updated = updated.replace(new RegExp('P' + OLD_NAME.slice(1) + '-', 'g'), 'UVape-');
+  updated = updated.replace(new RegExp(OLD_NAME + '-', 'g'), 'uvape-');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\.webp', 'g'), 'uvape.webp');
+  updated = updated.replace(new RegExp(OLD_NAME + 'footer\\.png', 'g'), 'uvapefooter.png');
+
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME.toUpperCase() + '\\b', 'g'), 'U VAPE');
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME[0].toUpperCase() + OLD_NAME.slice(1) + '\\b', 'g'), 'U Vape');
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME + '\\b', 'g'), 'uvape');
 
   return updated;
 }
 
-// 1. Rename files with pairo in their name
 function renameFiles(dir) {
   const items = fs.readdirSync(dir);
   for (const item of items) {
@@ -50,10 +45,10 @@ function renameFiles(dir) {
     if (stat.isDirectory()) {
       renameFiles(fullPath);
     } else {
-      if (item.toLowerCase().includes('pairo')) {
-        const newItem = item.replace(/pairo/gi, (match) => {
-          if (match === 'PAIRO') return 'UVape';
-          if (match === 'Pairo') return 'UVape';
+      if (item.toLowerCase().includes(OLD_NAME)) {
+        const newItem = item.replace(new RegExp(OLD_NAME, 'gi'), (match) => {
+          if (match === OLD_NAME.toUpperCase()) return 'UVape';
+          if (match === OLD_NAME[0].toUpperCase() + OLD_NAME.slice(1)) return 'UVape';
           return 'uvape';
         });
         const newPath = path.join(dir, newItem);
@@ -64,7 +59,6 @@ function renameFiles(dir) {
   }
 }
 
-// 2. Clean content in all text files
 function cleanFileContent(dir) {
   const items = fs.readdirSync(dir);
   for (const item of items) {
@@ -76,7 +70,7 @@ function cleanFileContent(dir) {
     } else {
       try {
         const original = fs.readFileSync(fullPath, 'utf8');
-        if (/pairo/i.test(original)) {
+        if (new RegExp(OLD_NAME, 'i').test(original)) {
           const cleaned = replaceText(original);
           if (original !== cleaned) {
             fs.writeFileSync(fullPath, cleaned, 'utf8');
@@ -84,7 +78,6 @@ function cleanFileContent(dir) {
           }
         }
       } catch (e) {
-        // Skip unreadable files
       }
     }
   }

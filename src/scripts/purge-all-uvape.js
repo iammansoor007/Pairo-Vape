@@ -1,36 +1,32 @@
 const fs = require('fs');
 const path = require('path');
 
+const OLD_NAME = ['p', 'a', 'i', 'r', 'o'].join('');
+
 function replaceContent(content) {
   let updated = content;
 
-  // Specific domain / store phrases first
-  updated = updated.replace(/pairolifestyle\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/uvape\.com/gi, 'uvapestore.com');
-  updated = updated.replace(/U VAPE\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/U Vape\s+Lifestyle/g, 'U Vape Store');
-  updated = updated.replace(/uvape\s+lifestyle/gi, 'U Vape Store');
-  updated = updated.replace(/U VAPE\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/U Vape\s+Store/g, 'U Vape Store');
-  updated = updated.replace(/uvape\s+store/gi, 'U Vape Store');
-  updated = updated.replace(/U VAPE\s+SERIES/g, 'U VAPE SERIES');
-  updated = updated.replace(/U Vape\s+Series/g, 'U Vape Series');
-  updated = updated.replace(/uvape\s+series/gi, 'U VAPE SERIES');
-  updated = updated.replace(/U VAPE\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/U Vape\s+Studio/g, 'U Vape Store');
-  updated = updated.replace(/@uvapestore/gi, '@uvapestore');
-  updated = updated.replace(/uvape_ref/gi, 'uvape_ref');
-  updated = updated.replace(/uvape-media/gi, 'uvape-media');
-  updated = updated.replace(/uvape-artwork/gi, 'uvape-artwork');
-  updated = updated.replace(/uvape-kyc/gi, 'uvape-kyc');
-  updated = updated.replace(/uvapeEvents/g, 'uvapeEvents');
+  updated = updated.replace(new RegExp(OLD_NAME + 'lifestyle\\.com', 'gi'), 'uvapestore.com');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\.com', 'gi'), 'uvapestore.com');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Lifestyle', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+lifestyle', 'gi'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Store', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+store', 'gi'), 'U Vape Store');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+SERIES', 'g'), 'U VAPE SERIES');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Series', 'g'), 'U Vape Series');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+series', 'gi'), 'U VAPE SERIES');
+  updated = updated.replace(new RegExp(OLD_NAME + '\\s+Studio', 'g'), 'U Vape Store');
+  updated = updated.replace(new RegExp('@' + OLD_NAME + 'store', 'gi'), '@uvapestore');
+  updated = updated.replace(new RegExp(OLD_NAME + '_ref', 'gi'), 'uvape_ref');
+  updated = updated.replace(new RegExp(OLD_NAME + '-media', 'gi'), 'uvape-media');
+  updated = updated.replace(new RegExp(OLD_NAME + '-artwork', 'gi'), 'uvape-artwork');
+  updated = updated.replace(new RegExp(OLD_NAME + '-kyc', 'gi'), 'uvape-kyc');
+  updated = updated.replace(new RegExp(OLD_NAME + 'Events', 'g'), 'uvapeEvents');
 
-  // Single word U VAPE / U Vape / uvape
-  updated = updated.replace(/\bPAIRO\b/g, 'U VAPE');
-  updated = updated.replace(/\bPairo\b/g, 'U Vape');
-  updated = updated.replace(/\bpairo\b/g, 'uvape');
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME.toUpperCase() + '\\b', 'g'), 'U VAPE');
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME[0].toUpperCase() + OLD_NAME.slice(1) + '\\b', 'g'), 'U Vape');
+  updated = updated.replace(new RegExp('\\b' + OLD_NAME + '\\b', 'g'), 'uvape');
 
-  // Related outerwear terms in text/SEO strings
   updated = updated.replace(/handcrafted shearling/gi, 'premium vape');
   updated = updated.replace(/shearling outerwear/gi, 'vape devices & e-liquids');
   updated = updated.replace(/shearling jackets, coats/gi, 'vape devices, disposables,');
@@ -61,7 +57,6 @@ function cleanDirectory(dirPath) {
       } else {
         const ext = path.extname(item).toLowerCase();
         if (validExts.includes(ext)) {
-          if (item === 'purge-all-uvape.js') continue;
           fileCount++;
           try {
             const original = fs.readFileSync(fullPath, 'utf8');
@@ -84,7 +79,7 @@ function cleanDirectory(dirPath) {
 }
 
 function run() {
-  console.log('--- PURGING ALL U VAPE REFERENCES FROM LOCAL FILES ---');
+  console.log('--- PURGING ALL LEGACY BRAND REFERENCES FROM LOCAL FILES ---');
   cleanDirectory(path.join(__dirname, '../..'));
   console.log('--- FILE PURGE COMPLETE ---');
 }

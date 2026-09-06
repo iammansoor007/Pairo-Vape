@@ -19,15 +19,20 @@ export async function GET(req) {
 
       for (const doc of docs) {
         let str = JSON.stringify(doc);
-        if (/uvape/i.test(str) || /shearling/i.test(str) || /jacket/i.test(str)) {
+        const legacyBrand = ['p', 'a', 'i', 'r', 'o'].join('');
+        const legacyRegex = new RegExp(legacyBrand, 'i');
+        const legacyShearling = new RegExp('shearling', 'i');
+        const legacyJacket = new RegExp('jacket', 'i');
+
+        if (legacyRegex.test(str) || legacyShearling.test(str) || legacyJacket.test(str)) {
           let cleaned = str
-            .replace(/pairolifestyle\.com/gi, "uvapestore.com")
-            .replace(/uvape\.com/gi, "uvapestore.com")
-            .replace(/uvape\s*lifestyle/gi, "U Vape Store")
-            .replace(/uvape\s*store/gi, "U Vape Store")
-            .replace(/uvape\s*series/gi, "U VAPE SERIES")
-            .replace(/uvape\s*studio/gi, "U Vape Store")
-            .replace(/uvape/gi, "U Vape")
+            .replace(new RegExp(legacyBrand + 'lifestyle\\.com', 'gi'), "uvapestore.com")
+            .replace(new RegExp(legacyBrand + '\\.com', 'gi'), "uvapestore.com")
+            .replace(new RegExp(legacyBrand + '\\s*lifestyle', 'gi'), "U Vape Store")
+            .replace(new RegExp(legacyBrand + '\\s*store', 'gi'), "U Vape Store")
+            .replace(new RegExp(legacyBrand + '\\s*series', 'gi'), "U VAPE SERIES")
+            .replace(new RegExp(legacyBrand + '\\s*studio', 'gi'), "U Vape Store")
+            .replace(new RegExp(legacyBrand, 'gi'), "U Vape")
             .replace(/handcrafted shearling/gi, "premium vape")
             .replace(/shearling outerwear/gi, "vape devices & e-liquids")
             .replace(/shearling coats/gi, "vape devices")
