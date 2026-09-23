@@ -415,7 +415,7 @@ export default function BlogForm({ blogId }) {
                                     <input
                                        type="text"
                                        className="w-full border border-[#ccd0d4] rounded-[3px] px-3 py-1.5 text-[12px] outline-none focus:border-[#2271b1]"
-                                       placeholder="e.g. What leather is used for this product?"
+                                       placeholder="e.g. How long does this device last?"
                                        value={faq.question}
                                        onChange={(e) => {
                                           const faqs = [...formData.faqs];

@@ -32,10 +32,6 @@ export async function middleware(req) {
 
     // 2. UI Admin Protection
     if (path.startsWith("/admin")) {
-        console.log(`[Middleware] Accessing ${path}`);
-        console.log(`[Middleware] All Cookies:`, req.cookies.getAll());
-        console.log(`[Middleware] Token:`, token);
-        
         // If not logged in at all, send to admin login page
         if (!token) {
             console.log(`[Middleware] No token found, redirecting to /admin-login`);

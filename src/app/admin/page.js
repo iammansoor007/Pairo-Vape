@@ -11,7 +11,6 @@ import {
   ExternalLink,
   Plus,
   Settings,
-  HelpCircle,
   Clock,
   ArrowRight,
   Image as ImageIcon,
@@ -50,7 +49,8 @@ export default function AdminDashboard() {
     posts: 0,
     orders: 0,
     revenue: 0,
-    recentOrders: []
+    recentOrders: [],
+    awaiting: 0
   });
   const [loading, setLoading] = useState(true);
 
@@ -65,7 +65,10 @@ export default function AdminDashboard() {
             posts: d.totalBlogs || 0,
             orders: d.overall?.[0]?.totalOrders || 0,
             revenue: d.overall?.[0]?.totalSales || 0,
-            recentOrders: d.recentOrders || []
+            recentOrders: d.recentOrders || [],
+            awaiting: (d.statusBreakdown || [])
+              .filter(s => ["Pending", "Confirmed", "Processing"].includes(s._id))
+              .reduce((sum, s) => sum + s.count, 0)
           });
         }
         setLoading(false);
@@ -102,10 +105,10 @@ export default function AdminDashboard() {
                        <Package className="w-4 h-4 text-gray-400 group-hover:text-[#2271b1]" />
                        <span className="text-[13px] text-[#2271b1] hover:underline font-medium">{stats.products} Products</span>
                     </Link>
-                    <div className="flex items-center gap-2">
-                       <MessageSquare className="w-4 h-4 text-gray-400" />
-                       <span className="text-[13px] text-gray-600">0 Comments</span>
-                    </div>
+                    <Link href="/admin/reviews" className="flex items-center gap-2 group">
+                       <MessageSquare className="w-4 h-4 text-gray-400 group-hover:text-[#2271b1]" />
+                       <span className="text-[13px] text-[#2271b1] hover:underline font-medium">Reviews</span>
+                    </Link>
                  </div>
               </div>
               <div className="mt-6 pt-4 border-t border-[#f0f0f1] text-[13px] text-gray-500 italic">
@@ -148,8 +151,8 @@ export default function AdminDashboard() {
           {/* Right Column (Secondary) */}
           <div className="lg:col-span-2 space-y-5">
              
-             {/* WooCommerce Status */}
-             <MetaBox title="WooCommerce Status">
+             {/* Store Status */}
+             <MetaBox title="Store Status">
                 <div className="space-y-6">
                    <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
                       <div className="flex flex-col">
@@ -166,7 +169,7 @@ export default function AdminDashboard() {
                       </div>
                       <div className="bg-[#f6f7f7] p-3 rounded-[2px] border border-[#ccd0d4]">
                          <span className="text-[11px] text-gray-500 block mb-1">Awaiting Processing</span>
-                         <span className="text-[18px] font-bold text-[#d63638]">0</span>
+                         <span className="text-[18px] font-bold text-[#d63638]">{stats.awaiting}</span>
                       </div>
                    </div>
 
@@ -181,7 +184,6 @@ export default function AdminDashboard() {
                 <div className="grid grid-cols-1 gap-2">
                    {[
                       { label: "Site Settings", href: "/admin/settings", icon: Settings },
-                      { label: "E-commerce Support", href: "#", icon: HelpCircle },
                       { label: "View Storefront", href: "/", icon: ExternalLink },
                    ].map((item, i) => (
                       <Link key={i} href={item.href} className="flex items-center justify-between p-2 hover:bg-[#f6f7f7] rounded-[2px] transition-colors group">
@@ -194,12 +196,6 @@ export default function AdminDashboard() {
                    ))}
                 </div>
              </MetaBox>
-
-             {/* Dashboard Widgets Help */}
-             <div className="text-[12px] text-gray-500 px-2 flex items-center gap-2">
-                <HelpCircle className="w-3 h-3" />
-                <span>Learn more about <button className="text-[#2271b1] hover:underline">Dashboard Widgets</button></span>
-             </div>
 
           </div>
 

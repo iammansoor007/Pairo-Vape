@@ -100,7 +100,7 @@ export default function CategoryManager({ type = "product", title = "Categories"
   );
 
   const breadcrumbs = type === "product" 
-    ? [{ label: "WooCommerce", href: "/admin/orders" }, { label: "Categories" }]
+    ? [{ label: "Store", href: "/admin/orders" }, { label: "Categories" }]
     : [{ label: "Blog", href: "/admin/blogs" }, { label: "Categories" }];
 
   const newLink = type === 'product' ? '/admin/products/categories/new' : '/admin/blogs/categories/new';

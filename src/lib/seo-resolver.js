@@ -819,7 +819,7 @@ export async function resolveSEOMetadata(options = {}) {
         "@type": "ContactPage",
         "@id": `${SITE_URL}/contact#webpage`,
         "name": "Contact U Vape - Direct Concierge Line",
-        "description": "Get in touch with U Vape Store atelier for bespoke fittings, sizing advice, and order inquiries.",
+        "description": "Get in touch with U Vape Store for product questions, order inquiries, and support.",
         "url": `${SITE_URL}/contact`
       };
 
@@ -869,15 +869,15 @@ export async function resolveSEOMetadata(options = {}) {
             "name": "What is U Vape Store's estimated delivery time?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Our handcrafted pieces are made-to-order. The estimated delivery time is between 15–20 working days."
+              "text": "Estimated delivery time depends on your shipping method and is shown at checkout."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you support custom/bespoke configurations?",
+            "name": "Is this store for adults only?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, we support extensive bespoke modifications including custom leather types, colors, hardware finishes, fur accents, and branding uploads."
+              "text": "Yes. U Vape Store sells age-restricted products and is intended for adults 21 and over only."
             }
           }
         ]

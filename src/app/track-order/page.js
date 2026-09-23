@@ -87,7 +87,7 @@ export default function TrackOrderPage() {
               <input 
                 type="text" 
                 required
-                placeholder="PAI-1001"
+                placeholder="UV-1001"
                 className="w-full bg-gray-50 border border-neutral-200 rounded-2xl px-6 py-4 text-sm focus:border-black outline-none transition-all"
                 value={orderNumber}
                 onChange={(e) => setOrderNumber(e.target.value)}

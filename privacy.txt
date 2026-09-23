@@ -8,7 +8,7 @@ a) Information You Provide Directly
 ●	Contact details — name, email address, phone number, billing and shipping address.
 ●	Order information — items purchased, payment confirmation, order history, and any notes provided at checkout.
 ●	Account information — username, password, and saved preferences if you create an account.
-●	Communications — messages you send us through our contact form, email, WhatsApp, or social media, including sizing, bespoke, or bulk order inquiries.
+●	Communications — messages you send us through our contact form, email, WhatsApp, or social media, including product questions or bulk order inquiries.
 ●	Reviews and feedback — any testimonials or product reviews you choose to submit.
 b) Information Collected Automatically
 When you browse our Site, we automatically collect certain technical data, including:
@@ -24,7 +24,7 @@ ________________________________________
 We use the information we collect to:
 ●	Process and fulfill your orders, including payment, shipping, and returns
 ●	Communicate with you about your order, inquiries, or support requests
-●	Provide sizing, bespoke, and custom/bulk order assistance
+●	Provide product support and bulk order assistance
 ●	Send you marketing communications, promotions, and offers (you may opt out at any time)
 ●	Improve our Site, products, and customer experience
 ●	Detect and prevent fraud, abuse, or security incidents

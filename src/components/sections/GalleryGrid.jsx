@@ -152,7 +152,7 @@ function GalleryDetailModal({ item, onClose }) {
 export default function GalleryGrid({
   sectionTitle = "OUR WORK",
   sectionLabel = "FEATURED PIECES",
-  sectionDescription = "A carefully curated selection of our finest pieces — each one a testament to premium leather craftsmanship.",
+  sectionDescription = "A carefully curated selection of our finest devices and e-liquids.",
   emptyText = "Gallery coming soon. Check back for our latest work.",
   headingLevel = "h2",
   customItems = []

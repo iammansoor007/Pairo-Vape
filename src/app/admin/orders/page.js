@@ -144,7 +144,7 @@ export default function AdminOrdersPage() {
       title="Orders" 
       addNewLink="/admin/orders/new"
       addNewLabel="Add New"
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Orders" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Orders" }]}
     >
       <div className="space-y-4">
         {/* View Tabs */}
@@ -248,11 +248,6 @@ export default function AdminOrdersPage() {
                         {order.affiliateReferralCode && (
                           <span className="inline-flex items-center px-1.5 py-0.5 rounded-[3px] text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
                             Referred: {order.affiliateReferralCode}
-                          </span>
-                        )}
-                        {order.items?.some(item => item.customization?.enabled) && (
-                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-[3px] text-[10px] font-bold uppercase tracking-wider bg-purple-50 text-purple-800 border border-purple-200 animate-pulse">
-                            Custom Order
                           </span>
                         )}
                       </div>

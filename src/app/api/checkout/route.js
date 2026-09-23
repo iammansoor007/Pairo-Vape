@@ -227,16 +227,14 @@ export async function POST(req) {
                     sku: product.sku,
                     image: item.image || product.images?.[0] || product.image,
                     priceAtPurchase: item.price,
-                    quantity: item.quantity,
-                    // Persist Made to Measure data when present
-                    ...(item.madeToMeasure?.enabled ? { madeToMeasure: item.madeToMeasure } : {})
+                    quantity: item.quantity
                 });
             }
 
             // 5. Create Order
             // 5. Create Order
             const count = await Order.countDocuments({ tenantId }, { session });
-            const orderNumber = `PAI-${1000 + count + 1}`;
+            const orderNumber = `UV-${1000 + count + 1}`;
 
             // 5b. Validate shippingSnapshot cost matches financials.shippingCost (server-side guard)
             if (shippingSnapshot && typeof shippingSnapshot.cost === 'number') {

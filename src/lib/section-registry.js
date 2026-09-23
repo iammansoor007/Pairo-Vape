@@ -16,16 +16,9 @@ export const SECTION_REGISTRY = {
   contact_hero: dynamic(() => import("@/components/sections/ContactHero")),
   contact_section: dynamic(() => import("@/components/sections/ContactSection")),
   rich_text: dynamic(() => import("@/components/sections/RichTextSection")),
-  // Custom Jacket Page
-  custom_jacket_hero: dynamic(() => import("@/components/sections/CustomJacketHero")),
-  custom_jacket_process: dynamic(() => import("@/components/sections/CustomJacketProcess")),
-  custom_jacket_form: dynamic(() => import("@/components/sections/CustomJacketForm")),
   // Gallery Page
   gallery_hero: dynamic(() => import("@/components/sections/GalleryHero")),
   gallery_grid: dynamic(() => import("@/components/sections/GalleryGrid")),
-  // Size Chart Page
-  size_chart_hero: dynamic(() => import("@/components/sections/SizeChartHero")),
-  size_chart_display: dynamic(() => import("@/components/sections/SizeChartDisplay")),
   // Blog Page
   blog_hero: dynamic(() => import("@/components/sections/BlogHero")),
 };

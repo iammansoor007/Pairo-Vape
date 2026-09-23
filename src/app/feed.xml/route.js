@@ -42,7 +42,7 @@ export async function GET() {
   <channel>
     <title>${escapeXml(siteConfig?.siteName || "U Vape Store")}</title>
     <link>${domain}</link>
-    <description>${escapeXml(siteConfig?.description || "Premium Handcrafted Outerwear")}</description>
+    <description>${escapeXml(siteConfig?.description || "Premium Vapes, Disposables & E-Liquids")}</description>
 `;
 
     for (const prod of products) {
@@ -66,7 +66,7 @@ export async function GET() {
       const availability = (prod.stock > 0 || prod.availabilityStatus === "In Stock") ? "in stock" : "out of stock";
       const brand = escapeXml(siteConfig?.siteName || "U VAPE");
       const sku = escapeXml(prod.sku || prod._id.toString());
-      const gCategory = prod.primaryCategory?.name ? escapeXml(prod.primaryCategory.name) : "Apparel &amp; Accessories &gt; Clothing &gt; Outerwear";
+      const gCategory = prod.primaryCategory?.name ? escapeXml(prod.primaryCategory.name) : "Vape Devices &amp; E-Liquids";
 
       // Basic variant attributes extraction
       let colorValue = "";

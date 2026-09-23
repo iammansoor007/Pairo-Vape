@@ -4,7 +4,6 @@ import ProductSection from "@/components/home/ProductSection";
 import dbConnect from "@/lib/db";
 import Product from "@/models/Product";
 import "@/models/Category";
-import "@/models/SizeChart";
 import Link from "next/link";
 import ClientProductActions from "@/components/product/ClientProductActions";
 import ClientTabSystem from "@/components/product/ClientTabSystem";
@@ -42,13 +41,7 @@ export async function generateMetadata({ params, searchParams }) {
   const product = await Product.findOne({
     $or: queryOr,
     isDeleted: { $ne: true }
-  }).populate({
-    path: 'categories',
-    populate: { path: 'sizeChart' }
-  }).populate({
-    path: 'primaryCategory',
-    populate: { path: 'sizeChart' }
-  }).populate('sizeChart').lean();
+  }).populate('categories').populate('primaryCategory').lean();
 
   if (!product) return { title: "Product Not Found" };
 
@@ -116,15 +109,8 @@ export default async function ProductDetailPage({ params, searchParams }) {
     $or: queryOr,
     isDeleted: { $ne: true }
   })
-    .populate({
-      path: 'categories',
-      populate: { path: 'sizeChart' }
-    })
-    .populate({
-      path: 'primaryCategory',
-      populate: { path: 'sizeChart' }
-    })
-    .populate('sizeChart')
+    .populate('categories')
+    .populate('primaryCategory')
     .lean();
 
   if (!product) {
@@ -225,7 +211,7 @@ export default async function ProductDetailPage({ params, searchParams }) {
               </div>
               <p className="text-[22px] md:text-[30px] font-medium heading-font uppercase tracking-wider mb-6 leading-[1.2] text-primary">
                 {product.name} <br />
-                <span className="text-primary/30 font-normal">Masterpiece Narrative</span>
+                <span className="text-primary/30 font-normal">Product Story</span>
               </p>
               <div className="text-sm md:text-base text-primary/70 leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: product.narrative.content.replace(/\n/g, '<br/>') }} />
             </div>

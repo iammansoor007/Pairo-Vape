@@ -31,7 +31,10 @@ export async function verifyTurnstileToken(token, remoteIp = null) {
     };
   }
 
-  const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY || TEST_SECRET_KEY;
+  const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET_KEY || TEST_SECRET_KEY;
+  if (secretKey === TEST_SECRET_KEY && process.env.NODE_ENV === "production") {
+    console.warn("[Turnstile] No secret key set: using Cloudflare test secret, captcha always passes. Set CLOUDFLARE_TURNSTILE_SECRET_KEY.");
+  }
 
   try {
     const formData = new URLSearchParams();

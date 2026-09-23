@@ -584,7 +584,7 @@ export default function BecomeAffiliateClient() {
                     value={formData.street} 
                     onChange={handleInputChange} 
                     required
-                    placeholder="e.g. 100 Artisanal Boulevard" 
+                    placeholder="e.g. 100 Main Street" 
                     className="w-full px-4 py-3 rounded-[3px] border border-gray-300 bg-white focus:border-black focus:ring-1 focus:ring-black focus:outline-none text-[13px] transition-all"
                   />
                 </div>

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Lock, User, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/assets/png-file.png";
+import logo from "@/assets/logo-dark.png";
 import TurnstileWidget from "@/components/common/TurnstileWidget";
 
 export default function AdminLoginPage() {

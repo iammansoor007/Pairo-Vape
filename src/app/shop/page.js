@@ -58,7 +58,7 @@ export default async function ShopPage({ searchParams }) {
     entity: shopPage || {},
     type: "shop",
     fallbackTitle: "Shop All | U Vape Store",
-    fallbackDesc: "Browse U Vape's handcrafted premium vape devices, disposables,, and accessories.",
+    fallbackDesc: "Browse U Vape's premium vape devices, disposables, and accessories.",
     path: "/shop"
   });
 

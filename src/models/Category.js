@@ -33,8 +33,7 @@ const CategorySchema = new mongoose.Schema({
     question: String,
     answer: String
   }],
-  faqSchemaCustom: { type: String },
-  sizeChart: { type: mongoose.Schema.Types.ObjectId, ref: 'SizeChart', default: null }
+  faqSchemaCustom: { type: String }
 }, { timestamps: true });
 
 // Compound index to allow same slug for DIFFERENT types, but unique for SAME type

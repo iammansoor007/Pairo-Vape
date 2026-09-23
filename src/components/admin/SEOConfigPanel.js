@@ -102,7 +102,7 @@ export default function SEOConfigPanel({
 
   // Live fallback titles & descriptions for preview calculations
   const displayTitle = title || parentTitle || "U Vape Store | Premium vape devices";
-  const displayDesc = description || stripHtml(parentDescription) || "Experience the ultimate warmth and luxury with U Vape's premium vape jackets.";
+  const displayDesc = description || stripHtml(parentDescription) || "Shop premium vape devices, disposables, and e-liquids at U Vape Store.";
   const displayOgTitle = ogTitle || displayTitle;
   const displayOgDesc = ogDescription || displayDesc;
   const displayOgImage = ogImage || parentImage || "/placeholder.jpg";
@@ -220,7 +220,7 @@ export default function SEOConfigPanel({
                   <label className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block">Focus Keyword</label>
                   <input
                     type="text"
-                    placeholder="e.g. vape jacket"
+                    placeholder="e.g. disposable vape"
                     className="w-full bg-white border border-[#8c8f94] hover:border-neutral-500 focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] rounded-lg px-4 py-3 text-sm text-[#1d2327] placeholder-neutral-400 outline-none transition-all font-semibold"
                     value={focusKeyword}
                     onChange={e => updateField("focusKeyword", e.target.value)}
@@ -230,7 +230,7 @@ export default function SEOConfigPanel({
                   <label className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block">Keywords (Comma-separated)</label>
                   <input
                     type="text"
-                    placeholder="jacket, leather, vape"
+                    placeholder="vape, disposable, e-liquid"
                     className="w-full bg-white border border-[#8c8f94] hover:border-neutral-500 focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] rounded-lg px-4 py-3 text-sm text-[#1d2327] placeholder-neutral-400 outline-none transition-all font-semibold"
                     value={keywords}
                     onChange={e => updateField("keywords", e.target.value)}
@@ -561,7 +561,7 @@ export default function SEOConfigPanel({
                 )}
               </div>
               <textarea
-                placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "Product",\n  "name": "Custom vape Jacket"\n}`}
+                placeholder={`{\n  "@context": "https://schema.org",\n  "@type": "Product",\n  "name": "Disposable Vape"\n}`}
                 rows={10}
                 className={`w-full font-mono text-xs p-4 border rounded-lg outline-none transition-all bg-white ${jsonLdError ? "border-rose-400 focus:border-rose-500" : "border-[#8c8f94] focus:border-[#2271b1]"}`}
                 value={structuredData}

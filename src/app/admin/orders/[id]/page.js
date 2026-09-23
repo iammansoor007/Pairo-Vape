@@ -163,13 +163,13 @@ export default function OrderDetailPage() {
   };
 
   if (loading) return (
-    <AdminPageLayout title="Order Details" breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: "Loading" }]}>
+    <AdminPageLayout title="Order Details" breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: "Loading" }]}>
        <div className="p-20 text-center text-[13px] text-gray-500 italic bg-white border border-[#ccd0d4]">Loading order details...</div>
     </AdminPageLayout>
   );
 
   if (!order) return (
-    <AdminPageLayout title="Order Details" breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: "Error" }]}>
+    <AdminPageLayout title="Order Details" breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: "Error" }]}>
        <div className="p-20 text-center text-[13px] text-red-500 font-bold bg-white border border-[#ccd0d4]">Order not found.</div>
     </AdminPageLayout>
   );
@@ -177,7 +177,7 @@ export default function OrderDetailPage() {
   return (
     <AdminPageLayout 
       title={`Order #${order.orderNumber}`} 
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: `Edit Order` }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Orders", href: "/admin/orders" }, { label: `Edit Order` }]}
     >
       <InvoiceTemplate order={order} />
 
@@ -307,79 +307,6 @@ export default function OrderDetailPage() {
                               SKU: {item.sku || "—"}
                             </p>
                           </div>
-                          {/* Made to Measure */}
-                          {item.madeToMeasure?.enabled && (
-                            <div className="mt-2">
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 rounded text-[9px] font-bold uppercase tracking-wide">
-                                ✦ Made to Measure
-                              </span>
-                              {Object.keys(item.madeToMeasure.measurements || {}).length > 0 && (
-                                <details className="mt-1.5">
-                                  <summary className="text-[11px] text-[#2271b1] cursor-pointer hover:underline select-none">View measurements ({item.madeToMeasure.unit})</summary>
-                                  <div className="mt-2 grid grid-cols-3 gap-x-4 gap-y-1 text-[11px] text-[#1d2327]">
-                                    {Object.entries(item.madeToMeasure.measurements).map(([k, v]) => v ? (
-                                      <div key={k}>
-                                        <span className="font-semibold capitalize text-[#646970]">{k.replace(/([A-Z])/g, ' $1')}: </span>
-                                        {v} {item.madeToMeasure.unit}
-                                      </div>
-                                    ) : null)}
-                                  </div>
-                                  {item.madeToMeasure.notes && (
-                                    <p className="mt-2 text-[11px] italic text-[#646970]">Note: {item.madeToMeasure.notes}</p>
-                                  )}
-                                </details>
-                              )}
-                            </div>
-                          )}
-                          {/* Customize Product options */}
-                          {item.customization?.enabled && (
-                            <div className="mt-3 pt-2 border-t border-neutral-100">
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-50 border border-purple-200 text-purple-700 rounded text-[9px] font-bold uppercase tracking-wide">
-                                ✦ Custom Design Selections
-                              </span>
-                              <div className="mt-2 space-y-1.5 text-[11px] text-[#1d2327]">
-                                {item.customization.leatherColor && item.customization.leatherColor !== "None" && (
-                                  <div><span className="font-semibold text-[#646970]">Leather Color:</span> {item.customization.leatherColor} {item.customization.leatherColorNote && `(${item.customization.leatherColorNote})`}</div>
-                                )}
-                                {item.customization.leatherType && item.customization.leatherType !== "None" && (
-                                  <div><span className="font-semibold text-[#646970]">Leather Type:</span> {item.customization.leatherType} {item.customization.leatherTypeNote && `(${item.customization.leatherTypeNote})`}</div>
-                                )}
-                                {item.customization.innerLining && item.customization.innerLining !== "None" && (
-                                  <div><span className="font-semibold text-[#646970]">Inner Lining:</span> {item.customization.innerLining} {item.customization.innerLiningNote && `(${item.customization.innerLiningNote})`}</div>
-                                )}
-                                {item.customization.hardwareColor && item.customization.hardwareColor !== "None" && (
-                                  <div><span className="font-semibold text-[#646970]">Hardware Color:</span> {item.customization.hardwareColor} {item.customization.hardwareColorNote && `(${item.customization.hardwareColorNote})`}</div>
-                                )}
-                                {item.customization.fur?.type && item.customization.fur.type !== "None" && (
-                                  <div className="pl-2 border-l-2 border-neutral-200 mt-1">
-                                    <span className="font-bold text-[9px] uppercase tracking-wider text-neutral-400 block mb-0.5">Fur Customization</span>
-                                    <div><span className="font-semibold text-[#646970]">Fur Type:</span> {item.customization.fur.type} {item.customization.fur.typeNote && `(${item.customization.fur.typeNote})`}</div>
-                                    {item.customization.fur.color && <div><span className="font-semibold text-[#646970]">Fur Color:</span> {item.customization.fur.color}</div>}
-                                    {item.customization.fur.placement?.length > 0 && <div><span className="font-semibold text-[#646970]">Placement:</span> {item.customization.fur.placement.join(", ")}</div>}
-                                    {item.customization.fur.density && <div><span className="font-semibold text-[#646970]">Density:</span> {item.customization.fur.density}</div>}
-                                    {item.customization.fur.removable !== null && <div><span className="font-semibold text-[#646970]">Removable:</span> {item.customization.fur.removable ? "Yes" : "No"}</div>}
-                                  </div>
-                                )}
-                                {item.customization.artwork && Object.values(item.customization.artwork).some(Boolean) && (
-                                  <div className="mt-2 space-y-1">
-                                    <span className="font-bold text-[9px] uppercase tracking-wider text-neutral-400 block">Uploaded Artwork</span>
-                                    {Object.entries(item.customization.artwork).map(([placement, art]) => {
-                                      if (!art || !art.url) return null;
-                                      return (
-                                        <div key={placement} className="flex items-center gap-2 pl-2 text-[11px]">
-                                          <span className="font-semibold capitalize text-[#646970]">{placement.replace(/([A-Z])/g, ' $1')}:</span>
-                                          <a href={art.url} target="_blank" rel="noopener noreferrer" className="text-[#2271b1] hover:underline truncate max-w-[200px]">
-                                            {art.name || "Download File"}
-                                          </a>
-                                          {placement === "other" && art.note && <span className="text-neutral-400 italic">({art.note})</span>}
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          )}
                         </div>
                       </td>
                       <td className="px-6 py-4">

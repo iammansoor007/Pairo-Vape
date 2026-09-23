@@ -203,7 +203,7 @@ export default function AdminProducts() {
       title="Products" 
       addNewLink="/admin/products/new"
       addNewLabel="Add New"
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Products" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Products" }]}
     >
       <div className="space-y-4">
         {/* View Tabs */}

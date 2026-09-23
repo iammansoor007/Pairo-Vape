@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Search, ShoppingCart, User, Menu, X, ChevronDown, LogIn, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
-import logo from '../../assets/png-file.png';
+import logo from '../../assets/logo-dark.png';
 import SearchModal from "./SearchModal";
 import { useCart } from "@/context/CartContext";
 import { useSiteData } from "@/context/SiteContext";

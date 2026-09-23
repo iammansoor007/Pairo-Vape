@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function StudioGallery({
-  label = "THE ATELIER",
+  label = "THE STORE",
   title = "WHERE IDEAS TAKE SHAPE",
   images = [
      { url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" },

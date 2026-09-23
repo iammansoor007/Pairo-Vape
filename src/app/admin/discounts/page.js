@@ -379,7 +379,7 @@ function CouponsContent() {
     return (
       <AdminPageLayout 
         title="Add New Coupon" 
-        breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Coupons", href: "/admin/discounts" }, { label: "Add New" }]}
+        breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Coupons", href: "/admin/discounts" }, { label: "Add New" }]}
       >
         {/* WordPress Notices */}
         {errorNotice && (
@@ -577,7 +577,7 @@ function CouponsContent() {
         router.push("/admin/discounts?action=new");
       }}
       addNewLabel="Add New"
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Coupons" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Coupons" }]}
     >
       {/* WordPress Notices */}
       {successNotice && (

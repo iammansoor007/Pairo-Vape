@@ -130,29 +130,22 @@ export function CartProvider({ children }) {
       image: product.image || (product.images && product.images[0]) || "/placeholder.jpg",
     };
 
-    // Items with madeToMeasure are always unique (never merged)
-    const isM2M = !!normalizedProduct.madeToMeasure?.enabled;
-
     setCartItems((prevItems) => {
-      if (!isM2M) {
-        const existingItem = prevItems.find(
-          (item) =>
-            item.id === normalizedProduct.id &&
-            item.selectedSize === normalizedProduct.selectedSize &&
-            item.selectedColor === normalizedProduct.selectedColor &&
-            !item.madeToMeasure?.enabled
-        );
+      const existingItem = prevItems.find(
+        (item) =>
+          item.id === normalizedProduct.id &&
+          item.selectedSize === normalizedProduct.selectedSize &&
+          item.selectedColor === normalizedProduct.selectedColor
+      );
 
-        if (existingItem) {
-          return prevItems.map((item) =>
-            (item.id === normalizedProduct.id &&
-             item.selectedSize === normalizedProduct.selectedSize &&
-             item.selectedColor === normalizedProduct.selectedColor &&
-             !item.madeToMeasure?.enabled)
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          );
-        }
+      if (existingItem) {
+        return prevItems.map((item) =>
+          (item.id === normalizedProduct.id &&
+           item.selectedSize === normalizedProduct.selectedSize &&
+           item.selectedColor === normalizedProduct.selectedColor)
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
       }
 
       return [...prevItems, { ...normalizedProduct, quantity: 1 }];

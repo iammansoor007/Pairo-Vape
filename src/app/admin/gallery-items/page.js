@@ -103,7 +103,7 @@ function GalleryItemForm({ item, products, onSave, onClose, isNew }) {
           {/* Title */}
           <div>
             <label className="text-[11px] font-bold uppercase tracking-wider text-[#646970] block mb-1.5">Title *</label>
-            <input type="text" name="title" value={form.title} onChange={handleChange} placeholder="e.g. A-1 vape Flight Jacket" className={inputClass} />
+            <input type="text" name="title" value={form.title} onChange={handleChange} placeholder="e.g. Disposable Vape Bundle" className={inputClass} />
           </div>
 
           {/* Description */}

@@ -981,7 +981,6 @@ export default function CheckoutPage() {
                   type="checkbox"
                   id="ageVerification"
                   required
-                  defaultChecked
                   className="accent-black w-4 h-4 mt-0.5"
                 />
                 <label htmlFor="ageVerification" className="text-[11px] font-semibold text-black select-none leading-snug cursor-pointer">

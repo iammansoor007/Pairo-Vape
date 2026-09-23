@@ -110,7 +110,7 @@ export default async function BlogArchive() {
     entity: page || {},
     type: "page",
     fallbackTitle: "Journal | U Vape Editorial",
-    fallbackDesc: "Explore the stories, craftsmanship, and heritage behind U Vape's archival vape collection.",
+    fallbackDesc: "Explore guides, news, and stories from U Vape.",
     path: "/blog"
   });
 

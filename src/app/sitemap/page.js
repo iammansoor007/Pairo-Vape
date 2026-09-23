@@ -132,7 +132,7 @@ export default async function SitemapPage() {
             <p 
               className="text-xs sm:text-sm max-w-md leading-relaxed text-black/60"
             >
-              Browse all pages, collections, premium outerwear products, and editorial journal stories across our digital storefront.
+              Browse all pages, collections, premium vape products, and editorial journal stories across our digital storefront.
             </p>
           </div>
         </div>
@@ -238,7 +238,7 @@ export default async function SitemapPage() {
               className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-black border-b border-black/[0.08] pb-3"
               style={{ fontFamily: "var(--brand-font)" }}
             >
-              Outerwear Products
+              Vape Products
             </h2>
             {products.length === 0 ? (
               <p className="text-[11px] text-neutral-400 italic">No products found.</p>

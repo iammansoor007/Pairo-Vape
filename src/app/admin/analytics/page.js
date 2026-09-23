@@ -35,7 +35,7 @@ export default function AdminAnalyticsPage() {
 
   if (loading) {
     return (
-      <AdminPageLayout title="Store Analytics" breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Analytics" }]}>
+      <AdminPageLayout title="Store Analytics" breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Analytics" }]}>
         <div className="p-20 text-center text-[13px] text-gray-500 italic bg-white border border-[#ccd0d4]">Analyzing store data...</div>
       </AdminPageLayout>
     );
@@ -43,7 +43,7 @@ export default function AdminAnalyticsPage() {
 
   if (!stats) {
     return (
-      <AdminPageLayout title="Store Analytics" breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Analytics" }]}>
+      <AdminPageLayout title="Store Analytics" breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Analytics" }]}>
         <div className="p-20 text-center text-[13px] text-red-500 font-bold bg-white border border-[#ccd0d4]">Failed to load analytics.</div>
       </AdminPageLayout>
     );
@@ -55,7 +55,7 @@ export default function AdminAnalyticsPage() {
   return (
     <AdminPageLayout 
       title="Store Analytics" 
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Analytics" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Analytics" }]}
     >
       <div className="space-y-8">
         

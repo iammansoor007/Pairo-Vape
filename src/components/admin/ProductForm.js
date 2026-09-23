@@ -22,41 +22,8 @@ import {
    Pencil,
    Lock,
    Unlock,
-   Loader2,
-   Ruler
+   Loader2
 } from "lucide-react";
-
-const DEFAULT_SIZES_CM = [
-  { size: "XS", us: "34", eu: "44", chest: "86 - 89", sleeves: "63.5" },
-  { size: "S", us: "36 - 38", eu: "46 - 48", chest: "91 - 97", sleeves: "64.5" },
-  { size: "M", us: "40", eu: "50", chest: "99 - 104", sleeves: "66" },
-  { size: "L", us: "42 - 44", eu: "52 - 54", chest: "106 - 112", sleeves: "67" },
-  { size: "XL", us: "46", eu: "56", chest: "114 - 119", sleeves: "68.5" },
-  { size: "2XL", us: "48 - 50", eu: "58 - 60", chest: "122 - 127", sleeves: "70" },
-  { size: "3XL", us: "52", eu: "62", chest: "129 - 135", sleeves: "71" },
-  { size: "4XL", us: "54 - 56", eu: "64 - 66", chest: "137 - 142", sleeves: "72" },
-];
-
-const DEFAULT_SIZES_IN = [
-  { size: "XS", us: "34", eu: "44", chest: "34 - 35", sleeves: "25" },
-  { size: "S", us: "36 - 38", eu: "46 - 48", chest: "36 - 38", sleeves: "25.4" },
-  { size: "M", us: "40", eu: "50", chest: "39 - 41", sleeves: "26" },
-  { size: "L", us: "42 - 44", eu: "52 - 54", chest: "42 - 44", sleeves: "26.4" },
-  { size: "XL", us: "46", eu: "56", chest: "45 - 47", sleeves: "27" },
-  { size: "2XL", us: "48 - 50", eu: "58 - 60", chest: "48 - 50", sleeves: "27.6" },
-  { size: "3XL", us: "52", eu: "62", chest: "51 - 53", sleeves: "28" },
-  { size: "4XL", us: "54 - 56", eu: "64 - 66", chest: "54 - 56", sleeves: "28.3" },
-];
-
-const DEFAULT_INSTRUCTIONS = [
-  { title: "Shoulder", desc: "Measure from the tip of one shoulder, across your back to the tip of your other shoulder." },
-  { title: "Chest", desc: "Measure the circumference around the fullest area of chest, keeping the tape level." },
-  { title: "Natural Waist", desc: "Measure the circumference around the narrowest area of waist, above the navel." },
-  { title: "Lower Waist", desc: "Measure the circumference around the fullest area of waist, below the navel." },
-  { title: "Hips", desc: "Measure around the fullest part of your body, above the top of your legs." },
-  { title: "Sleeves Outseam", desc: "Measure from your shoulder seam, with your arm slightly bent, to the tip of your wrist." },
-  { title: "Pants Inseam", desc: "Measure from your crotch point down to your ankle." }
-];
 
 const TiptapEditor = dynamic(() => import('./TiptapEditor'), { ssr: false });
 import MediaPicker from "./MediaPicker";
@@ -115,7 +82,6 @@ export default function ProductForm({ productId = null }) {
    const [slugCheckState, setSlugCheckState] = useState(null);
    const [slugDraftValue, setSlugDraftValue] = useState("");
    const [categories, setCategories] = useState([]);
-   const [sizeCharts, setSizeCharts] = useState([]);
 
    const getPreviewCategorySlug = () => {
       if (formData.primaryCategory) {
@@ -168,17 +134,7 @@ export default function ProductForm({ productId = null }) {
       attributes: [], // { name: "", type: "custom", values: [{ label: "", hex: "", image: "", value: "", variantImage: "" }] }
       variantCombinations: [], // { title: "", price: "", stock: "", sku: "", image: "" }
       stats: [],
-      faqs: [],
-      sizeChartSource: "category_default",
-      sizeChart: "",
-      sizeGuide: {
-         enabled: false,
-         chartImage: "",
-         videoUrl: "https://www.youtube.com/watch?v=ipyhV51zUWk",
-         sizesCm: DEFAULT_SIZES_CM,
-         sizesIn: DEFAULT_SIZES_IN,
-         instructions: DEFAULT_INSTRUCTIONS
-      }
+      faqs: []
    });
 
    useEffect(() => {
@@ -190,13 +146,6 @@ export default function ProductForm({ productId = null }) {
             }
             const data = await catsRes.json();
             setCategories(Array.isArray(data) ? data : []);
-
-            // Fetch size charts
-            const scRes = await fetch("/api/admin/size-charts");
-            if (scRes.ok) {
-               const scData = await scRes.json();
-               setSizeCharts(scData.filter(sc => sc.status === "Published" && !sc.isDeleted));
-            }
 
             if (productId) {
                const prodRes = await fetch(`/api/admin/products?id=${productId}`);
@@ -211,8 +160,6 @@ export default function ProductForm({ productId = null }) {
                   images: prodData.images || [],
                   categories: prodData.categories || [],
                   primaryCategory: prodData.primaryCategory || "",
-                  sizeChartSource: prodData.sizeChartSource || "category_default",
-                  sizeChart: prodData.sizeChart || "",
                   color: prodData.color || "",
                   gender: prodData.gender || "unisex",
                   ageGroup: prodData.ageGroup || "adult",
@@ -239,15 +186,7 @@ export default function ProductForm({ productId = null }) {
                   stats: prodData.stats || [],
                   faqs: prodData.faqs || [],
                   overview: prodData.overview || "",
-                  shippingType: prodData.shippingType || "Express",
-                  sizeGuide: {
-                     enabled: prodData.sizeGuide?.enabled || false,
-                     chartImage: prodData.sizeGuide?.chartImage || "",
-                     videoUrl: prodData.sizeGuide?.videoUrl || "https://www.youtube.com/watch?v=ipyhV51zUWk",
-                     sizesCm: prodData.sizeGuide?.sizesCm?.length > 0 ? prodData.sizeGuide.sizesCm : DEFAULT_SIZES_CM,
-                     sizesIn: prodData.sizeGuide?.sizesIn?.length > 0 ? prodData.sizeGuide.sizesIn : DEFAULT_SIZES_IN,
-                     instructions: prodData.sizeGuide?.instructions?.length > 0 ? prodData.sizeGuide.instructions : DEFAULT_INSTRUCTIONS
-                  }
+                  shippingType: prodData.shippingType || "Express"
                });
             }
             setLoading(false);
@@ -291,8 +230,6 @@ export default function ProductForm({ productId = null }) {
               }, 300);
            } else if (focus === "variants" || tab === "variants") {
               setActiveTab("variants");
-           } else if (focus === "sizeguide" || focus === "size" || tab === "sizeguide") {
-              setActiveTab("sizeguide");
            } else if (focus === "faqs" || tab === "faqs") {
               setActiveTab("faqs");
            } else if (focus === "stats" || tab === "stats") {
@@ -437,7 +374,7 @@ export default function ProductForm({ productId = null }) {
          material: {
             name: "Material",
             type: "custom",
-            values: ["Cotton", "Leather", "Silk", "Wool", "Suede"].map(v => ({ label: v, value: v, hex: "", image: "", variantImage: "" }))
+            values: ["Stainless Steel", "Aluminum", "Zinc Alloy", "Plastic", "Glass"].map(v => ({ label: v, value: v, hex: "", image: "", variantImage: "" }))
          }
       };
       if (templates[type]) {
@@ -491,7 +428,7 @@ export default function ProductForm({ productId = null }) {
       title={productId ? "Edit Product" : "Add New Product"} 
       addNewLink="/admin/products/new"
       addNewLabel="Add New"
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Products", href: "/admin/products" }, { label: productId ? "Edit" : "New" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Products", href: "/admin/products" }, { label: productId ? "Edit" : "New" }]}
     >
          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start">
             {/* Main Column */}
@@ -678,8 +615,7 @@ export default function ProductForm({ productId = null }) {
                                  { id: "inventory", label: "Inventory", icon: Package },
                                  formData.productType === "variable" && { id: "variants", label: "Variants Engine", icon: Layers },
                                  { id: "stats", label: "Product Stats", icon: Activity },
-                                 { id: "faqs", label: "FAQs", icon: HelpCircle },
-                                 { id: "sizeguide", label: "Size Guide", icon: Ruler }
+                                 { id: "faqs", label: "FAQs", icon: HelpCircle }
                               ].filter(Boolean).map(tab => (
                                  <button
                                     key={tab.id}
@@ -1048,369 +984,6 @@ export default function ProductForm({ productId = null }) {
                                     ))}
                                  </div>
                               )}
-
-                               {activeTab === "sizeguide" && (
-                                   <div className="space-y-6">
-                                      <div className="bg-white border border-gray-100 p-6 rounded shadow-sm space-y-4 max-w-xl">
-                                         <h3 className="text-[14px] font-bold text-gray-700 border-b border-gray-100 pb-2">Size Chart Configuration</h3>
-                                         
-                                         {/* Size Chart Source */}
-                                         <div className="space-y-1.5">
-                                            <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block">Size Chart Source</label>
-                                            <select 
-                                               className="w-full border border-gray-200 bg-white p-2 text-[13px] outline-none rounded focus:border-[#2271b1] cursor-pointer"
-                                               value={formData.sizeChartSource || "category_default"}
-                                               onChange={(e) => {
-                                                  const val = e.target.value;
-                                                  setFormData({ 
-                                                     ...formData, 
-                                                     sizeChartSource: val,
-                                                     sizeGuide: {
-                                                        ...(formData.sizeGuide || {}),
-                                                        enabled: val === "product_custom"
-                                                     }
-                                                  });
-                                               }}
-                                            >
-                                               <option value="category_default">Use Category Default</option>
-                                               <option value="custom">Select Reusable Size Chart</option>
-                                               <option value="product_custom">Create Custom Size Chart for this Product</option>
-                                               <option value="none">No Size Chart (Disabled)</option>
-                                            </select>
-                                            <p className="text-[11px] text-gray-400">
-                                               {formData.sizeChartSource === "category_default" 
-                                                  ? "This product will automatically inherit the size chart assigned to its primary category."
-                                                  : formData.sizeChartSource === "custom"
-                                                  ? "Select a specific master size chart below to override the category default."
-                                                  : formData.sizeChartSource === "product_custom"
-                                                  ? "Build a custom, one-off size chart directly for this product below."
-                                                  : "No size chart will be shown for this product."
-                                               }
-                                            </p>
-                                         </div>
-
-                                         {/* Size Chart Selection */}
-                                         {formData.sizeChartSource === "custom" && (
-                                            <div className="space-y-1.5 pt-2 animate-in fade-in duration-200">
-                                               <label className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block">Select Reusable Size Chart</label>
-                                               <select 
-                                                  className="w-full border border-gray-200 bg-white p-2 text-[13px] outline-none rounded focus:border-[#2271b1] cursor-pointer"
-                                                  value={formData.sizeChart || ""}
-                                                  onChange={(e) => setFormData({ ...formData, sizeChart: e.target.value })}
-                                               >
-                                                  <option value="">-- Choose Size Chart --</option>
-                                                  {sizeCharts.map((sc) => (
-                                                     <option key={sc._id} value={sc._id}>
-                                                        {sc.label}
-                                                     </option>
-                                                  ))}
-                                               </select>
-                                               {sizeCharts.length === 0 && (
-                                                  <p className="text-[11px] text-red-500 font-bold">
-                                                     No published size charts found. <a href="/admin/products/size-charts/new" className="underline" target="_blank" rel="noopener noreferrer">Create one here</a>
-                                                  </p>
-                                               )}
-                                            </div>
-                                         )}
-                                      </div>
-
-                                      {/* Inline Custom Size Chart Editor (only shown if sizeChartSource is product_custom) */}
-                                      {formData.sizeChartSource === "product_custom" && (
-                                         <div className="space-y-6 animate-in fade-in duration-300">
-                                            {/* Size Name & Video */}
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                                               <div className="bg-white border border-[#c3c4c7] p-4 rounded space-y-3 shadow-sm">
-                                                  <label className="block text-[11px] font-bold text-gray-400 uppercase">Size Column Name</label>
-                                                  <input
-                                                     className="w-full border border-[#c3c4c7] p-2 text-[13px] outline-none focus:border-[#2271b1] bg-white rounded"
-                                                     placeholder="e.g. Jacket Size, Waist Size, Dress Size"
-                                                     value={formData.sizeGuide?.sizeName || ""}
-                                                     onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        sizeGuide: {
-                                                           ...(formData.sizeGuide || {}),
-                                                           sizeName: e.target.value
-                                                        }
-                                                     })}
-                                                  />
-                                                  <p className="text-[11px] text-gray-400">Label shown as the first column header in the size table (e.g. "Jacket Size").</p>
-                                               </div>
-                                               <div className="bg-white border border-[#c3c4c7] p-4 rounded space-y-3 shadow-sm">
-                                                  <label className="block text-[11px] font-bold text-gray-400 uppercase">YouTube Video Link</label>
-                                                  <input
-                                                     className="w-full border border-[#c3c4c7] p-2 text-[13px] outline-none focus:border-[#2271b1] bg-white rounded"
-                                                     placeholder="e.g. https://www.youtube.com/watch?v=ipyhV51zUWk"
-                                                     value={formData.sizeGuide?.videoUrl || ""}
-                                                     onChange={(e) => setFormData({
-                                                        ...formData,
-                                                        sizeGuide: {
-                                                           ...(formData.sizeGuide || {}),
-                                                           videoUrl: e.target.value
-                                                        }
-                                                     })}
-                                                  />
-                                                  <p className="text-[11px] text-gray-400">URL to instructions video (YouTube embed/watch link).</p>
-                                               </div>
-                                            </div>
-
-                                            {/* CM Table */}
-                                            {(() => {
-                                               const DEFAULT_COLS_CM = [
-                                                  { key: "size", label: "Size" },
-                                                  { key: "us", label: "US Size" },
-                                                  { key: "eu", label: "EU Size" },
-                                                  { key: "chest", label: "Chest (CM)" },
-                                                  { key: "sleeves", label: "Sleeves (CM)" },
-                                               ];
-                                               const colsCm = formData.sizeGuide?.columnsCm?.length > 0
-                                                  ? formData.sizeGuide.columnsCm
-                                                  : DEFAULT_COLS_CM;
-                                               const updateColsCm = (cols) =>
-                                                  setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), columnsCm: cols } });
-                                               const addColCm = () => {
-                                                  const key = `col_${Date.now()}`;
-                                                  updateColsCm([...colsCm, { key, label: "New Column" }]);
-                                               };
-                                               const removeColCm = (idx) => updateColsCm(colsCm.filter((_, i) => i !== idx));
-                                               const renameColCm = (idx, label) => {
-                                                  const updated = colsCm.map((c, i) => i === idx ? { ...c, label } : c);
-                                                  updateColsCm(updated);
-                                               };
-                                               return (
-                                                  <div className="bg-white border border-[#c3c4c7] p-4 rounded max-w-4xl shadow-sm">
-                                                     <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
-                                                        <h4 className="text-[13px] font-bold text-gray-700">Size Chart (CM)</h4>
-                                                        <div className="flex gap-2">
-                                                           <button type="button" onClick={addColCm}
-                                                              className="border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded text-[11px] font-bold hover:bg-[#2271b1] hover:text-white transition">
-                                                              + Add Column
-                                                           </button>
-                                                           <button type="button"
-                                                              onClick={() => {
-                                                                 const cm = [...(formData.sizeGuide?.sizesCm || [])];
-                                                                 const emptyRow = {};
-                                                                 colsCm.forEach(c => { emptyRow[c.key] = ""; });
-                                                                 cm.push(emptyRow);
-                                                                 setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesCm: cm } });
-                                                              }}
-                                                              className="bg-[#2271b1] text-white px-3 py-1 rounded text-[11px] font-bold hover:bg-[#135e96]">
-                                                              + Add Row
-                                                           </button>
-                                                        </div>
-                                                     </div>
-                                                     <div className="overflow-x-auto">
-                                                        <table className="w-full text-left text-[11px] border-collapse">
-                                                           <thead>
-                                                              <tr className="bg-gray-50 border-b border-gray-200">
-                                                                 {colsCm.map((col, cIdx) => (
-                                                                    <th key={col.key} className="p-1">
-                                                                       <div className="flex items-center gap-1 group">
-                                                                          <input
-                                                                             className="border border-transparent hover:border-gray-200 focus:border-[#2271b1] bg-transparent outline-none text-gray-500 font-bold uppercase text-[10px] w-full min-w-[60px] px-1 py-0.5 rounded"
-                                                                             value={col.label}
-                                                                             onChange={(e) => renameColCm(cIdx, e.target.value)}
-                                                                          />
-                                                                          {colsCm.length > 1 && (
-                                                                             <button type="button" onClick={() => removeColCm(cIdx)}
-                                                                                className="opacity-0 group-hover:opacity-100 text-gray-300 hover:text-red-500 transition flex-shrink-0">
-                                                                                <X className="w-3 h-3" />
-                                                                             </button>
-                                                                          )}
-                                                                       </div>
-                                                                    </th>
-                                                                 ))}
-                                                                 <th className="p-1 w-8" />
-                                                              </tr>
-                                                           </thead>
-                                                           <tbody className="divide-y divide-gray-100">
-                                                              {(formData.sizeGuide?.sizesCm || []).map((row, rIdx) => (
-                                                                 <tr key={rIdx}>
-                                                                    {colsCm.map(col => (
-                                                                       <td key={col.key} className="p-1">
-                                                                          <input
-                                                                             className="w-full border border-gray-200 p-1 text-[11px]"
-                                                                             value={row[col.key] || ""}
-                                                                             onChange={(e) => {
-                                                                                const cm = [...(formData.sizeGuide?.sizesCm || [])];
-                                                                                cm[rIdx] = { ...cm[rIdx], [col.key]: e.target.value };
-                                                                                setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesCm: cm } });
-                                                                             }}
-                                                                          />
-                                                                       </td>
-                                                                    ))}
-                                                                    <td className="p-1 text-center">
-                                                                       <button type="button" onClick={() => {
-                                                                          const cm = (formData.sizeGuide?.sizesCm || []).filter((_, i) => i !== rIdx);
-                                                                          setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesCm: cm } });
-                                                                       }}><X className="w-3.5 h-3.5 text-gray-300 hover:text-red-500" /></button>
-                                                                    </td>
-                                                                 </tr>
-                                                              ))}
-                                                           </tbody>
-                                                        </table>
-                                                     </div>
-                                                  </div>
-                                               );
-                                            })()}
-
-                                            {/* INCHES Table */}
-                                            {(() => {
-                                               const DEFAULT_COLS_IN = [
-                                                  { key: "size", label: "Size" },
-                                                  { key: "us", label: "US Size" },
-                                                  { key: "eu", label: "EU Size" },
-                                                  { key: "chest", label: "Chest (IN)" },
-                                                  { key: "sleeves", label: "Sleeves (IN)" },
-                                               ];
-                                               const colsIn = formData.sizeGuide?.columnsIn?.length > 0
-                                                  ? formData.sizeGuide.columnsIn
-                                                  : DEFAULT_COLS_IN;
-                                               const updateColsIn = (cols) =>
-                                                  setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), columnsIn: cols } });
-                                               const addColIn = () => {
-                                                  const key = `col_${Date.now()}`;
-                                                  updateColsIn([...colsIn, { key, label: "New Column" }]);
-                                               };
-                                               const removeColIn = (idx) => updateColsIn(colsIn.filter((_, i) => i !== idx));
-                                               const renameColIn = (idx, label) => {
-                                                  const updated = colsIn.map((c, i) => i === idx ? { ...c, label } : c);
-                                                  updateColsIn(updated);
-                                               };
-                                               return (
-                                                  <div className="bg-white border border-[#c3c4c7] p-4 rounded max-w-4xl shadow-sm">
-                                                     <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
-                                                        <h4 className="text-[13px] font-bold text-gray-700">Size Chart (INCHES)</h4>
-                                                        <div className="flex gap-2">
-                                                           <button type="button" onClick={addColIn}
-                                                              className="border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded text-[11px] font-bold hover:bg-[#2271b1] hover:text-white transition">
-                                                              + Add Column
-                                                           </button>
-                                                           <button type="button"
-                                                              onClick={() => {
-                                                                 const inches = [...(formData.sizeGuide?.sizesIn || [])];
-                                                                 const emptyRow = {};
-                                                                 colsIn.forEach(c => { emptyRow[c.key] = ""; });
-                                                                 inches.push(emptyRow);
-                                                                 setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesIn: inches } });
-                                                              }}
-                                                              className="bg-[#2271b1] text-white px-3 py-1 rounded text-[11px] font-bold hover:bg-[#135e96]">
-                                                              + Add Row
-                                                           </button>
-                                                        </div>
-                                                     </div>
-                                                     <div className="overflow-x-auto">
-                                                        <table className="w-full text-left text-[11px] border-collapse">
-                                                           <thead>
-                                                              <tr className="bg-gray-50 border-b border-gray-200">
-                                                                 {colsIn.map((col, cIdx) => (
-                                                                    <th key={col.key} className="p-1">
-                                                                       <div className="flex items-center gap-1 group">
-                                                                          <input
-                                                                             className="border border-transparent hover:border-gray-200 focus:border-[#2271b1] bg-transparent outline-none text-gray-500 font-bold uppercase text-[10px] w-full min-w-[60px] px-1 py-0.5 rounded"
-                                                                             value={col.label}
-                                                                             onChange={(e) => renameColIn(cIdx, e.target.value)}
-                                                                          />
-                                                                          {colsIn.length > 1 && (
-                                                                             <button type="button" onClick={() => removeColIn(cIdx)}
-                                                                                className="opacity-0 group-hover:opacity-100 text-gray-300 hover:text-red-500 transition flex-shrink-0">
-                                                                                <X className="w-3 h-3" />
-                                                                             </button>
-                                                                          )}
-                                                                       </div>
-                                                                    </th>
-                                                                 ))}
-                                                                 <th className="p-1 w-8" />
-                                                              </tr>
-                                                           </thead>
-                                                           <tbody className="divide-y divide-gray-100">
-                                                              {(formData.sizeGuide?.sizesIn || []).map((row, rIdx) => (
-                                                                 <tr key={rIdx}>
-                                                                    {colsIn.map(col => (
-                                                                       <td key={col.key} className="p-1">
-                                                                          <input
-                                                                             className="w-full border border-gray-200 p-1 text-[11px]"
-                                                                             value={row[col.key] || ""}
-                                                                             onChange={(e) => {
-                                                                                const inches = [...(formData.sizeGuide?.sizesIn || [])];
-                                                                                inches[rIdx] = { ...inches[rIdx], [col.key]: e.target.value };
-                                                                                setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesIn: inches } });
-                                                                             }}
-                                                                          />
-                                                                       </td>
-                                                                    ))}
-                                                                    <td className="p-1 text-center">
-                                                                       <button type="button" onClick={() => {
-                                                                          const inches = (formData.sizeGuide?.sizesIn || []).filter((_, i) => i !== rIdx);
-                                                                          setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), sizesIn: inches } });
-                                                                       }}><X className="w-3.5 h-3.5 text-gray-300 hover:text-red-500" /></button>
-                                                                    </td>
-                                                                 </tr>
-                                                              ))}
-                                                           </tbody>
-                                                        </table>
-                                                     </div>
-                                                  </div>
-                                               );
-                                            })()}
-
-                                            {/* Instructions */}
-                                            <div className="bg-white border border-[#c3c4c7] p-4 rounded max-w-4xl shadow-sm space-y-4">
-                                               <div className="flex justify-between items-center mb-1 flex-wrap gap-2">
-                                                  <h4 className="text-[13px] font-bold text-gray-700">How to Measure Instructions</h4>
-                                                  <button type="button"
-                                                     onClick={() => {
-                                                        const inst = [...(formData.sizeGuide?.instructions || [])];
-                                                        inst.push({ title: "", desc: "" });
-                                                        setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), instructions: inst } });
-                                                     }}
-                                                     className="bg-[#2271b1] text-white px-3 py-1 rounded text-[11px] font-bold hover:bg-[#135e96]">
-                                                     + Add Instruction
-                                                  </button>
-                                               </div>
-                                               <div className="space-y-4">
-                                                  {(formData.sizeGuide?.instructions || []).map((row, rIdx) => {
-                                                     const updateRow = (key, val) => {
-                                                        const inst = [...(formData.sizeGuide?.instructions || [])];
-                                                        inst[rIdx][key] = val;
-                                                        setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), instructions: inst } });
-                                                     };
-                                                     return (
-                                                        <div key={rIdx} className="border border-gray-100 p-3 rounded bg-gray-50/50 flex gap-4 items-start">
-                                                           <div className="flex-1 space-y-2">
-                                                              <input
-                                                                 className="w-full border border-gray-200 p-1.5 text-[12px] font-bold bg-white"
-                                                                 placeholder="e.g. Sleeve Length"
-                                                                 value={row.title}
-                                                                 onChange={(e) => updateRow("title", e.target.value)}
-                                                              />
-                                                              <textarea
-                                                                 className="w-full border border-gray-200 p-1.5 text-[12px] bg-white resize-none"
-                                                                 placeholder="Instruction text..."
-                                                                 rows={2}
-                                                                 value={row.desc}
-                                                                 onChange={(e) => updateRow("desc", e.target.value)}
-                                                              />
-                                                           </div>
-                                                           <button
-                                                              type="button"
-                                                              onClick={() => {
-                                                                 const inst = (formData.sizeGuide?.instructions || []).filter((_, idx) => idx !== rIdx);
-                                                                 setFormData({ ...formData, sizeGuide: { ...(formData.sizeGuide || {}), instructions: inst } });
-                                                              }}
-                                                              className="text-gray-300 hover:text-red-500 mt-1"
-                                                           >
-                                                              <X className="w-4 h-4" />
-                                                           </button>
-                                                        </div>
-                                                     );
-                                                  })}
-                                               </div>
-                                            </div>
-                                         </div>
-                                      )}
-                                   </div>
-                                )}
-
                            </div>
                         </div>
                      </div>

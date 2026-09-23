@@ -229,7 +229,6 @@ export const SECTION_SCHEMAS = {
       { name: "officeTitle", label: "Office Title", type: "text" },
       { name: "address", label: "Physical Address", type: "textarea" },
       { name: "officeHours", label: "Opening Hours (one per line)", type: "textarea" },
-      { name: "bespokeFittingText", label: "Bespoke Fittings Notice", type: "textarea" },
       { name: "channels", label: "Contact Channels", type: "repeater", fields: [
         { name: "label", label: "Channel Label", type: "text" },
         { name: "value", label: "Channel Value (Email/Phone)", type: "text" }
@@ -264,44 +263,6 @@ export const SECTION_SCHEMAS = {
     ]
   },
 
-  // ─── CUSTOM JACKET SECTIONS ────────────────────────────────
-  custom_jacket_hero: {
-    name: "Custom Jacket Hero",
-    icon: "Layout",
-    fields: [
-      { name: "title", label: "Hero Title", type: "text" },
-      { name: "subtitle", label: "Hero Subtitle", type: "textarea" },
-      { name: "label", label: "Badge Label", type: "text" },
-      { name: "image", label: "Background Image", type: "image" },
-      { name: "mobileImage", label: "Mobile Background Image", type: "image" },
-      { name: "buttonText", label: "CTA Button Text", type: "text" },
-      { name: "buttonLink", label: "CTA Button Link", type: "text" },
-      { name: "breadcrumb", label: "Breadcrumb Label", type: "text" }
-    ]
-  },
-  custom_jacket_process: {
-    name: "How It Works Process",
-    icon: "Layers",
-    fields: [
-      { name: "sectionTitle", label: "Section Title", type: "text" },
-      { name: "sectionLabel", label: "Section Label", type: "text" },
-      { name: "sectionDescription", label: "Section Description", type: "textarea" },
-      { name: "customSteps", label: "Custom Steps (Optional)", type: "repeater", fields: [
-        { name: "title", label: "Step Title", type: "text" },
-        { name: "description", label: "Step Description", type: "textarea" },
-        { name: "image", label: "Step Image", type: "image" }
-      ]}
-    ]
-  },
-  custom_jacket_form: {
-    name: "Custom Jacket Inquiry Form",
-    icon: "Mail",
-    fields: [
-      { name: "formTitle", label: "Form Title", type: "text" },
-      { name: "formSubtitle", label: "Form Subtitle", type: "textarea" }
-    ]
-  },
-
   // ─── GALLERY SECTIONS ──────────────────────────────────────
   gallery_hero: {
     name: "Gallery Hero",
@@ -330,36 +291,6 @@ export const SECTION_SCHEMAS = {
         { name: "title", label: "Image Name", type: "text" },
         { name: "description", label: "Description", type: "textarea" },
         { name: "linkedProduct", label: "Linked Product", type: "select", options: "products" }
-      ]}
-    ]
-  },
-
-  // ─── SIZE CHART SECTIONS ────────────────────────────────────
-  size_chart_hero: {
-    name: "Size Chart Hero",
-    icon: "Ruler",
-    fields: [
-      { name: "title", label: "Hero Title", type: "text" },
-      { name: "subtitle", label: "Hero Subtitle", type: "textarea" },
-      { name: "label", label: "Badge Label", type: "text" },
-      { name: "image", label: "Background Image", type: "image" },
-      { name: "mobileImage", label: "Mobile Background Image", type: "image" },
-      { name: "buttonText", label: "CTA Button Text", type: "text" },
-      { name: "buttonLink", label: "CTA Button Link", type: "text" },
-      { name: "breadcrumb", label: "Breadcrumb Label", type: "text" }
-    ]
-  },
-  size_chart_display: {
-    name: "Size Charts Display",
-    icon: "Ruler",
-    fields: [
-      { name: "sectionTitle", label: "Section Title", type: "text" },
-      { name: "sectionLabel", label: "Section Label", type: "text" },
-      { name: "sectionDescription", label: "Section Description", type: "textarea" },
-      { name: "customCharts", label: "Custom Size Charts (Optional)", type: "repeater", fields: [
-        { name: "title", label: "Chart Title", type: "text" },
-        { name: "description", label: "Chart Description", type: "textarea" },
-        { name: "image", label: "Chart Image", type: "image" }
       ]}
     ]
   },

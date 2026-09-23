@@ -80,10 +80,9 @@ const CONTACT_SOCIAL_ICONS = {
 
 export default function ContactSection({
   officeLabel = "HEADQUARTERS",
-  officeTitle = "VISIT THE ATELIER",
+  officeTitle = "VISIT OUR STORE",
   address = "123 Artisan Row, Florence, Italy 50123",
   officeHours = "",
-  bespokeFittingText = "",
   channels = [
     { label: "General Inquiries", value: "concierge@uvapestore.com" },
     { label: "Press & Media", value: "press@uvapestore.com" }
@@ -92,7 +91,7 @@ export default function ContactSection({
   socialLinks = [],
   formTitle = "SEND A MESSAGE",
   formSubtitle = "DIRECT CONCIERGE LINE",
-  subjects = "General Inquiry, Order Status, Bespoke Request, Wholesale",
+  subjects = "General Inquiry, Order Status, Product Question, Wholesale",
   buttonText = "DISPATCH MESSAGE"
 }) {
   const subjectList = typeof subjects === 'string'
@@ -190,8 +189,6 @@ export default function ContactSection({
     ? officeHours.split("\n").filter(Boolean)
     : ["Mon – Fri: 10:00 – 19:00", "Sat: 11:00 – 18:00", "Sun: Closed"];
 
-  const bespokeNotice = bespokeFittingText || "By appointment only. Please contact us to schedule your private fitting.";
-
   return (
     <section id="contact-form" className="py-20 md:py-28 relative overflow-hidden bg-background">
       {/* Background Ambient Glows for premium Glassmorphism */}
@@ -208,7 +205,7 @@ export default function ContactSection({
             variants={containerVariants}
             className="lg:col-span-5 space-y-10"
           >
-            {/* Atelier Info */}
+            {/* Store Info */}
             <div className="space-y-6">
               <motion.div variants={itemVariants} className="space-y-5">
                 <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.3em] text-black uppercase block">
@@ -221,7 +218,7 @@ export default function ContactSection({
                 {/* Location Info */}
                 <div className="border-t border-b border-black py-8 space-y-6">
                   <div className="space-y-2">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black">Atelier Location</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-black">Store Location</p>
                     <p className="text-lg sm:text-xl text-black font-normal leading-relaxed max-w-sm font-sans">
                       {address}
                     </p>

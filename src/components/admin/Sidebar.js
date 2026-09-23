@@ -94,14 +94,14 @@ export default function AdminSidebar() {
 
   // Determine initial open accordion based on path
   useEffect(() => {
-    if (pathname.startsWith("/admin/products") || pathname.startsWith("/admin/categories") || pathname.startsWith("/admin/product-process") || pathname.startsWith("/admin/product-questions")) setOpenAccordion("products");
+    if (pathname.startsWith("/admin/products") || pathname.startsWith("/admin/categories") || pathname.startsWith("/admin/product-questions")) setOpenAccordion("products");
     else if (pathname.startsWith("/admin/affiliates")) setOpenAccordion("affiliates");
     else if (pathname.startsWith("/admin/orders") || pathname.startsWith("/admin/customers") || pathname.startsWith("/admin/discounts")) setOpenAccordion("commerce");
     else if (pathname.startsWith("/admin/blogs")) setOpenAccordion("posts");
     else if (pathname.startsWith("/admin/pages") || pathname.startsWith("/admin/gallery-items")) setOpenAccordion("pages");
     else if (pathname.startsWith("/admin/settings/team") || pathname.startsWith("/admin/settings/roles")) setOpenAccordion("users");
     else if (pathname.startsWith("/admin/appearance")) setOpenAccordion("appearance");
-    else if (pathname.startsWith("/admin/contact") || pathname.startsWith("/admin/custom-jacket-inquiries") || pathname.startsWith("/admin/settings/logs") || pathname.startsWith("/admin/settings/scripts") || pathname.startsWith("/admin/settings/filters")) setOpenAccordion("tools");
+    else if (pathname.startsWith("/admin/contact") || pathname.startsWith("/admin/settings/logs") || pathname.startsWith("/admin/settings/scripts") || pathname.startsWith("/admin/settings/filters")) setOpenAccordion("tools");
     else if (pathname.startsWith("/admin/settings/site")) setOpenAccordion("settings");
     else setOpenAccordion("");
   }, [pathname]);
@@ -219,9 +219,7 @@ export default function AdminSidebar() {
           >
             <NavLink href="/admin/products" exact isSubmenu>All Products</NavLink>
             <NavLink href="/admin/products/new" exact isSubmenu>Add New</NavLink>
-            <NavLink href="/admin/products/size-charts" exact isSubmenu>Size Charts</NavLink>
             <NavLink href="/admin/categories" exact isSubmenu>Categories</NavLink>
-            <NavLink href="/admin/product-process" exact isSubmenu>Product Process</NavLink>
             <NavLink href="/admin/product-questions" exact isSubmenu>Product Questions</NavLink>
           </AccordionMenu>
 
@@ -246,7 +244,6 @@ export default function AdminSidebar() {
             isOpen={openAccordion === "tools"} onToggle={() => handleToggle("tools")}
           >
             <NavLink href="/admin/contact" exact isSubmenu>Contact Forms</NavLink>
-            <NavLink href="/admin/custom-jacket-inquiries" exact isSubmenu>Custom Inquiries</NavLink>
             <NavLink href="/admin/settings/logs" exact isSubmenu>Audit Logs</NavLink>
             <NavLink href="/admin/settings/scripts" exact isSubmenu>Custom Scripts</NavLink>
             <NavLink href="/admin/settings/filters" exact isSubmenu>Category Filters</NavLink>

@@ -6,50 +6,6 @@ import mongoose from "mongoose";
 
 const NEW_PAGES = [
   {
-    title: "Custom Jacket",
-    slug: "custom-jacket",
-    template: "custom-jacket",
-    status: "Published",
-    isSystem: true,
-    isHomePage: false,
-    sections: [
-      {
-        id: "cj-hero-1",
-        type: "custom_jacket_hero",
-        config: {
-          title: "CRAFT YOUR PERFECT JACKET",
-          subtitle: "Every jacket is a story. Tell us yours — and we'll bring it to life with premium leather, expert craftsmanship, and timeless style.",
-          label: "BESPOKE SERVICE",
-          buttonText: "Start Your Journey",
-          buttonLink: "#inquiry-form",
-          breadcrumb: "Custom Jacket"
-        }
-      },
-      {
-        id: "cj-process-1",
-        type: "custom_jacket_process",
-        config: {
-          sectionTitle: "HOW IT WORKS",
-          sectionLabel: "THE PROCESS",
-          sectionDescription: "We've streamlined the bespoke jacket experience into four elegant steps."
-        }
-      },
-      {
-        id: "cj-form-1",
-        type: "custom_jacket_form",
-        config: {
-          formTitle: "START YOUR BESPOKE INQUIRY",
-          formSubtitle: "Complete the form below and our expert team will contact you within 24 hours."
-        }
-      }
-    ],
-    seo: {
-      title: "Custom Jacket | custom vape kits — U VAPE",
-      description: "Design your dream leather jacket with U VAPE's bespoke service.",
-      ogImage: ""
-    }
-  },
-  {
     title: "Gallery",
     slug: "gallery",
     template: "gallery",
@@ -61,40 +17,16 @@ const NEW_PAGES = [
         id: "gallery-grid-1",
         type: "gallery_grid",
         config: {
-          sectionTitle: "OUR WORK",
-          sectionLabel: "FEATURED PIECES",
-          sectionDescription: "A carefully curated selection of our finest pieces.",
+          sectionTitle: "OUR COLLECTION",
+          sectionLabel: "FEATURED PRODUCTS",
+          sectionDescription: "A carefully curated selection of our finest devices and e-liquids.",
           emptyText: "Gallery coming soon."
         }
       }
     ],
     seo: {
-      title: "Gallery | U VAPE Leather Jackets Collection",
-      description: "Browse our curated gallery of premium leather jackets and accessories.",
-      ogImage: ""
-    }
-  },
-  {
-    title: "Size Chart",
-    slug: "size-chart",
-    template: "size-chart",
-    status: "Published",
-    isSystem: true,
-    isHomePage: false,
-    sections: [
-      {
-        id: "sc-display-1",
-        type: "size_chart_display",
-        config: {
-          sectionTitle: "SIZE CHARTS",
-          sectionLabel: "MEASUREMENTS",
-          sectionDescription: "Use these detailed size charts to find your perfect fit."
-        }
-      }
-    ],
-    seo: {
-      title: "Size Chart | Find Your Perfect Fit — U VAPE",
-      description: "Use our comprehensive size charts to find your perfect leather jacket fit.",
+      title: "Gallery | U VAPE Collection",
+      description: "Browse our curated gallery of premium vape devices, e-liquids and accessories.",
       ogImage: ""
     }
   }

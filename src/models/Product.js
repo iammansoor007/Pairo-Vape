@@ -47,7 +47,7 @@ const ProductSchema = new mongoose.Schema({
       hex2: String, // 2nd color for dual/triple/quad swatches
       hex3: String, // 3rd color for triple/quad swatches
       hex4: String, // 4th color for quad swatches
-      // Optional texture identifier (e.g. "leather-smooth")
+      // Optional texture identifier (e.g. "cotton-brushed")
       texture: String,
       image: String, // Swatch image — pattern / texture (used when swatchType === "image")
       swatchType: { type: String, enum: ['color', 'image'], default: 'color' }, // Admin-configured swatch mode
@@ -73,7 +73,7 @@ const ProductSchema = new mongoose.Schema({
     icon: String // Lucide icon name
   }],
   narrative: {
-    title: { type: String, default: "Craftsmanship Narrative" },
+    title: { type: String, default: "The Story" },
     content: String
   },
   specifications: [{
@@ -122,32 +122,6 @@ const ProductSchema = new mongoose.Schema({
   },
   type: { type: String }, // Legacy type (newArrival, etc)
   id: { type: Number }, // Legacy numeric ID
-  sizeGuide: {
-    enabled: { type: Boolean, default: false },
-    sizeName: { type: String, default: "" }, // e.g. "Jacket Size", "Waist Size"
-    chartImage: { type: String, default: "" },
-    videoUrl: { type: String, default: "" },
-    sizesCm: [{
-      size: String,
-      us: String,
-      eu: String,
-      chest: String,
-      sleeves: String
-    }],
-    sizesIn: [{
-      size: String,
-      us: String,
-      eu: String,
-      chest: String,
-      sleeves: String
-    }],
-    instructions: [{
-      title: String,
-      desc: String
-    }]
-  },
-  sizeChartSource: { type: String, enum: ['category_default', 'custom', 'none'], default: 'category_default' },
-  sizeChart: { type: mongoose.Schema.Types.ObjectId, ref: 'SizeChart', default: null }
 }, { timestamps: true });
 
 // Ensure unique slugs per tenant

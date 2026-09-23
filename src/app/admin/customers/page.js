@@ -98,7 +98,7 @@ export default function AdminCustomers() {
       title="Customers" 
       addNewLink="/admin/customers/new"
       addNewLabel="Add New"
-      breadcrumbs={[{ label: "WooCommerce", href: "/admin/orders" }, { label: "Customers" }]}
+      breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Customers" }]}
     >
       <div className="space-y-4">
         {/* Filter Links */}

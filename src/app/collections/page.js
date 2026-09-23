@@ -67,7 +67,7 @@ export default async function CollectionsPage() {
             <p 
               className="text-xs sm:text-sm max-w-md leading-relaxed text-black"
             >
-              Explore our full range of premium outerwear. Each collection is meticulously designed with hand-selected materials, rich details, and signature silhouettes.
+              Explore our full range of premium vape devices, disposables, and e-liquids, organized into collections to help you find your next favorite.
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default async function CollectionsPage() {
         {categories.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <p className="text-base font-bold uppercase tracking-wider text-black mb-2">No Collections Found</p>
-            <p className="text-xs text-black/50">Check back soon for new premium outerwear drops.</p>
+            <p className="text-xs text-black/50">Check back soon for new vape drops.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">

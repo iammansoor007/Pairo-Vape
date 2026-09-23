@@ -123,18 +123,6 @@ export async function POST(req) {
        }
     }
 
-    // Sync SizeChart assignment if set
-    if (data.sizeChart) {
-      const SizeChart = (await import("@/models/SizeChart")).default;
-      await SizeChart.updateMany(
-        { assignmentType: "category", assignmentTargetId: category._id },
-        { $set: { assignmentType: "none", assignmentTargetId: null } }
-      );
-      await SizeChart.findByIdAndUpdate(data.sizeChart, {
-        $set: { assignmentType: "category", assignmentTargetId: category._id }
-      });
-    }
-
     return NextResponse.json(category, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -183,31 +171,6 @@ export async function PUT(req) {
     }
 
     const category = await Category.findByIdAndUpdate(id, data, { new: true });
-
-    // Sync SizeChart assignment if changed
-    if (String(oldCategory.sizeChart || "") !== String(data.sizeChart || "")) {
-      const SizeChart = (await import("@/models/SizeChart")).default;
-      
-      // Clean up old size chart assignment
-      if (oldCategory.sizeChart) {
-        await SizeChart.updateOne(
-          { _id: oldCategory.sizeChart, assignmentTargetId: id },
-          { $set: { assignmentType: "none", assignmentTargetId: null } }
-        );
-      }
-      
-      // Set new size chart assignment
-      if (data.sizeChart) {
-        // Clear other assignments using this chart
-        await SizeChart.updateMany(
-          { assignmentType: "category", assignmentTargetId: id },
-          { $set: { assignmentType: "none", assignmentTargetId: null } }
-        );
-        await SizeChart.findByIdAndUpdate(data.sizeChart, {
-          $set: { assignmentType: "category", assignmentTargetId: id }
-        });
-      }
-    }
 
     // Handle Media Usage Tracking
     if (oldCategory.image !== data.image) {

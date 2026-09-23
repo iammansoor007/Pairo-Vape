@@ -99,18 +99,6 @@ export async function POST(req) {
       }
     }
 
-    // Sync SizeChart assignment
-    if (product.sizeChartSource === "custom" && product.sizeChart) {
-      const SizeChart = (await import("@/models/SizeChart")).default;
-      await SizeChart.updateMany(
-        { assignmentType: "product", assignmentTargetId: product._id },
-        { $set: { assignmentType: "none", assignmentTargetId: null } }
-      );
-      await SizeChart.findByIdAndUpdate(product.sizeChart, {
-        $set: { assignmentType: "product", assignmentTargetId: product._id }
-      });
-    }
-
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -145,35 +133,6 @@ export async function PUT(req) {
     // Use $set so nested objects (seo, narrative, etc.) are properly merged
     const product = await Product.findByIdAndUpdate(id, { $set: data }, { new: true, runValidators: false });
     console.log("[Products PUT] Saved seo:", product?.seo);
-
-    // Sync SizeChart assignment if changed
-    const sizeChartChanged = 
-      String(oldProduct.sizeChart || "") !== String(data.sizeChart || "") ||
-      oldProduct.sizeChartSource !== data.sizeChartSource;
-
-    if (sizeChartChanged) {
-      const SizeChart = (await import("@/models/SizeChart")).default;
-
-      // Clean up old size chart direct product assignment
-      if (oldProduct.sizeChartSource === "custom" && oldProduct.sizeChart) {
-        await SizeChart.updateOne(
-          { _id: oldProduct.sizeChart, assignmentTargetId: id },
-          { $set: { assignmentType: "none", assignmentTargetId: null } }
-        );
-      }
-
-      // Set new size chart direct product assignment
-      if (data.sizeChartSource === "custom" && data.sizeChart) {
-        // Clear other assignments targeting this product first
-        await SizeChart.updateMany(
-          { assignmentType: "product", assignmentTargetId: id },
-          { $set: { assignmentType: "none", assignmentTargetId: null } }
-        );
-        await SizeChart.findByIdAndUpdate(data.sizeChart, {
-          $set: { assignmentType: "product", assignmentTargetId: id }
-        });
-      }
-    }
 
     // Update media usage tracking
     const oldImages = [

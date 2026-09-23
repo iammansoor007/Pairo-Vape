@@ -58,7 +58,7 @@ export async function sendEmailVerification(toEmail, name, verificationUrl) {
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
         <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
-        <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Lifestyle Collection</p>
+        <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Vape Store</p>
       </div>
       <div style="padding: 48px 40px; background: #fff;">
         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.5px;">Verify Your Email</h2>
@@ -360,7 +360,7 @@ export async function sendSubmissionReply(toEmail, subject, message, customerNam
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Premium Vape Store
       </div>
     </div>
   `;
@@ -407,7 +407,7 @@ export async function sendAffiliateApplicationReceived(toEmail, affiliateName) {
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Premium Vape Store
       </div>
     </div>
   `;
@@ -465,7 +465,7 @@ export async function sendAffiliateApplicationApproved(toEmail, affiliateName, r
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Premium Vape Store
       </div>
     </div>
   `;
@@ -516,7 +516,7 @@ export async function sendAffiliateApplicationRejected(toEmail, affiliateName, r
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Premium Vape Store
       </div>
     </div>
   `;
@@ -567,7 +567,7 @@ export async function sendAffiliatePayoutUpdate(toEmail, affiliateName, amount, 
         </div>
       </div>
       <div style="background: #f9f9f9; padding: 20px; text-align: center; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
-        © ${new Date().getFullYear()} U VAPE — Artisanal Heritage • Modern Lifestyle
+        © ${new Date().getFullYear()} U VAPE — Premium Vape Store
       </div>
     </div>
   `;
@@ -637,177 +637,6 @@ export async function sendAffiliatePasswordReset(toEmail, name, resetUrl) {
   } catch (err) {
     console.error('[Email] ❌ Failed to send password reset email:', err.message);
     throw err;
-  }
-}
-
-/**
- * Send Custom Order / Bespoke Design Request Confirmation Email to Customer
- */
-export async function sendCustomOrderConfirmation(order) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.log(`[Email Simulation] Custom Order Confirmation → ${order.customer?.email}`);
-    return;
-  }
-
-  const item = order.items?.[0] || {};
-  const c = item.customization || {};
-
-  let customizationsHtml = '';
-  if (c.leatherColor && c.leatherColor !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Leather Color:</strong> ${c.leatherColor} ${c.leatherColorNote ? `(${c.leatherColorNote})` : ''}</p>`;
-  }
-  if (c.leatherType && c.leatherType !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Leather Type:</strong> ${c.leatherType} ${c.leatherTypeNote ? `(${c.leatherTypeNote})` : ''}</p>`;
-  }
-  if (c.innerLining && c.innerLining !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Inner Lining:</strong> ${c.innerLining} ${c.innerLiningNote ? `(${c.innerLiningNote})` : ''}</p>`;
-  }
-  if (c.hardwareColor && c.hardwareColor !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Hardware Color:</strong> ${c.hardwareColor} ${c.hardwareColorNote ? `(${c.hardwareColorNote})` : ''}</p>`;
-  }
-  if (c.fur?.type && c.fur.type !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Fur Type:</strong> ${c.fur.type} ${c.fur.typeNote ? `(${c.fur.typeNote})` : ''}</p>`;
-    if (c.fur.color) customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Fur Color:</strong> ${c.fur.color}</p>`;
-    if (c.fur.placement?.length) customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Fur Placement:</strong> ${c.fur.placement.join(', ')}</p>`;
-    if (c.fur.density) customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Fur Density:</strong> ${c.fur.density}</p>`;
-    if (c.fur.removable !== null) customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Removable Fur:</strong> ${c.fur.removable ? 'Yes' : 'No'}</p>`;
-  }
-
-  let artworkHtml = '';
-  if (c.artwork && Object.values(c.artwork).some(Boolean)) {
-    artworkHtml += '<h4 style="margin:15px 0 5px; font-size:12px; text-transform:uppercase; color:#666; letter-spacing:0.5px;">Uploaded Artwork</h4>';
-    Object.entries(c.artwork).forEach(([key, art]) => {
-      if (art && art.url) {
-        artworkHtml += `<p style="margin:4px 0; font-size:13px;"><strong>${key.replace(/([A-Z])/g, ' $1')}:</strong> <a href="${art.url}" style="color:#2271b1; text-decoration:underline;">${art.name || 'View File'}</a></p>`;
-      }
-    });
-  }
-
-  const html = `
-    <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 600px; margin: auto; color: #1a1a1a;">
-      <div style="background: #1a1a1a; padding: 30px; text-align: center;">
-        <h1 style="color: #fff; margin: 0; letter-spacing: 2px; font-size: 24px;">U Vape Store</h1>
-      </div>
-      <div style="padding: 40px 30px; background: #fff; border: 1px solid #eee; border-top: none;">
-        <h2 style="font-size: 18px; margin-top:0; margin-bottom: 12px; color:#1a1a1a; font-weight:700;">Bespoke Design Request Received</h2>
-        <p style="color: #555; margin-bottom: 24px; font-size:14px; line-height:1.6;">
-          Hi ${order.shippingAddress?.fullName?.split(' ')[0] || 'there'}, thank you for your custom design request.<br/>
-          We have received your customization parameters for the product <strong>${item.name || ''}</strong>. Your Design Request ID is <strong>#${order.orderNumber}</strong>, submitted on ${new Date(order.createdAt).toLocaleDateString()}.
-        </p>
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 3px; margin-bottom: 24px; border: 1px solid #eee;">
-          <h3 style="margin-top: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color:#333; border-bottom:1px solid #eee; padding-bottom:8px;">Custom Selections</h3>
-          ${customizationsHtml}
-          ${artworkHtml}
-          ${order.customerNote ? `<p style="margin:10px 0 0; font-size:13px; border-top:1px dashed #ddd; padding-top:8px;"><strong>Additional Notes:</strong> <em>${order.customerNote}</em></p>` : ''}
-        </div>
-        <p style="color: #555; font-size:14px; line-height:1.6;">
-          Our master artisans and design team are already reviewing your customization. We will contact you via email or phone shortly to discuss pricing, options, and timeline.
-        </p>
-      </div>
-      <div style="background: #f9f9f9; border-top:1px solid #eee; padding: 20px 30px; text-align: center;">
-        <p style="font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
-          U Vape Concierge • Bespoke Artisanal Tailoring & Heritage
-        </p>
-      </div>
-    </div>
-  `;
-
-  try {
-    const info = await transporter.sendMail({
-      from: `"U VAPE Custom Design" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
-      to: order.customer?.email,
-      subject: `U VAPE Bespoke Design Request Received: #${order.orderNumber}`,
-      html,
-    });
-    console.log(`[Email] ✅ Custom confirmation sent to ${order.customer?.email} | MsgID: ${info.messageId}`);
-  } catch (err) {
-    console.error('[Email] ❌ Failed to send custom confirmation email:', err.message);
-    throw err;
-  }
-}
-
-/**
- * Send Admin Notification for Custom Order Design Request
- */
-export async function sendAdminCustomOrderNotification(order) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.log(`[Email Simulation] Admin notified of Custom Order ${order.orderNumber}`);
-    return;
-  }
-
-  let adminEmail = process.env.ADMIN_EMAIL;
-  if (!adminEmail) {
-    try {
-        await dbConnect();
-        const superAdminRole = await Role.findOne({ slug: 'super-admin' });
-        if (superAdminRole) {
-            const superAdmin = await Staff.findOne({ roleId: superAdminRole._id });
-            if (superAdmin) adminEmail = superAdmin.email;
-        }
-    } catch (e) {
-        console.error("Failed to fetch super admin for email fallback:", e.message);
-    }
-  }
-
-  if (!adminEmail) {
-    console.warn('[Email] ADMIN_EMAIL and Super Admin not found — skipping admin custom notification.');
-    return;
-  }
-
-  const item = order.items?.[0] || {};
-  const c = item.customization || {};
-
-  let customizationsHtml = '';
-  if (c.leatherColor && c.leatherColor !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Leather Color:</strong> ${c.leatherColor} ${c.leatherColorNote ? `(${c.leatherColorNote})` : ''}</p>`;
-  }
-  if (c.leatherType && c.leatherType !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Leather Type:</strong> ${c.leatherType} ${c.leatherTypeNote ? `(${c.leatherTypeNote})` : ''}</p>`;
-  }
-  if (c.innerLining && c.innerLining !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Inner Lining:</strong> ${c.innerLining} ${c.innerLiningNote ? `(${c.innerLiningNote})` : ''}</p>`;
-  }
-  if (c.hardwareColor && c.hardwareColor !== 'None') {
-    customizationsHtml += `<p style="margin:4px 0; font-size:13px;"><strong>Hardware Color:</strong> ${c.hardwareColor} ${c.hardwareColorNote ? `(${c.hardwareColorNote})` : ''}</p>`;
-  }
-
-  const html = `
-    <div style="font-family: 'Helvetica Neue', sans-serif; max-width: 500px; margin: auto; color: #1a1a1a;">
-      <div style="background: #8b5cf6; padding: 20px 30px;">
-        <h2 style="color: #fff; margin: 0; font-size: 18px;">✨ New Custom Order Request</h2>
-      </div>
-      <div style="padding: 30px; background: #f9f9f9; border: 1px solid #eee; border-top: none;">
-        <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-          <tr><td style="padding: 6px 0; color: #666;">Request Number</td><td style="padding: 6px 0; font-weight: 700;">#${order.orderNumber}</td></tr>
-          <tr><td style="padding: 6px 0; color: #666;">Customer</td><td style="padding: 6px 0;">${order.shippingAddress?.fullName || 'N/A'}</td></tr>
-          <tr><td style="padding: 6px 0; color: #666;">Email</td><td style="padding: 6px 0;">${order.customer?.email || 'N/A'}</td></tr>
-          <tr><td style="padding: 6px 0; color: #666;">Phone</td><td style="padding: 6px 0;">${order.shippingAddress?.phone || 'N/A'}</td></tr>
-          <tr><td style="padding: 6px 0; color: #666;">Product</td><td style="padding: 6px 0; font-weight:700;">${item.name || 'N/A'}</td></tr>
-        </table>
-        <div style="margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #eee; border-radius:3px;">
-          <h4 style="margin:0 0 10px; font-size:11px; text-transform:uppercase; color:#888;">Design Specifications</h4>
-          ${customizationsHtml}
-        </div>
-        <div style="margin-top: 24px;">
-          <a href="${process.env.NEXTAUTH_URL}/admin/orders/${order._id}"
-             style="display:inline-block; background: #1a1a1a; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 3px; font-size: 12px; font-weight: 700; text-transform:uppercase; letter-spacing:1px;">
-            View Order & Specifications →
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
-
-  try {
-    const info = await transporter.sendMail({
-      from: `"U VAPE System" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
-      to: adminEmail,
-      subject: `✨ New Custom Order: #${order.orderNumber} by ${order.shippingAddress?.fullName || 'Guest'}`,
-      html,
-    });
-    console.log(`[Email] ✅ Admin notified of custom order (${adminEmail}) | MsgID: ${info.messageId}`);
-  } catch (err) {
-    console.error('[Email] ❌ Failed to send admin custom notification:', err.message);
   }
 }
 
@@ -988,7 +817,7 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 560px; margin: auto; color: #1a1a1a; background: #fff;">
       <div style="background: #1a1a1a; padding: 28px 32px; text-align: center;">
         <h1 style="color: #fff; margin: 0; letter-spacing: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase;">U VAPE</h1>
-        <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Lifestyle Collection</p>
+        <p style="color: #888; margin: 6px 0 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Vape Store</p>
       </div>
       <div style="padding: 48px 40px; background: #fff;">
         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.5px;">Reset Your Password</h2>
@@ -1034,151 +863,6 @@ export async function sendCustomerPasswordReset(toEmail, name, resetUrl) {
     console.log(`[Email] ✅ Customer password reset email sent to ${toEmail} | MsgID: ${info.messageId}`);
   } catch (err) {
     console.error('[Email] ❌ Failed to send customer password reset email:', err.message);
-    throw err;
-  }
-}
-
-// ─── CUSTOM JACKET INQUIRY EMAILS ─────────────────────────────────────────────
-
-/**
- * Send a confirmation email to the customer who submitted a Custom Jacket inquiry.
- */
-export async function sendCustomJacketConfirmation(toEmail, firstName, inquiry) {
-  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@uvapestore.com';
-  const storeName = process.env.STORE_NAME || 'U Vape Store';
-  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://uvapestore.com';
-
-  const html = `
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Custom Jacket Inquiry Received</title></head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:40px 16px;">
-<tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.08);">
-  <!-- Header -->
-  <tr><td style="background:#1a1a1a;padding:32px 40px;text-align:center;">
-    <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:800;letter-spacing:4px;text-transform:uppercase;">${storeName}</h1>
-    <p style="margin:8px 0 0;color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:3px;text-transform:uppercase;">Bespoke Jacket Service</p>
-  </td></tr>
-  <!-- Body -->
-  <tr><td style="padding:40px;">
-    <h2 style="margin:0 0 16px;color:#1a1a1a;font-size:20px;font-weight:700;">Thank you, ${firstName}!</h2>
-    <p style="margin:0 0 16px;color:#555;font-size:14px;line-height:1.7;">We've received your custom jacket inquiry and are thrilled to help you create something truly special. Our expert team will review your specifications and contact you within <strong>24 hours</strong>.</p>
-
-    <!-- Summary Box -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:8px;margin:24px 0;">
-      <tr><td style="padding:20px;">
-        <p style="margin:0 0 12px;color:#1a1a1a;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Your Inquiry Summary</p>
-        ${inquiry.jacketType ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Jacket Type:</strong> ${inquiry.jacketType}</p>` : ''}
-        ${inquiry.preferredLeather ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Leather:</strong> ${inquiry.preferredLeather}</p>` : ''}
-        ${inquiry.preferredColor ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Color:</strong> ${inquiry.preferredColor}</p>` : ''}
-        ${inquiry.size ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Size:</strong> ${inquiry.size}</p>` : ''}
-        ${inquiry.budget ? `<p style="margin:0 0 0;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Budget:</strong> ${inquiry.budget}</p>` : ''}
-      </td></tr>
-    </table>
-
-    <p style="margin:0 0 24px;color:#555;font-size:14px;line-height:1.7;">While you wait, feel free to explore our existing collection for inspiration.</p>
-    <a href="${storeUrl}/shop" style="display:inline-block;background:#1a1a1a;color:#ffffff;text-decoration:none;padding:14px 32px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;">Explore Collection</a>
-  </td></tr>
-  <!-- Footer -->
-  <tr><td style="background:#f9f9f9;border-top:1px solid #e8e8e8;padding:24px 40px;text-align:center;">
-    <p style="margin:0;color:#999;font-size:12px;">You received this because you submitted an inquiry at <a href="${storeUrl}" style="color:#1a1a1a;">${storeName}</a>.</p>
-    <p style="margin:8px 0 0;color:#999;font-size:11px;">&copy; ${new Date().getFullYear()} ${storeName}. All rights reserved.</p>
-  </td></tr>
-</table>
-</td></tr>
-</table>
-</body></html>
-  `.trim();
-
-  try {
-    const info = await transporter.sendMail({
-      from: `"${storeName}" <${storeEmail}>`,
-      to: toEmail,
-      subject: `Your Custom Jacket Inquiry — We'll Be In Touch!`,
-      html
-    });
-    console.log(`[Email] ✅ Custom jacket confirmation sent to ${toEmail} | MsgID: ${info.messageId}`);
-  } catch (err) {
-    console.error('[Email] ❌ Failed to send custom jacket confirmation:', err.message);
-    throw err;
-  }
-}
-
-/**
- * Notify admin of a new Custom Jacket inquiry.
- */
-export async function sendCustomJacketAdminNotification(inquiry) {
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.STORE_EMAIL || 'info@uvapestore.com';
-  const storeEmail = process.env.STORE_EMAIL || process.env.FROM_EMAIL || 'info@uvapestore.com';
-  const storeName = process.env.STORE_NAME || 'U Vape Store';
-  const storeUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://uvapestore.com';
-
-  const html = `
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><title>New Custom Jacket Inquiry</title></head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:40px 16px;">
-<tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.08);">
-  <tr><td style="background:#1a1a1a;padding:28px 40px;">
-    <p style="margin:0;color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:3px;text-transform:uppercase;">Admin Notification</p>
-    <h1 style="margin:6px 0 0;color:#ffffff;font-size:20px;font-weight:700;">New Custom Jacket Inquiry</h1>
-  </td></tr>
-  <tr><td style="padding:32px 40px;">
-    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:8px;margin:0 0 24px;">
-      <tr><td style="padding:20px;">
-        <p style="margin:0 0 12px;color:#1a1a1a;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Customer</p>
-        <p style="margin:0 0 4px;font-size:14px;color:#1a1a1a;font-weight:700;">${inquiry.firstName} ${inquiry.lastName}</p>
-        <p style="margin:0 0 4px;font-size:13px;color:#555;">${inquiry.email}</p>
-        ${inquiry.phone ? `<p style="margin:0;font-size:13px;color:#555;">${inquiry.phone}</p>` : ''}
-        ${inquiry.country ? `<p style="margin:4px 0 0;font-size:13px;color:#555;">${inquiry.city ? inquiry.city + ', ' : ''}${inquiry.country}</p>` : ''}
-      </td></tr>
-    </table>
-    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:8px;margin:0 0 24px;">
-      <tr><td style="padding:20px;">
-        <p style="margin:0 0 12px;color:#1a1a1a;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Specifications</p>
-        ${inquiry.jacketType ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Type:</strong> ${inquiry.jacketType}</p>` : ''}
-        ${inquiry.gender ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Gender:</strong> ${inquiry.gender}</p>` : ''}
-        ${inquiry.preferredLeather ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Leather:</strong> ${inquiry.preferredLeather}</p>` : ''}
-        ${inquiry.preferredColor ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Color:</strong> ${inquiry.preferredColor}</p>` : ''}
-        ${inquiry.size ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Size:</strong> ${inquiry.size}</p>` : ''}
-        ${inquiry.budget ? `<p style="margin:0 0 6px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Budget:</strong> ${inquiry.budget}</p>` : ''}
-        ${inquiry.deadline ? `<p style="margin:0 0 0;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Deadline:</strong> ${inquiry.deadline}</p>` : ''}
-      </td></tr>
-    </table>
-    ${inquiry.additionalNotes ? `
-    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:8px;margin:0 0 24px;">
-      <tr><td style="padding:20px;">
-        <p style="margin:0 0 8px;color:#1a1a1a;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Additional Notes</p>
-        <p style="margin:0;font-size:13px;color:#555;line-height:1.7;">${inquiry.additionalNotes}</p>
-      </td></tr>
-    </table>` : ''}
-    ${inquiry.referenceImages?.length > 0 ? `<p style="margin:0 0 16px;font-size:13px;color:#555;"><strong style="color:#1a1a1a;">Reference Images:</strong> ${inquiry.referenceImages.length} uploaded</p>` : ''}
-    <a href="${storeUrl}/admin/custom-jacket-inquiries" style="display:inline-block;background:#1a1a1a;color:#ffffff;text-decoration:none;padding:12px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;">View in Dashboard</a>
-  </td></tr>
-  <tr><td style="background:#f9f9f9;border-top:1px solid #e8e8e8;padding:20px 40px;text-align:center;">
-    <p style="margin:0;color:#999;font-size:11px;">${storeName} Admin Notification &mdash; ${new Date().toLocaleString()}</p>
-  </td></tr>
-</table>
-</td></tr>
-</table>
-</body></html>
-  `.trim();
-
-  try {
-    const info = await transporter.sendMail({
-      from: `"${storeName}" <${storeEmail}>`,
-      to: adminEmail,
-      subject: `🧥 New Custom Jacket Inquiry — ${inquiry.firstName} ${inquiry.lastName}`,
-      html
-    });
-    console.log(`[Email] ✅ Admin custom jacket notification sent | MsgID: ${info.messageId}`);
-  } catch (err) {
-    console.error('[Email] ❌ Failed to send custom jacket admin notification:', err.message);
     throw err;
   }
 }
