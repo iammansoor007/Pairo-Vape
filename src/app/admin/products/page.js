@@ -17,7 +17,8 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  X
+  X,
+  FileSpreadsheet
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -130,6 +131,10 @@ export default function AdminProducts() {
 
   const handleBulkAction = async () => {
      if (bulkAction === "Bulk actions" || selectedIds.length === 0) return;
+     if (bulkAction === "Bulk Edit") {
+        router.push(`/admin/products/bulk?ids=${selectedIds.join(",")}`);
+        return;
+     }
      if (confirm(`Apply "${bulkAction}" to ${selectedIds.length} items?`)) {
         try {
            for (const id of selectedIds) {
@@ -203,6 +208,15 @@ export default function AdminProducts() {
       title="Products" 
       addNewLink="/admin/products/new"
       addNewLabel="Add New"
+      actions={
+        <Link
+          href="/admin/products/bulk"
+          className="bg-white border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded-[3px] text-[13px] font-bold hover:bg-[#f0f6fb] transition-all shadow-sm flex items-center gap-1.5"
+        >
+          <FileSpreadsheet className="w-3.5 h-3.5" />
+          Bulk Edit / Import
+        </Link>
+      }
       breadcrumbs={[{ label: "Store", href: "/admin/orders" }, { label: "Products" }]}
     >
       <div className="space-y-4">
@@ -234,6 +248,7 @@ export default function AdminProducts() {
                 <option>Delete Permanently</option>
               ) : (
                 <>
+                  <option value="Bulk Edit">Bulk Edit Selected</option>
                   <option>Move to Trash</option>
                   <option>Duplicate</option>
                 </>
@@ -329,7 +344,12 @@ export default function AdminProducts() {
                     <td className="px-3 py-3 text-center align-top pt-3.5"><input type="checkbox" checked={selectedIds.includes(p._id)} onChange={() => toggleSelect(p._id)} className="rounded-[2px] border-gray-300" /></td>
                     <td className="px-3 py-3 text-center align-top pt-3.5">
                       <div className="w-10 h-10 bg-white border border-[#dcdcde] rounded-[2px] mx-auto overflow-hidden">
-                        {p.images?.length > 0 ? <img src={p.images[0]} className="w-full h-full object-cover" /> : <ImageIcon className="w-5 h-5 text-[#dcdcde] mt-2.5 mx-auto" />}
+                        {p.images?.length > 0 ? (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img src={p.images[0]} alt="" className="w-full h-full object-cover" />
+                        ) : (
+                          <ImageIcon className="w-5 h-5 text-[#dcdcde] mt-2.5 mx-auto" />
+                        )}
                       </div>
                     </td>
                     <td className="px-3 py-3 align-top pt-3.5">

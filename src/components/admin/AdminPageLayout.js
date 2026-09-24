@@ -10,6 +10,8 @@ export default function AdminPageLayout({
   addNewLink, 
   addNewLabel = "Add New", 
   breadcrumbs = [], 
+  actions,
+  extraHeaderActions,
   children 
 }) {
   return (
@@ -40,24 +42,27 @@ export default function AdminPageLayout({
               <h1 className="text-[23px] font-normal text-[#1d2327]">{title}</h1>
               {subtitle && <span className="text-[13px] text-[#646970]">{subtitle}</span>}
            </div>
-            {addNewLink && (
-               typeof addNewLink === "function" ? (
-                 <button 
-                   type="button"
-                   onClick={addNewLink}
-                   className="bg-white border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded-[3px] text-[13px] font-bold hover:bg-[#f0f6fb] transition-all shadow-sm cursor-pointer"
-                 >
-                   {addNewLabel}
-                 </button>
-               ) : (
-                 <Link 
-                   href={addNewLink}
-                   className="bg-white border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded-[3px] text-[13px] font-bold hover:bg-[#f0f6fb] transition-all shadow-sm"
-                 >
-                   {addNewLabel}
-                 </Link>
-               )
-            )}
+           <div className="flex items-center gap-2">
+             {actions || extraHeaderActions}
+             {addNewLink && (
+                typeof addNewLink === "function" ? (
+                  <button 
+                    type="button"
+                    onClick={addNewLink}
+                    className="bg-white border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded-[3px] text-[13px] font-bold hover:bg-[#f0f6fb] transition-all shadow-sm cursor-pointer"
+                  >
+                    {addNewLabel}
+                  </button>
+                ) : (
+                  <Link 
+                    href={addNewLink}
+                    className="bg-white border border-[#2271b1] text-[#2271b1] px-3 py-1 rounded-[3px] text-[13px] font-bold hover:bg-[#f0f6fb] transition-all shadow-sm"
+                  >
+                    {addNewLabel}
+                  </Link>
+                )
+             )}
+           </div>
         </div>
 
         {/* Content Area */}
