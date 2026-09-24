@@ -101,7 +101,6 @@ export default async function BlogArchive() {
 
   // Hero config from admin page builder
   const heroSection = page?.sections?.find(s => s.type === "blog_hero");
-  const badge       = heroSection?.config?.badge        || "U Vape Archive & Journal";
   const heading     = heroSection?.config?.heading      || "Editorial Stories";
   const subheading  = heroSection?.config?.subheading   || "";
   const editionLabel = heroSection?.config?.editionLabel || "VOLUME 2026 // EDITION 0.1";
@@ -128,9 +127,6 @@ export default async function BlogArchive() {
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2 max-w-2xl">
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-neutral-400">
-                {badge}
-              </p>
               <h1
                 style={{ fontFamily: "var(--brand-font)" }}
                 className="text-[28px] md:text-[40px] font-bold tracking-tight text-black leading-none"

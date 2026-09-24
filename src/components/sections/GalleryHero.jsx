@@ -38,17 +38,7 @@ export default function GalleryHero({
         {/* Content */}
         <div className="relative h-full flex flex-col justify-between p-8 md:p-12 lg:p-16">
           {/* Top Row */}
-          <div className="flex items-center justify-between">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              <span className="text-white text-[11px] font-bold uppercase tracking-[3px]">{label}</span>
-            </motion.div>
-
+          <div className="flex items-center justify-end">
             <motion.nav
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

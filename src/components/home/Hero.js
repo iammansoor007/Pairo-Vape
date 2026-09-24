@@ -62,8 +62,6 @@ export default function Hero({
     exit: (direction) => ({ x: direction > 0 ? "-20%" : "20%", opacity: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }),
   };
 
-  const displayTagline = brand?.tagline || "U VAPE STORE — PREMIUM DISPOSABLES & E-LIQUIDS";
-
   const currentSlideObj = hero.slides[currentSlide] || {};
   const displaySlideTitle = currentSlideObj.title || "PREMIUM DISPOSABLE VAPES";
 
@@ -98,14 +96,12 @@ export default function Hero({
                 <div className="max-w-2xl">
                   <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }} className="space-y-4 md:space-y-6">
                     
-                    {/* Tagline & 21+ Compliance Tag */}
+                    {/* 21+ Compliance Tag */}
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                         21+ Adult Vape Store
                       </span>
-                      <div className="hidden sm:block h-[1.5px] w-6 bg-white/30" />
-                      <span className="text-white/80 text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase">{displayTagline}</span>
                     </div>
 
                     {/* Main Hero Headline */}

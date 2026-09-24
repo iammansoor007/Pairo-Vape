@@ -137,12 +137,6 @@ export default function ContactHero({
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                     className="space-y-4 md:space-y-6"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="h-[1.5px] w-8 bg-white/30" />
-                      <span className="text-white/90 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
-                        {current.label || label}
-                      </span>
-                    </div>
                     {React.createElement(
                       headingLevel,
                       { className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white heading-font leading-[1.05] tracking-tight max-w-[15ch] md:max-w-none" },
